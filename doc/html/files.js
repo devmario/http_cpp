@@ -7,6 +7,9 @@ var files =
       [ "HTTPClient", "class_h_t_t_p_client.html", "class_h_t_t_p_client" ]
     ] ],
     [ "HTTPConfig.h", "_h_t_t_p_config_8h.html", "_h_t_t_p_config_8h" ],
+    [ "HTTPEvent.h", "_h_t_t_p_event_8h.html", [
+      [ "HTTPEvent", "class_h_t_t_p_event.html", "class_h_t_t_p_event" ]
+    ] ],
     [ "HTTPManager.h", "_h_t_t_p_manager_8h.html", [
       [ "HTTPManager", "class_h_t_t_p_manager.html", "class_h_t_t_p_manager" ]
     ] ]

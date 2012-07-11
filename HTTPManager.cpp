@@ -12,23 +12,23 @@ HTTPManager* HTTPManager::Share() {
 	return __http_manager;
 }
 
-const std::string HTTPManager::_GetTemporaryHeaderPath() {
+const std::string HTTPManager::GetTemporaryHeaderPath() {
 	return temporary_header_path;
 }
 
-const std::string HTTPManager::_GetTemporaryBodyPath() {
+const std::string HTTPManager::GetTemporaryBodyPath() {
 	return temporary_body_path;
 }
 
-const std::string HTTPManager::_GetCacheHeaderPath() {
+const std::string HTTPManager::GetCacheHeaderPath() {
 	return cache_header_path;
 }
 
-const std::string HTTPManager::_GetCacheBodyPath() {
+const std::string HTTPManager::GetCacheBodyPath() {
 	return cache_body_path;
 }
 
-const std::string HTTPManager::_GetDBPath() {
+const std::string HTTPManager::GetDBPath() {
 	return db_path;
 }
 
@@ -76,10 +76,10 @@ int HTTPManager::SQLExpires(void* _reference, int _field_length, char** _field_c
 	HTTPManager* _manager = (HTTPManager*)_reference;
 	for(int _i = 0; _i < _field_length; _i++) {
 		if(strcmp(_field_name[_i], "id") == 0) {
-			std::string _header_path = _manager->_GetCacheHeaderPath() + "/" + _field_content[_i];
+			std::string _header_path = _manager->GetCacheHeaderPath() + "/" + _field_content[_i];
 			remove(_header_path.c_str());
 			
-			std::string _body_path = _manager->_GetCacheBodyPath() + "/" + _field_content[_i];
+			std::string _body_path = _manager->GetCacheBodyPath() + "/" + _field_content[_i];
 			remove(_body_path.c_str());
 		}
 	}
@@ -90,7 +90,7 @@ void HTTPManager::ReadyDB() {
 	//디비 연결하고 테이블 생성(테이블 없을시)
 	sqlite3* _db = NULL;
 	char* _db_message = NULL;
-	HTTP_DEBUG((sqlite3_open(_GetDBPath().c_str(), &_db)), 
+	HTTP_DEBUG((sqlite3_open(GetDBPath().c_str(), &_db)), 
 			   "sqllite 시동에 실패하였습니다.");
 	HTTP_DEBUG((sqlite3_exec(_db, "CREATE TABLE IF NOT EXISTS request (id integer primary key unique, url TEXT, Expires DATETIME, Last_Modified DATETIME)", NULL, this, &_db_message)),
 			   "sqllite 테이블 생성에 실패하였습니다." << "\nError Message:" << _db_message);
@@ -125,14 +125,14 @@ HTTPManager::~HTTPManager() {
 	client_list.clear();
 }
 
-void HTTPManager::_AddClient(HTTPClient* _client) {
+void HTTPManager::AddClient(HTTPClient* _client) {
 	HTTP_DEBUG((__http_thread != pthread_self()), "한쓰레드에서 호출해주세요.");
 	client_list.push_back(_client);
 	if(_client->GetCURL())
 		curl_multi_add_handle(multi_handle, _client->GetCURL());
 }
 
-void HTTPManager::_RemoveClient(HTTPClient* _client) {
+void HTTPManager::RemoveClient(HTTPClient* _client) {
 	HTTP_DEBUG((__http_thread != pthread_self()), "한쓰레드에서 호출해주세요.");
 	client_list.remove(_client);
 	if(_client->GetCURL())
@@ -178,4 +178,8 @@ void HTTPManager::Update() {
 
 int HTTPManager::GetRunningHTTP() {
 	return still_running;
+}
+
+void HTTPManager::CleanCache() {
+	
 }

@@ -20,9 +20,11 @@ var searchData=
   ['httpclient_2eh',['HTTPClient.h',['../_h_t_t_p_client_8h.html',1,'']]],
   ['httpconfig_2eh',['HTTPConfig.h',['../_h_t_t_p_config_8h.html',1,'']]],
   ['httpevent',['HTTPEvent',['../class_h_t_t_p_event.html',1,'']]],
-  ['httpmanager',['HTTPManager',['../class_h_t_t_p_manager.html',1,'']]],
+  ['httpevent_2eh',['HTTPEvent.h',['../_h_t_t_p_event_8h.html',1,'']]],
+  ['httpmanager',['HTTPManager',['../class_h_t_t_p_manager.html',1,'HTTPManager'],['../class_h_t_t_p_manager.html#a5e1443219b1a82677dac5b1e97ff29ec',1,'HTTPManager::HTTPManager()']]],
   ['httpmanager_2eh',['HTTPManager.h',['../_h_t_t_p_manager_8h.html',1,'']]],
   ['httprequest',['HTTPRequest',['../class_h_t_t_p_request.html',1,'']]],
   ['httpresponse',['HTTPResponse',['../class_h_t_t_p_response.html',1,'']]],
-  ['httpresponseheaderfield',['HTTPResponseHeaderField',['../class_h_t_t_p_response_header_field.html',1,'']]]
+  ['httpresponseheaderfield',['HTTPResponseHeaderField',['../class_h_t_t_p_response_header_field.html',1,'']]],
+  ['http_5fcpp_20_ec_86_8c_ea_b0_9c',['HTTP_cpp 소개',['../index.html',1,'']]]
 ];

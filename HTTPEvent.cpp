@@ -15,11 +15,11 @@ void HTTPEvent::Send(const std::string _tag, const HTTPRequest _request) {
 	new HTTPClient(this, _tag, _request);
 }
 
-void HTTPEvent::_AddClient(HTTPClient* _client) {
+void HTTPEvent::AddClient(HTTPClient* _client) {
 	client_list.push_back(_client);
 }
 
-void HTTPEvent::_RemoveClient(HTTPClient* _client) {
+void HTTPEvent::RemoveClient(HTTPClient* _client) {
 	client_list.remove(_client);
 }
 

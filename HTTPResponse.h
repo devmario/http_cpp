@@ -10,6 +10,9 @@ private:
 	std::string body_file_path;
 	
 public:
+	/**
+	 \enum HTTPResponse::CacheType
+	 */
 	typedef enum CacheType {
 		//요청시 보낼 URL이 처음 요청이거나, Expires가 만료되었거니
 		CacheType_None = 0,

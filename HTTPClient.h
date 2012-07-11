@@ -250,7 +250,8 @@ private:
 	/**
 	 @brief 인스턴스를 생성할때 호출되는 파일스트림 준비함수 입니다.
 	 
-	 디버그 모드에서는 HTTPConfig.h에 지정한 경로가 권한이 없는경우 프로그램이 중단됩니다.
+	 디버그 모드에서는 HTTPConfig.h 에 지정한 경로가 권한이 없는경우 프로그램이 중단됩니다.
+	 이를 막기위해서는 HTTPConfig.h 의 HTTP_DEBUG 매크로를 변경하세요
 	 */
 	void ReadyFile();
 	

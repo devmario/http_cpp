@@ -1,21 +1,21 @@
 var NAVTREE =
 [
   [ "HTTP_cpp", "index.html", [
-    [ "c++을 위한 클라이언트용 HTTP요청,응답 처리 클래스 묶음", "index.html", null ],
-    [ "Classes", null, [
-      [ "Class List", "annotated.html", "annotated" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+    [ "HTTP_cpp 소개", "index.html", null ],
+    [ "클래스", null, [
+      [ "클래스 목록", "annotated.html", "annotated" ],
+      [ "클래스 색인", "classes.html", null ],
+      [ "클래스 멤버", "functions.html", [
+        [ "모두", "functions.html", null ],
+        [ "함수", "functions_func.html", null ],
+        [ "변수", "functions_vars.html", null ]
       ] ]
     ] ],
-    [ "Files", null, [
-      [ "File List", "files.html", "files" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+    [ "파일들", null, [
+      [ "파일 목록", "files.html", "files" ],
+      [ "파일 멤버", "globals.html", [
+        [ "모두", "globals.html", null ],
+        [ "매크로", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]

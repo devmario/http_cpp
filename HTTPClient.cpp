@@ -5,14 +5,55 @@
 //임시파일경로에 붙을 유니크 아이디값을 위한 값
 unsigned long __http_client_identity = 0;
 
+#pragma mark static function
+
+static const std::string HeaderLineFindField(const std::string _chunk_name, char* _stream, size_t _length, bool* _finded) {
+	std::string _field;
+	_field.append(_stream, _length);
+	
+	std::string _chunk = _chunk_name + ": ";
+	bool _match = true;
+	int _n = 0;
+	for(int _i = 0; _i < _chunk.length(); _i++) {
+		if(_chunk.at(_i) != _field.at(_i)) {
+			_match = false;
+			break;
+		}
+		_n = _i;
+	}
+	_n++;
+	if(_match) {
+		_field.replace(0, _n, "");
+		int _i = 0;
+		char _buffer = _field.at(_i);
+		while(true) {
+			if(_buffer == '\n' || _buffer == '\r') {
+				_field.replace(_i, 1, "");
+			} else {
+				_i++;
+			}
+			if(_i < _field.length())
+				_buffer = _field.at(_i);
+			else
+				break;
+		}
+	}
+	
+	*_finded = _match;
+	return _field;
+}
+
+#pragma mark -
+#pragma mark sqlite callback
+
 int HTTPClient::SQLMatchURLCallback(void* _reference, int _field_length, char** _field, char** _field_name) {
 	HTTPClient* _client = (HTTPClient*)_reference;
 	for(int _i = 0; _i < _field_length; _i++) {
 		if(strcmp(_field_name[_i], "id") == 0) {
 			if(_field[_i]) {
 				_client->db_id = std::string(_field[_i]);
-				_client->cache_header_file_path = HTTPManager::Share()->_GetCacheHeaderPath() + "/" + _client->db_id;
-				_client->cache_body_file_path = HTTPManager::Share()->_GetCacheBodyPath() + "/" + _client->db_id;
+				_client->cache_header_file_path = HTTPManager::Share()->GetCacheHeaderPath() + "/" + _client->db_id;
+				_client->cache_body_file_path = HTTPManager::Share()->GetCacheBodyPath() + "/" + _client->db_id;
 			}
 		} else if(strcmp(_field_name[_i], "Expires") == 0) {
 			if(_field[_i])
@@ -24,6 +65,68 @@ int HTTPClient::SQLMatchURLCallback(void* _reference, int _field_length, char** 
 	}
     return 0;
 };
+
+#pragma mark -
+#pragma mark libcurl callback
+
+size_t HTTPClient::ReadHeader(char* _stream, size_t _size, size_t _count, void* _pointer) {
+	HTTPClient* _client = (HTTPClient*)_pointer;
+	size_t _length = _size * _count;
+	
+	bool _finded;
+	std::string _content;
+	
+	if(_client->last_modified == 0) {
+		_finded = false;
+		_content = HeaderLineFindField("Last-Modified", _stream, _length, &_finded);
+		if(_finded) {
+			_client->last_modified = HTTP::HeaderToTime(_content);
+		}
+	}
+	
+	if(_client->expires == 0) {
+		_finded = false;
+		_content = HeaderLineFindField("Expires", _stream, _length, &_finded);
+		if(_finded) {
+			_client->expires = HTTP::HeaderToTime(_content);
+		}
+	}
+	
+	_client->header.write(_stream, _length);
+	return _length;
+}
+
+size_t HTTPClient::ReadBody(char* _stream, size_t _size, size_t _count, void* _pointer) {
+	HTTPClient* _client = (HTTPClient*)_pointer;
+	size_t _length = _size * _count;
+	_client->body.write(_stream, _length);
+	return _length;
+}
+
+int HTTPClient::Progress(void* _client_pointer, 
+						 double _download_total, 
+						 double _download_now, 
+						 double _upload_total, 
+						 double _upload_now) {
+	HTTPClient* _client = (HTTPClient*)_client_pointer;
+	
+	if(_client->paused) {
+		curl_easy_pause(_client->curl, CURLPAUSE_ALL);
+	} else {
+		curl_easy_pause(_client->curl, CURLPAUSE_CONT);
+	}
+	
+	_client->event->Progress(_client->tag,
+							 _download_total, 
+							 _download_now, 
+							 _upload_total, 
+							 _upload_now);
+	
+	return 0;
+}
+
+#pragma mark -
+#pragma mark 생성자, 소멸자
 
 HTTPClient::HTTPClient(HTTPEvent* _event, 
 						 const std::string _tag,
@@ -49,7 +152,7 @@ HTTPClient::HTTPClient(HTTPEvent* _event,
 	//디비에서 URL이랑 매치되는 필드가져오기
 	sqlite3* _db = NULL;
 	char* _db_message = NULL;
-	HTTP_DEBUG((sqlite3_open(HTTPManager::Share()->_GetDBPath().c_str(), &_db)),
+	HTTP_DEBUG((sqlite3_open(HTTPManager::Share()->GetDBPath().c_str(), &_db)),
 			   "sqlite 디비 열기에 실패하였습니다.");
 	std::string _query = "SELECT * FROM request WHERE url='" + request.url + "' LIMIT 1";
 	HTTP_DEBUG((sqlite3_exec(_db, _query.c_str(), SQLMatchURLCallback, this, &_db_message)), 
@@ -96,12 +199,12 @@ HTTPClient::HTTPClient(HTTPEvent* _event,
 		curl_easy_setopt(curl, CURLOPT_PROGRESSDATA, this);
 	}
 	
-	event->_AddClient(this);
-	HTTPManager::Share()->_AddClient(this);
+	event->AddClient(this);
+	HTTPManager::Share()->AddClient(this);
 }
 
 HTTPClient::~HTTPClient() {
-	HTTPManager::Share()->_RemoveClient(this);
+	HTTPManager::Share()->RemoveClient(this);
 	if(curl)
 		curl_easy_cleanup(curl);
 	if(header_chunk)
@@ -114,107 +217,18 @@ HTTPClient::~HTTPClient() {
 	if(header.is_open())
 		header.close();
 	
-//	remove(body_file_path.c_str());
-//	remove(header_file_path.c_str());
+	remove(body_file_path.c_str());
+	remove(header_file_path.c_str());
 	
-	event->_RemoveClient(this);
+	event->RemoveClient(this);
 }
 
-const std::string HeaderLineFindField(const std::string _chunk_name, char* _stream, size_t _length, bool* _finded) {
-	std::string _field;
-	_field.append(_stream, _length);
-	
-	std::string _chunk = _chunk_name + ": ";
-	bool _match = true;
-	int _n = 0;
-	for(int _i = 0; _i < _chunk.length(); _i++) {
-		if(_chunk.at(_i) != _field.at(_i)) {
-			_match = false;
-			break;
-		}
-		_n = _i;
-	}
-	_n++;
-	if(_match) {
-		_field.replace(0, _n, "");
-		int _i = 0;
-		char _buffer = _field.at(_i);
-		while(true) {
-			if(_buffer == '\n' || _buffer == '\r') {
-				_field.replace(_i, 1, "");
-			} else {
-				_i++;
-			}
-			if(_i < _field.length())
-				_buffer = _field.at(_i);
-			else
-				break;
-		}
-	}
-	
-	*_finded = _match;
-	return _field;
-}
-
-size_t HTTPClient::ReadHeader(char* _stream, size_t _size, size_t _count, void* _pointer) {
-	HTTPClient* _client = (HTTPClient*)_pointer;
-	size_t _length = _size * _count;
-	
-	bool _finded;
-	std::string _content;
-	
-	if(_client->last_modified == 0) {
-		_finded = false;
-		_content = HeaderLineFindField("Last-Modified", _stream, _length, &_finded);
-		if(_finded) {
-			_client->last_modified = HTTP::HeaderToTime(_content);
-		}
-	}
-	
-	if(_client->expires == 0) {
-		_finded = false;
-		_content = HeaderLineFindField("Expires", _stream, _length, &_finded);
-		if(_finded) {
-			_client->expires = HTTP::HeaderToTime(_content);
-		}
-	}
-	
-	_client->header.write(_stream, _length);
-	return _length;
-}
-
-size_t HTTPClient::ReadBody(char* _stream, size_t _size, size_t _count, void* _pointer) {
-	HTTPClient* _client = (HTTPClient*)_pointer;
-	size_t _length = _size * _count;
-	_client->body.write(_stream, _length);
-	return _length;
-}
-
-int HTTPClient::Progress(void* _client_pointer, 
-						  double _download_total, 
-						  double _download_now, 
-						  double _upload_total, 
-						  double _upload_now) {
-	HTTPClient* _client = (HTTPClient*)_client_pointer;
-	
-	if(_client->paused) {
-		curl_easy_pause(_client->curl, CURLPAUSE_ALL);
-	} else {
-		curl_easy_pause(_client->curl, CURLPAUSE_CONT);
-	}
-	
-	_client->event->Progress(_client->tag,
-							 _download_total, 
-							 _download_now, 
-							 _upload_total, 
-							 _upload_now);
-	
-	return 0;
-}
+#pragma mark -
+#pragma mark 초기화에 필요한 함수들
 
 void HTTPClient::ReadyFile() {
 	std::stringstream _header_path_stream;
-	_header_path_stream << HTTPManager::Share()->_GetTemporaryHeaderPath() + "/";
+	_header_path_stream << HTTPManager::Share()->GetTemporaryHeaderPath() + "/";
 	_header_path_stream << __http_client_identity;
 	header_file_path = _header_path_stream.str();
 	
@@ -222,7 +236,7 @@ void HTTPClient::ReadyFile() {
 	HTTP_DEBUG(!header.is_open(), std::string("응답헤더를 저장할 파일이 열리지 않습니다.HTTPConfig.h의 HTTP_MANAGER_DIRECTORY, HTTP_RESPONSE_HEADER_FILE_PREFIX의 경로를 확인해주세요.권한문제 혹은 잘못된 경로일 수 있습니다.\n경로: ") + header_file_path + "\n");
 	
 	std::stringstream _body_path_stream;
-	_body_path_stream << HTTPManager::Share()->_GetTemporaryBodyPath() + "/";
+	_body_path_stream << HTTPManager::Share()->GetTemporaryBodyPath() + "/";
 	_body_path_stream << __http_client_identity;
 	body_file_path = _body_path_stream.str();
 	
@@ -276,12 +290,8 @@ void HTTPClient::ReadyBody() {
 	}
 }
 
-bool HTTPClient::Pause() {
-	if(paused)
-		return false;
-	paused = true;
-	return true;
-}
+#pragma mark -
+#pragma mark Getter
 
 CURL* HTTPClient::GetCURL() {
 	return curl;
@@ -291,12 +301,25 @@ const std::string HTTPClient::GetTag() {
 	return tag;
 }
 
+#pragma mark -
+#pragma mark pause, resume
+
+bool HTTPClient::Pause() {
+	if(paused)
+		return false;
+	paused = true;
+	return true;
+}
+
 bool HTTPClient::Resume() {
 	if(!paused)
 		return false;
 	paused = false;
 	return true;
 }
+
+#pragma mark -
+#pragma mark 데이터베이스
 
 bool HTTPClient::UpdateDB() {
 	if(header.is_open())
@@ -340,15 +363,15 @@ bool HTTPClient::UpdateDB() {
 	}
 	
 	if(!_need_update) {
-		header_file_path = HTTPManager::Share()->_GetCacheHeaderPath() + "/" + db_id;
-		body_file_path = HTTPManager::Share()->_GetCacheBodyPath() + "/" + db_id;
+		header_file_path = HTTPManager::Share()->GetCacheHeaderPath() + "/" + db_id;
+		body_file_path = HTTPManager::Share()->GetCacheBodyPath() + "/" + db_id;
 		return false;
 	}
 	
 	sqlite3* _db = NULL;
 	char* _db_message = NULL;
 	
-	HTTP_DEBUG((sqlite3_open(HTTPManager::Share()->_GetDBPath().c_str(), &_db)),
+	HTTP_DEBUG((sqlite3_open(HTTPManager::Share()->GetDBPath().c_str(), &_db)),
 			   "열기실패");
 	HTTP_DEBUG((sqlite3_exec(_db, _query.c_str(), NULL, NULL, &_db_message)),
 			   "error:" << _db_message);
@@ -368,6 +391,9 @@ bool HTTPClient::UpdateDB() {
 	return true;
 }
 
+#pragma mark -
+#pragma mark update
+
 bool HTTPClient::PrevUpdateAndGetNeedDelete() {
 	if(cache_type == HTTPResponse::CacheType_Expires) {
 		event->Receive(tag, HTTPResponse(cache_header_file_path, cache_body_file_path, cache_type));
@@ -382,6 +408,9 @@ bool HTTPClient::PrevUpdateAndGetNeedDelete() {
 	}
 	return false;
 }
+
+#pragma mark -
+#pragma mark 이벤트 처리
 
 void HTTPClient::MessageReciever(CURLcode _code) {
 	if(header.is_open())

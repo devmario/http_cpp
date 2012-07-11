@@ -1,31 +1,17 @@
 #include "HTTP.h"
 
-const std::string HTTP::URLEncode(const std::string _string) {
-	std::string result("");
-	
-	int i, j;
-	unsigned char c;
-	char buffer[3];
-	for(i = j = 0; _string.data()[i]; i++) {
-		c = (unsigned char)_string.data()[i];
-		if((c >= '0') && (c <= '9'))
-			result.append(sizeof(char), c);
-		else if((c >= 'A') && (c <= 'Z'))
-			result.append(sizeof(char), c);
-		else if((c >= 'a') && (c <= 'z'))
-			result.append(sizeof(char), c);
-		else if((c == '@') || (c == '.') || (c == '/') || (c == '\\') || (c == '-') || (c == '_') || (c == ':'))
-			result.append(sizeof(char), c);
-		else {
-			sprintf(buffer, "%02x", c);
-			result.append(sizeof(char), '%');
-			result.append(sizeof(char), buffer[0]);
-			result.append(sizeof(char), buffer[1]);
-		}
-	}
-	
-	return result;
+#pragma mark URL 인코딩 디코딩
+
+const std::string HTTP::URLDecode(const std::string _string) {
+	return curl_unescape(_string.c_str(), _string.length());
 }
+
+const std::string HTTP::URLEncode(const std::string _string) {
+	return curl_escape(_string.c_str(), _string.length());
+}
+
+#pragma mark -
+#pragma mark Header time 파싱
 
 time_t HTTP::HeaderToTime(const std::string _header_time) {
 	struct tm _tm;
@@ -43,6 +29,9 @@ const std::string HTTP::TimeToHeader(time_t _time) {
 	return std::string(_buffer);
 }
 
+#pragma mark -
+#pragma mark sqlite 쿼리 time 파싱
+
 time_t HTTP::QueryToTime(const std::string _query_time) {
 	struct tm _tm; 
 	memset(&_tm, 0, sizeof(struct tm));
@@ -58,6 +47,9 @@ const std::string HTTP::TimeToQuery(time_t _time) {
 	free(_tm);
 	return std::string(_buffer);
 }
+
+#pragma mark -
+#pragma mark 현재시간(그리니치)
 
 time_t HTTP::CurrentTime() {
 	time_t _time = time(NULL);
