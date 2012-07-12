@@ -8,13 +8,19 @@ var NAVTREE =
       [ "클래스 멤버", "functions.html", [
         [ "모두", "functions.html", null ],
         [ "함수", "functions_func.html", null ],
-        [ "변수", "functions_vars.html", null ]
+        [ "변수", "functions_vars.html", null ],
+        [ "타입정의", "functions_type.html", null ],
+        [ "열거형 타입", "functions_enum.html", null ],
+        [ "열거형 멤버", "functions_eval.html", null ],
+        [ "관련된 함수들", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "파일들", null, [
       [ "파일 목록", "files.html", "files" ],
       [ "파일 멤버", "globals.html", [
         [ "모두", "globals.html", null ],
+        [ "함수", "globals_func.html", null ],
+        [ "변수", "globals_vars.html", null ],
         [ "매크로", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -23,7 +29,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_h_t_t_p_8h.html",
+"_h_t_t_p_8cpp.html",
 ];
 
 var navTreeSubIndices = new Array();

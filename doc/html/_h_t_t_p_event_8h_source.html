@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('_h_t_t_p_event_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>타입정의</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>열거형 타입</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>열거형 멤버</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,8 +107,8 @@ $(document).ready(function(){initNavTree('_h_t_t_p_event_8h.html','');});
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define HTTPEvent_h</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_config_8h.html" title="HTTP관련 환경 설정및 매크로">HTTPConfig.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;HTTPRequest.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;HTTPResponse.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_request_8h.html">HTTPRequest.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_response_8h.html">HTTPResponse.h</a>&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">class </span><a class="code" href="class_h_t_t_p_client.html" title="내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다.">HTTPClient</a>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
@@ -118,51 +118,51 @@ $(document).ready(function(){initNavTree('_h_t_t_p_event_8h.html','');});
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="class_h_t_t_p_client.html" title="내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다.">HTTPClient</a>* <a class="code" href="class_h_t_t_p_event.html#a1104321d7f1952d9538337a9e170cdf1" title="요청에 대한 태그값으로 해당 요청을 찾는 함수입니다.">FindTagClient</a>(<span class="keyword">const</span> std::string _tag);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ~<a class="code" href="class_h_t_t_p_event.html" title="이클래스는 HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러입니다.">HTTPEvent</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">//접근하지 마세요</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> AddClient(<a class="code" href="class_h_t_t_p_client.html" title="내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다.">HTTPClient</a>* _client);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> RemoveClient(<a class="code" href="class_h_t_t_p_client.html" title="내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다.">HTTPClient</a>* _client);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">//요청보내기(연결 만들기)</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> Send(<span class="keyword">const</span> std::string _tag, </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                          <span class="keyword">const</span> <a class="code" href="class_h_t_t_p_request.html">HTTPRequest</a> _request);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">//연결 일시정지</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">bool</span> Pause(<span class="keyword">const</span> std::string _tag);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">//연결 활성화</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">bool</span> Resume(<span class="keyword">const</span> std::string _tag);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">//연결 제거</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> Stop(<span class="keyword">const</span> std::string _tag);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">//모든연결 제거</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> Clean();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">//응답받기(이후 연결은 제거됩니다.)</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> Receive(<span class="keyword">const</span> std::string _tag, </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                                 <a class="code" href="class_h_t_t_p_response.html">HTTPResponse</a> _response) = 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_h_t_t_p_event.html#aefe7fbb836f74214d48aa04d8d5be948" title="요청,응답 리스트 등록하기">AddClient</a>(<a class="code" href="class_h_t_t_p_client.html" title="내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다.">HTTPClient</a>* _client);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_h_t_t_p_event.html#a77d7411dcc8b9ed93545f431a22875db" title="요청,응답 리스트에서 삭제하기">RemoveClient</a>(<a class="code" href="class_h_t_t_p_client.html" title="내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다.">HTTPClient</a>* _client);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">//응답 에러(이후 연결은 제거 됩니다.)</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">//CURLcode에 대한링크</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">//http://curl.haxx.se/libcurl/c/libcurl-errors.html</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> Error(<span class="keyword">const</span> std::string _tag, </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                           CURLcode _error_code) = 0;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">//응답받거나 요청보낸 데이터의 진행률</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> Progress(<span class="keyword">const</span> std::string _tag,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                                  <span class="keywordtype">double</span> _download_total, </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                                  <span class="keywordtype">double</span> _download_now, </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                                  <span class="keywordtype">double</span> _upload_total, </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                                  <span class="keywordtype">double</span> _upload_now) = 0;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="class_h_t_t_p_event.html#a7455c4947e54d360b4a847e802425022">   78</a></span>&#160;        <a class="code" href="class_h_t_t_p_event.html#a7455c4947e54d360b4a847e802425022" title="생성자">HTTPEvent</a>() {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        };</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="class_h_t_t_p_event.html#a3f216c67f9c4732bac686744a9c527d7" title="소멸자">~HTTPEvent</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_h_t_t_p_event.html#ab8937670a6c582230458452b4969536d" title="해당 태그로 자정된 요청을보냅니다.(연결 만들기)">Send</a>(<span class="keyword">const</span> std::string _tag, </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                          <span class="keyword">const</span> <a class="code" href="class_h_t_t_p_request.html">HTTPRequest</a> _request);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_h_t_t_p_event.html#addfc8d823e8ea426f6e8bb97be81b248" title="해당 태그로 지정된 연결을 일시정지정지 합니다.">Pause</a>(<span class="keyword">const</span> std::string _tag);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_h_t_t_p_event.html#adc339c9d3e38aa2901b5ab09f0f41894" title="해당 태그로 지정된 연결을 활성화 합니다.">Resume</a>(<span class="keyword">const</span> std::string _tag);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_h_t_t_p_event.html#a85a08767229ceb591e4d42fb8ad02971" title="해당 태그로 지정된 연결을 제거 합니다.">Stop</a>(<span class="keyword">const</span> std::string _tag);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_h_t_t_p_event.html#a97e1b29fdb1c80ccb895467e9e6878a2" title="이 HTTPEvent 에서 발생한 모든 연결을 제거합니다.">Clean</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_h_t_t_p_event.html#a1813ea9db674b3b0a97d0d586ce5f6d8" title="응답받기(이후 연결은 제거됩니다.) 추상화 함수입니다.">Receive</a>(<span class="keyword">const</span> std::string _tag, </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                                                 <a class="code" href="class_h_t_t_p_response.html">HTTPResponse</a> _response) = 0;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_h_t_t_p_event.html#a5e1a758003e696b19c26d071f63b2bd5" title="응답 에러(이후 연결은 제거 됩니다.) 추상화 함수입니다.">Error</a>(<span class="keyword">const</span> std::string _tag, </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                                           CURLcode _error_code) = 0;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_h_t_t_p_event.html#ab23948f0e84d047c5d1ccb8c8d840548" title="응답받거나 요청보낸 데이터의 진행률">Progress</a>(<span class="keyword">const</span> std::string _tag,</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                                                  <span class="keywordtype">double</span> _download_total, </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                                                  <span class="keywordtype">double</span> _download_now, </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                                                  <span class="keywordtype">double</span> _upload_total, </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                                  <span class="keywordtype">double</span> _upload_now) = 0;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        </div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="code" href="class_h_t_t_p_event.html#af6c1c2fe7f9b1a64078d25a9fba05eb6">  179</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_h_t_t_p_client.html" title="내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다.">HTTPClient</a>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;};</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_h_t_t_p_event_8h.html">HTTPEvent.h</a></li>
-    <li class="footer">생성시간 : 수 7월 11 2012 19:04:59, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

@@ -114,13 +114,13 @@ int HTTPClient::Progress(void* _client_pointer,
 		curl_easy_pause(_client->curl, CURLPAUSE_ALL);
 	} else {
 		curl_easy_pause(_client->curl, CURLPAUSE_CONT);
+		
+		_client->event->Progress(_client->tag,
+								 _download_total, 
+								 _download_now, 
+								 _upload_total, 
+								 _upload_now);
 	}
-	
-	_client->event->Progress(_client->tag,
-							 _download_total, 
-							 _download_now, 
-							 _upload_total, 
-							 _upload_now);
 	
 	return 0;
 }
@@ -182,6 +182,8 @@ HTTPClient::HTTPClient(HTTPEvent* _event,
 	//연결이 필요한경우는 curl생성
 	if(cache_type != HTTPResponse::CacheType_Expires)
 		curl = curl_easy_init();
+	else
+		curl = NULL;
 	
 	if(curl) {
 		curl_easy_setopt(curl, CURLOPT_URL, request.GetURL().c_str());
@@ -345,11 +347,11 @@ bool HTTPClient::UpdateDB() {
 		else
 			_last_modified = "NULL";
 		
-		if(db_id.length()) {
+		if(!db_id.length()) {
 			_query = "INSERT OR REPLACE INTO request (url, Expires, Last_Modified) VALUES ('" + request.url + "', " + _expires + ", " + _last_modified + ")";
 			_is_insert = true;
 		} else {
-			_query = "UPDATE request SET Last_Modified='" + HTTP::TimeToQuery(last_modified) + "', Expires='" + _expires + "' WHERE id='" + db_id + "'";
+			_query = "UPDATE request SET Last_Modified=" + _last_modified + ", Expires=" + _expires + " WHERE id='" + db_id + "'";
 		}
 		_need_update = true;
 	
@@ -363,8 +365,6 @@ bool HTTPClient::UpdateDB() {
 	}
 	
 	if(!_need_update) {
-		header_file_path = HTTPManager::Share()->GetCacheHeaderPath() + "/" + db_id;
-		body_file_path = HTTPManager::Share()->GetCacheBodyPath() + "/" + db_id;
 		return false;
 	}
 	

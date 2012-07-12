@@ -75,6 +75,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li class="current"><a href="functions.html"><span>모두</span></a></li>
       <li><a href="functions_func.html"><span>함수</span></a></li>
       <li><a href="functions_vars.html"><span>변수</span></a></li>
+      <li><a href="functions_type.html"><span>타입정의</span></a></li>
+      <li><a href="functions_enum.html"><span>열거형&#160;타입</span></a></li>
+      <li><a href="functions_eval.html"><span>열거형&#160;멤버</span></a></li>
+      <li><a href="functions_rela.html"><span>관련된&#160;함수들</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -89,6 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_q"><span>q</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
@@ -117,7 +122,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>타입정의</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>열거형 타입</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>열거형 멤버</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,11 +132,21 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </div>
 
 <div class="contents">
-<div class="textblock">다음은 문서화된 모든 클래스 멤버들의 목록입니다. 각 멤버들은 해당 멤버에 대한 클래스의 문서화 페이지의 링크를 가지고 있습니다. :</div>
+<div class="textblock">다음은 모든 클래스 멤버들의 목록입니다. 각 멤버들은 해당 멤버가 속해 있는 클래스에 대한 링크를 가지고 있습니다. :</div>
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
 <li>AddClient()
-: <a class="el" href="class_h_t_t_p_manager.html#a9440a7e871c7de5a3fc9572abbe6a4dd">HTTPManager</a>
+: <a class="el" href="class_h_t_t_p_event.html#aefe7fbb836f74214d48aa04d8d5be948">HTTPEvent</a>
+, <a class="el" href="class_h_t_t_p_manager.html#a9440a7e871c7de5a3fc9572abbe6a4dd">HTTPManager</a>
+</li>
+<li>AppendBody()
+: <a class="el" href="class_h_t_t_p_request.html#ae421e7bea77295915ad728d87ad93af0">HTTPRequest</a>
+</li>
+<li>AppendBodyWithFile()
+: <a class="el" href="class_h_t_t_p_request.html#ab30a07b5be6bda80a7600c8d37cb1a2a">HTTPRequest</a>
+</li>
+<li>AppendHeader()
+: <a class="el" href="class_h_t_t_p_request.html#a675c82aea5fcaa8b649aca0048fa1f09">HTTPRequest</a>
 </li>
 </ul>
 
@@ -142,6 +157,13 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>body_file_path
 : <a class="el" href="class_h_t_t_p_client.html#a351cc242b4d697d55d69d6d30694ac1a">HTTPClient</a>
+, <a class="el" href="class_h_t_t_p_response.html#adb5fdc9c0d4ff82c8a29183e7c69a951">HTTPResponse</a>
+</li>
+<li>body_vector
+: <a class="el" href="class_h_t_t_p_request.html#a0fe2c1c0d7e6567ed70800305998e032">HTTPRequest</a>
+</li>
+<li>BodyField
+: <a class="el" href="class_h_t_t_p_request.html#afe184e1c049dac6526626067261b9ee3">HTTPRequest</a>
 </li>
 </ul>
 
@@ -164,10 +186,46 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>cache_type
 : <a class="el" href="class_h_t_t_p_client.html#a5c4373e43d9720c8ad8feec3743ba66a">HTTPClient</a>
+, <a class="el" href="class_h_t_t_p_response.html#af57b946b6672fdb1f72f37356de33dbc">HTTPResponse</a>
+</li>
+<li>CacheType
+: <a class="el" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8">HTTPResponse</a>
+</li>
+<li>CacheType_Expires
+: <a class="el" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8af3c308661ec806ff4981439f53cd98d1">HTTPResponse</a>
+</li>
+<li>CacheType_Last_Modified
+: <a class="el" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8a66f3a074e56236ec7fdd5301080686a5">HTTPResponse</a>
+</li>
+<li>CacheType_None
+: <a class="el" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8aa866703cc8c9c7c10c0ae3f427023fc0">HTTPResponse</a>
+</li>
+<li>Chunk
+: <a class="el" href="class_h_t_t_p_response_header_field.html#a45755f44bb3629c977a19ee6dc191750">HTTPResponseHeaderField</a>
+</li>
+<li>chunk
+: <a class="el" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf">HTTPResponseHeaderField</a>
+</li>
+<li>Clean()
+: <a class="el" href="class_h_t_t_p_event.html#a97e1b29fdb1c80ccb895467e9e6878a2">HTTPEvent</a>
+</li>
+<li>CleanCache()
+: <a class="el" href="class_h_t_t_p_manager.html#a10be8b955f79ef82d96bb55018951003">HTTPManager</a>
+</li>
+<li>ClearBody()
+: <a class="el" href="class_h_t_t_p_request.html#ad272b25d3736ff52cf831889467cb409">HTTPRequest</a>
+</li>
+<li>ClearHeader()
+: <a class="el" href="class_h_t_t_p_request.html#a92f5d3951efb26cf109c2f2920d44d58">HTTPRequest</a>
 </li>
 <li>client_list
-: <a class="el" href="class_h_t_t_p_event.html#a052444ed90ceec0f10344d74ad8fb5d3">HTTPEvent</a>
-, <a class="el" href="class_h_t_t_p_manager.html#ab47f258bdfa3ba1ed66df1dcec7f09cf">HTTPManager</a>
+: <a class="el" href="class_h_t_t_p_manager.html#ab47f258bdfa3ba1ed66df1dcec7f09cf">HTTPManager</a>
+, <a class="el" href="class_h_t_t_p_event.html#a052444ed90ceec0f10344d74ad8fb5d3">HTTPEvent</a>
+</li>
+<li>content
+: <a class="el" href="struct_h_t_t_p_request_1_1_header_field.html#aec9a663c9049c6dc43e82962422bcffa">HTTPRequest::HeaderField</a>
+, <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html#afbc56990c40c686cdc5e3b469f228e74">HTTPRequest::BodyField</a>
+, <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#a9d89637429bff30e53570a672dfb5e81">HTTPResponseHeaderField::Chunk</a>
 </li>
 <li>curl
 : <a class="el" href="class_h_t_t_p_client.html#a06610589e4c0fe374656b3f4b443ceeb">HTTPClient</a>
@@ -195,6 +253,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>Error()
+: <a class="el" href="class_h_t_t_p_event.html#a5e1a758003e696b19c26d071f63b2bd5">HTTPEvent</a>
+</li>
 <li>event
 : <a class="el" href="class_h_t_t_p_client.html#ad34d3f3134c50301c73b5d58262bbe87">HTTPClient</a>
 </li>
@@ -205,6 +266,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>file_path
+: <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html#ad8162fbe9300c97d9aa338d56a4a03e6">HTTPRequest::BodyField</a>
+</li>
 <li>FindTagClient()
 : <a class="el" href="class_h_t_t_p_event.html#a1104321d7f1952d9538337a9e170cdf1">HTTPEvent</a>
 </li>
@@ -212,6 +276,12 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>GetBodyContent()
+: <a class="el" href="class_h_t_t_p_response.html#ae910d284af6f4e0f43ac34c598d02c5d">HTTPResponse</a>
+</li>
+<li>GetBodyFilePath()
+: <a class="el" href="class_h_t_t_p_response.html#a1b626bc9135dac3c45986f6548b29b3c">HTTPResponse</a>
+</li>
 <li>GetCacheBodyPath()
 : <a class="el" href="class_h_t_t_p_manager.html#a4a0d36777cedec89ae29c8820920c742">HTTPManager</a>
 </li>
@@ -223,6 +293,15 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>GetDBPath()
 : <a class="el" href="class_h_t_t_p_manager.html#aff54e29b67ce94712341b114dcf32b53">HTTPManager</a>
+</li>
+<li>GetHeaderContent()
+: <a class="el" href="class_h_t_t_p_response.html#a24a799c8768f28ca2c7126730865f5e0">HTTPResponse</a>
+</li>
+<li>GetHeaderFilePath()
+: <a class="el" href="class_h_t_t_p_response.html#a138ab861ab348b9ab4ca33c5499f5aa4">HTTPResponse</a>
+</li>
+<li>GetMethod()
+: <a class="el" href="class_h_t_t_p_request.html#a54b559beb6ef175766d8a36960846e16">HTTPRequest</a>
 </li>
 <li>GetRunningHTTP()
 : <a class="el" href="class_h_t_t_p_manager.html#af7acd0a532429093942e8842a55ebe86">HTTPManager</a>
@@ -236,6 +315,12 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>GetTemporaryHeaderPath()
 : <a class="el" href="class_h_t_t_p_manager.html#a72285b1c580c21bb869f5d43a54ca36d">HTTPManager</a>
 </li>
+<li>GetURL()
+: <a class="el" href="class_h_t_t_p_request.html#a2f4701609b66369c87388c5175587d8e">HTTPRequest</a>
+</li>
+<li>GetUseCache()
+: <a class="el" href="class_h_t_t_p_request.html#a35257a7e089fde46d54c233092750137">HTTPRequest</a>
+</li>
 </ul>
 
 
@@ -247,7 +332,14 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="class_h_t_t_p_client.html#a9ec2161cb6e4206aefae14f1763c2bd4">HTTPClient</a>
 </li>
 <li>header_file_path
-: <a class="el" href="class_h_t_t_p_client.html#ac892f336c6b4da2ba35852524fce59a7">HTTPClient</a>
+: <a class="el" href="class_h_t_t_p_response.html#aab8c0bcbd67bd8091abbd2d3f3ce39b9">HTTPResponse</a>
+, <a class="el" href="class_h_t_t_p_client.html#ac892f336c6b4da2ba35852524fce59a7">HTTPClient</a>
+</li>
+<li>header_vector
+: <a class="el" href="class_h_t_t_p_request.html#aebac0a86d4d927e29ed1fa3b6d57a5ed">HTTPRequest</a>
+</li>
+<li>HeaderField
+: <a class="el" href="class_h_t_t_p_request.html#afd16f90388a7bb6c8852edf740c9f306">HTTPRequest</a>
 </li>
 <li>HeaderToTime()
 : <a class="el" href="class_h_t_t_p.html#aba31d46b9873b5c654ebb8e9d32266e4">HTTP</a>
@@ -255,11 +347,33 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>http_post
 : <a class="el" href="class_h_t_t_p_client.html#ab29feabc537062277a3e9b3ec23f874a">HTTPClient</a>
 </li>
-<li>HTTPClient()
-: <a class="el" href="class_h_t_t_p_client.html#a26860227a4605fc5be92e2cb38486f7c">HTTPClient</a>
+<li>HTTPClient
+: <a class="el" href="class_h_t_t_p_event.html#af6c1c2fe7f9b1a64078d25a9fba05eb6">HTTPEvent</a>
+, <a class="el" href="class_h_t_t_p_client.html#a26860227a4605fc5be92e2cb38486f7c">HTTPClient</a>
+</li>
+<li>HTTPEvent()
+: <a class="el" href="class_h_t_t_p_event.html#a7455c4947e54d360b4a847e802425022">HTTPEvent</a>
 </li>
 <li>HTTPManager()
 : <a class="el" href="class_h_t_t_p_manager.html#a5e1443219b1a82677dac5b1e97ff29ec">HTTPManager</a>
+</li>
+<li>HTTPMethod
+: <a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305f">HTTPRequest</a>
+</li>
+<li>HTTPMethod_GET
+: <a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305fa8b6fac2948fd198572df7bf62255aa1e">HTTPRequest</a>
+</li>
+<li>HTTPMethod_POST
+: <a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305fa1c1196e5e11370f92d36dddddc545c92">HTTPRequest</a>
+</li>
+<li>HTTPRequest()
+: <a class="el" href="class_h_t_t_p_request.html#a7c53a92689eb5cee6b069a3db3c327ae">HTTPRequest</a>
+</li>
+<li>HTTPResponse()
+: <a class="el" href="class_h_t_t_p_response.html#a4b91b58ab841013e9f6c5b3ba20ec137">HTTPResponse</a>
+</li>
+<li>HTTPResponseHeaderField()
+: <a class="el" href="class_h_t_t_p_response_header_field.html#a90fcc1962f8a45895529edde0ae31400">HTTPResponseHeaderField</a>
 </li>
 </ul>
 
@@ -281,15 +395,31 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>messages_left
 : <a class="el" href="class_h_t_t_p_manager.html#ad7a2c0e21b19a0c0bd2cee62380b12c7">HTTPManager</a>
 </li>
+<li>method
+: <a class="el" href="class_h_t_t_p_request.html#a199274e4db83d9cabc02e891bded83ad">HTTPRequest</a>
+</li>
 <li>multi_handle
 : <a class="el" href="class_h_t_t_p_manager.html#a226d1719e92ce7e0eab89feade069d76">HTTPManager</a>
 </li>
 </ul>
 
 
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>name
+: <a class="el" href="struct_h_t_t_p_request_1_1_header_field.html#a87cd01d657f2cf866c497375121989cb">HTTPRequest::HeaderField</a>
+, <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#ae0a4c66d9782b796745a64aa79385fbf">HTTPResponseHeaderField::Chunk</a>
+, <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html#a3bd1276a444032db2aa16c198fff9ba9">HTTPRequest::BodyField</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>ParseHeader()
+: <a class="el" href="class_h_t_t_p_response.html#ac92dc3c47b7dfb0544a028f06d5e80f0">HTTPResponse</a>
+</li>
 <li>Pause()
 : <a class="el" href="class_h_t_t_p_client.html#a11a02d3946f51d593310d0c529621d25">HTTPClient</a>
+, <a class="el" href="class_h_t_t_p_event.html#addfc8d823e8ea426f6e8bb97be81b248">HTTPEvent</a>
 </li>
 <li>paused
 : <a class="el" href="class_h_t_t_p_client.html#ac52711e80e376535da9537778bda60f2">HTTPClient</a>
@@ -299,6 +429,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>Progress()
 : <a class="el" href="class_h_t_t_p_client.html#a42a26707682633205202d0916ece0102">HTTPClient</a>
+, <a class="el" href="class_h_t_t_p_event.html#ab23948f0e84d047c5d1ccb8c8d840548">HTTPEvent</a>
 </li>
 </ul>
 
@@ -332,19 +463,42 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>ReadyHeader()
 : <a class="el" href="class_h_t_t_p_client.html#a71aba6342097c8901d0f23deec079386">HTTPClient</a>
 </li>
+<li>Receive()
+: <a class="el" href="class_h_t_t_p_event.html#a1813ea9db674b3b0a97d0d586ce5f6d8">HTTPEvent</a>
+</li>
 <li>RemoveClient()
-: <a class="el" href="class_h_t_t_p_manager.html#afc8d3badce49c72b26646d4e6603ef4c">HTTPManager</a>
+: <a class="el" href="class_h_t_t_p_event.html#a77d7411dcc8b9ed93545f431a22875db">HTTPEvent</a>
+, <a class="el" href="class_h_t_t_p_manager.html#afc8d3badce49c72b26646d4e6603ef4c">HTTPManager</a>
 </li>
 <li>request
 : <a class="el" href="class_h_t_t_p_client.html#afaec37c59c1da59fc44206aef5d5f348">HTTPClient</a>
 </li>
 <li>Resume()
-: <a class="el" href="class_h_t_t_p_client.html#ace4da074eb433e490c291fcbf5ca76c2">HTTPClient</a>
+: <a class="el" href="class_h_t_t_p_event.html#adc339c9d3e38aa2901b5ab09f0f41894">HTTPEvent</a>
+, <a class="el" href="class_h_t_t_p_client.html#ace4da074eb433e490c291fcbf5ca76c2">HTTPClient</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SearchField()
+: <a class="el" href="class_h_t_t_p_response_header_field.html#af3b84be94cec791b74628d3131d08923">HTTPResponseHeaderField</a>
+</li>
+<li>SearchHeaderField()
+: <a class="el" href="class_h_t_t_p_response.html#a5c4d9fb9f59e0f6e41ba73b971569fc1">HTTPResponse</a>
+</li>
+<li>Send()
+: <a class="el" href="class_h_t_t_p_event.html#ab8937670a6c582230458452b4969536d">HTTPEvent</a>
+</li>
+<li>SetMethod()
+: <a class="el" href="class_h_t_t_p_request.html#a73844b9e29f2408db588a54d0e405bb2">HTTPRequest</a>
+</li>
+<li>SetURL()
+: <a class="el" href="class_h_t_t_p_request.html#a1a830efa331749175d468a3ba3342d89">HTTPRequest</a>
+</li>
+<li>SetUseCache()
+: <a class="el" href="class_h_t_t_p_request.html#a35220418472ad05fe90511d32ccbc0f8">HTTPRequest</a>
+</li>
 <li>Share()
 : <a class="el" href="class_h_t_t_p_manager.html#a330eff005766714f9239acc6d1b8255a">HTTPManager</a>
 </li>
@@ -354,8 +508,17 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>SQLMatchURLCallback()
 : <a class="el" href="class_h_t_t_p_client.html#a32acff1743076dcf79a8a652a37a4afa">HTTPClient</a>
 </li>
+<li>status
+: <a class="el" href="class_h_t_t_p_response_header_field.html#a7127f4434b4773500da2a61b08821f58">HTTPResponseHeaderField</a>
+</li>
+<li>status_code
+: <a class="el" href="class_h_t_t_p_response_header_field.html#a35ced3524c61f23793ef466c4ee3352d">HTTPResponseHeaderField</a>
+</li>
 <li>still_running
 : <a class="el" href="class_h_t_t_p_manager.html#ad6a6442fba997accd0cb38d9e8aca1af">HTTPManager</a>
+</li>
+<li>Stop()
+: <a class="el" href="class_h_t_t_p_event.html#a85a08767229ceb591e4d42fb8ad02971">HTTPEvent</a>
 </li>
 </ul>
 
@@ -389,11 +552,17 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>UpdateDB()
 : <a class="el" href="class_h_t_t_p_client.html#afd834a35837d4fdf7a8aef71b545363c">HTTPClient</a>
 </li>
+<li>url
+: <a class="el" href="class_h_t_t_p_request.html#ac881d393243022f4c65f4d60fbcfb7cd">HTTPRequest</a>
+</li>
 <li>URLDecode()
 : <a class="el" href="class_h_t_t_p.html#a6633b8cd8d501adead5a554a70e34cdc">HTTP</a>
 </li>
 <li>URLEncode()
 : <a class="el" href="class_h_t_t_p.html#abf5cfe903f730df7028bd3ad07759f59">HTTP</a>
+</li>
+<li>use_cache
+: <a class="el" href="class_h_t_t_p_request.html#ae22fa6dfd9b2629a6032ae6b344b0add">HTTPRequest</a>
 </li>
 </ul>
 
@@ -402,8 +571,17 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>~HTTPClient()
 : <a class="el" href="class_h_t_t_p_client.html#a97467b9bd9469200fb5266ae3622acc2">HTTPClient</a>
 </li>
+<li>~HTTPEvent()
+: <a class="el" href="class_h_t_t_p_event.html#a3f216c67f9c4732bac686744a9c527d7">HTTPEvent</a>
+</li>
 <li>~HTTPManager()
 : <a class="el" href="class_h_t_t_p_manager.html#a44a5461e15a215b0b761b4c32c656078">HTTPManager</a>
+</li>
+<li>~HTTPRequest()
+: <a class="el" href="class_h_t_t_p_request.html#ab5864e916f43eddde9d2ccb69e0f1385">HTTPRequest</a>
+</li>
+<li>~HTTPResponse()
+: <a class="el" href="class_h_t_t_p_response.html#add45f6eb1682f4ae0033a509a6303af3">HTTPResponse</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -411,7 +589,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">생성시간 : 수 7월 11 2012 19:05:00, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

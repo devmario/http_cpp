@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('class_h_t_t_p_response_header_field.ht
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>타입정의</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>열거형 타입</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>열거형 멤버</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,6 +109,8 @@ $(document).ready(function(){initNavTree('class_h_t_t_p_response_header_field.ht
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="_h_t_t_p_response_header_field_8h_source.html">HTTPResponseHeaderField.h</a>&gt;</code></p>
+
 <p><a href="class_h_t_t_p_response_header_field-members.html">모든 멤버 목록</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
@@ -117,29 +119,107 @@ $(document).ready(function(){initNavTree('class_h_t_t_p_response_header_field.ht
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-types"></a>
 Public 타입</h2></td></tr>
-<tr class="memitem:a45755f44bb3629c977a19ee6dc191750"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45755f44bb3629c977a19ee6dc191750"></a>
-typedef struct <br class="typebreak"/>
-<a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">HTTPResponseHeaderField::Chunk</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Chunk</b></td></tr>
+<tr class="memitem:a45755f44bb3629c977a19ee6dc191750"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">HTTPResponseHeaderField::Chunk</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#a45755f44bb3629c977a19ee6dc191750">Chunk</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public 멤버 함수</h2></td></tr>
-<tr class="memitem:a90fcc1962f8a45895529edde0ae31400"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90fcc1962f8a45895529edde0ae31400"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HTTPResponseHeaderField</b> (const std::string _header_file_path)</td></tr>
-<tr class="memitem:af3b84be94cec791b74628d3131d08923"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3b84be94cec791b74628d3131d08923"></a>
-const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>SearchField</b> (const std::string _field_name)</td></tr>
+<tr class="memitem:a90fcc1962f8a45895529edde0ae31400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#a90fcc1962f8a45895529edde0ae31400">HTTPResponseHeaderField</a> (const std::string _header_file_path)</td></tr>
+<tr class="memitem:af3b84be94cec791b74628d3131d08923"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#af3b84be94cec791b74628d3131d08923">SearchField</a> (const std::string _field_name)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public 속성</h2></td></tr>
-<tr class="memitem:a7127f4434b4773500da2a61b08821f58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7127f4434b4773500da2a61b08821f58"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>status</b></td></tr>
-<tr class="memitem:a35ced3524c61f23793ef466c4ee3352d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35ced3524c61f23793ef466c4ee3352d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>status_code</b></td></tr>
-<tr class="memitem:ab00ea617941b3d2beffd4beee0241bbf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab00ea617941b3d2beffd4beee0241bbf"></a>
-std::vector&lt; <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">Chunk</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>chunk</b></td></tr>
+<tr class="memitem:a7127f4434b4773500da2a61b08821f58"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#a7127f4434b4773500da2a61b08821f58">status</a></td></tr>
+<tr class="memitem:a35ced3524c61f23793ef466c4ee3352d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#a35ced3524c61f23793ef466c4ee3352d">status_code</a></td></tr>
+<tr class="memitem:ab00ea617941b3d2beffd4beee0241bbf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">Chunk</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf">chunk</a></td></tr>
 </table>
+<hr/><h2>멤버 타입정의 문서화</h2>
+<a class="anchor" id="a45755f44bb3629c977a19ee6dc191750"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">HTTPResponseHeaderField::Chunk</a>  <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">HTTPResponseHeaderField::Chunk</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>생성자 &amp; 소멸자 문서화</h2>
+<a class="anchor" id="a90fcc1962f8a45895529edde0ae31400"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HTTPResponseHeaderField::HTTPResponseHeaderField </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_header_file_path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>멤버 함수 문서화</h2>
+<a class="anchor" id="af3b84be94cec791b74628d3131d08923"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string HTTPResponseHeaderField::SearchField </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_field_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>멤버 데이타 문서화</h2>
+<a class="anchor" id="ab00ea617941b3d2beffd4beee0241bbf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">Chunk</a>&gt; HTTPResponseHeaderField::chunk</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7127f4434b4773500da2a61b08821f58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string HTTPResponseHeaderField::status</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a35ced3524c61f23793ef466c4ee3352d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HTTPResponseHeaderField::status_code</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.:<ul>
 <li><a class="el" href="_h_t_t_p_response_header_field_8h_source.html">HTTPResponseHeaderField.h</a></li>
-<li>HTTPResponseHeaderField.cpp</li>
+<li><a class="el" href="_h_t_t_p_response_header_field_8cpp.html">HTTPResponseHeaderField.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -147,7 +227,7 @@ std::vector&lt; <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chu
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_h_t_t_p_response_header_field.html">HTTPResponseHeaderField</a></li>
-    <li class="footer">생성시간 : 수 7월 11 2012 19:05:00, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

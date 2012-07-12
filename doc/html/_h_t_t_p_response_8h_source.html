@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('_h_t_t_p_response_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>타입정의</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>열거형 타입</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>열거형 멤버</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,50 +102,50 @@ $(document).ready(function(){initNavTree('_h_t_t_p_response_8h.html','');});
 <div class="title">HTTPResponse.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef HTTPResponse_h</span></div>
+<a href="_h_t_t_p_response_8h.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef HTTPResponse_h</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define HTTPResponse_h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_config_8h.html" title="HTTP관련 환경 설정및 매크로">HTTPConfig.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;HTTPResponseHeaderField.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_response_header_field_8h.html">HTTPResponseHeaderField.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_h_t_t_p_response.html">HTTPResponse</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        std::string header_file_path;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        std::string body_file_path;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html#aab8c0bcbd67bd8091abbd2d3f3ce39b9">    9</a></span>&#160;        std::string <a class="code" href="class_h_t_t_p_response.html#aab8c0bcbd67bd8091abbd2d3f3ce39b9">header_file_path</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html#adb5fdc9c0d4ff82c8a29183e7c69a951">   10</a></span>&#160;        std::string <a class="code" href="class_h_t_t_p_response.html#adb5fdc9c0d4ff82c8a29183e7c69a951">body_file_path</a>;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">enum</span> CacheType {</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8">   16</a></span>&#160;        <span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8">CacheType</a> {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="comment">//요청시 보낼 URL이 처음 요청이거나, Expires가 만료되었거니</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                CacheType_None = 0,</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8aa866703cc8c9c7c10c0ae3f427023fc0">   18</a></span>&#160;                <a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8aa866703cc8c9c7c10c0ae3f427023fc0">CacheType_None</a> = 0,</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="comment">//요청시 보낼 URL이 이미 보냈었던 요청이고</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="comment">//Expires가 만료되었을때</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                CacheType_Last_Modified,</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8a66f3a074e56236ec7fdd5301080686a5">   21</a></span>&#160;                <a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8a66f3a074e56236ec7fdd5301080686a5">CacheType_Last_Modified</a>,</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="comment">//요청시 보낼 URL이 이미 보냈었던 요청이고</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="comment">//Expires가 만료되지 않았을때</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                CacheType_Expires</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        } CacheType;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8af3c308661ec806ff4981439f53cd98d1">   24</a></span>&#160;                <a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8af3c308661ec806ff4981439f53cd98d1">CacheType_Expires</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        } <a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8">CacheType</a>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">//캐쉬 타입</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        CacheType cache_type;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html#af57b946b6672fdb1f72f37356de33dbc">   27</a></span>&#160;        <a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8">CacheType</a> <a class="code" href="class_h_t_t_p_response.html#af57b946b6672fdb1f72f37356de33dbc">cache_type</a>;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="class_h_t_t_p_response.html">HTTPResponse</a>(<span class="keyword">const</span> std::string _header_file_path, </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="class_h_t_t_p_response.html#a4b91b58ab841013e9f6c5b3ba20ec137">HTTPResponse</a>(<span class="keyword">const</span> std::string _header_file_path, </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                 <span class="keyword">const</span> std::string _body_file_path,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                 CacheType _cache_type);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        ~<a class="code" href="class_h_t_t_p_response.html">HTTPResponse</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                 <a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8">CacheType</a> _cache_type);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="class_h_t_t_p_response.html#add45f6eb1682f4ae0033a509a6303af3">~HTTPResponse</a>();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">//응답을 파일로 읽기(HTTPEvent::Recieve가 끝난후에는 이파일은 삭제됩니다.)</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//내용이 클경우는 직접 파일에 접근</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">const</span> std::string GetHeaderFilePath() {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">return</span> header_file_path;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html#a138ab861ab348b9ab4ca33c5499f5aa4">   36</a></span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p_response.html#a138ab861ab348b9ab4ca33c5499f5aa4">GetHeaderFilePath</a>() {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="class_h_t_t_p_response.html#aab8c0bcbd67bd8091abbd2d3f3ce39b9">header_file_path</a>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> std::string GetBodyFilePath() {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span> body_file_path;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response.html#a1b626bc9135dac3c45986f6548b29b3c">   39</a></span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p_response.html#a1b626bc9135dac3c45986f6548b29b3c">GetBodyFilePath</a>() {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="class_h_t_t_p_response.html#adb5fdc9c0d4ff82c8a29183e7c69a951">body_file_path</a>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">//헤더 가져오기</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">const</span> std::string GetHeaderContent();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p_response.html#a24a799c8768f28ca2c7126730865f5e0">GetHeaderContent</a>();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">//내용 가져오기</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">const</span> std::string GetBodyContent();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p_response.html#ae910d284af6f4e0f43ac34c598d02c5d">GetBodyContent</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">//헤더를 검색하여 인자로 보낸 이름으로된 필드명의 값 하나 가져오기</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">//메모리에 잠시 헤더내용이 올라감</span></div>
@@ -155,11 +155,11 @@ $(document).ready(function(){initNavTree('_h_t_t_p_response_8h.html','');});
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">//Worst case behavior is quadratic: at most (last1 – first1) * (last2 – first2) comparisons. This worst case, however, is rare. Average complexity is linear.</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">//native search</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">//컴플렉시티 = O(m*n)</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">const</span> std::string SearchHeaderField(<span class="keyword">const</span> std::string _field_name);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p_response.html#a5c4d9fb9f59e0f6e41ba73b971569fc1">SearchHeaderField</a>(<span class="keyword">const</span> std::string _field_name);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">//스크림으로 파싱후 파싱된 결과리턴</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">//스트림으로 파싱하지만 HTTPResponseHeaderField가 헤더내용을 메모리로 가지게 됨</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">const</span> <a class="code" href="class_h_t_t_p_response_header_field.html">HTTPResponseHeaderField</a> ParseHeader();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">const</span> <a class="code" href="class_h_t_t_p_response_header_field.html">HTTPResponseHeaderField</a> <a class="code" href="class_h_t_t_p_response.html#ac92dc3c47b7dfb0544a028f06d5e80f0">ParseHeader</a>();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -168,8 +168,8 @@ $(document).ready(function(){initNavTree('_h_t_t_p_response_8h.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>HTTPResponse.h</b></li>
-    <li class="footer">생성시간 : 수 7월 11 2012 19:05:00, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="navelem"><a class="el" href="_h_t_t_p_response_8h.html">HTTPResponse.h</a></li>
+    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

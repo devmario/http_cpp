@@ -75,12 +75,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="functions.html"><span>모두</span></a></li>
       <li class="current"><a href="functions_func.html"><span>함수</span></a></li>
       <li><a href="functions_vars.html"><span>변수</span></a></li>
+      <li><a href="functions_type.html"><span>타입정의</span></a></li>
+      <li><a href="functions_enum.html"><span>열거형&#160;타입</span></a></li>
+      <li><a href="functions_eval.html"><span>열거형&#160;멤버</span></a></li>
+      <li><a href="functions_rela.html"><span>관련된&#160;함수들</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
       <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
@@ -113,7 +118,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>타입정의</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>열거형 타입</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>열거형 멤버</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,14 +132,43 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
 <li>AddClient()
-: <a class="el" href="class_h_t_t_p_manager.html#a9440a7e871c7de5a3fc9572abbe6a4dd">HTTPManager</a>
+: <a class="el" href="class_h_t_t_p_event.html#aefe7fbb836f74214d48aa04d8d5be948">HTTPEvent</a>
+, <a class="el" href="class_h_t_t_p_manager.html#a9440a7e871c7de5a3fc9572abbe6a4dd">HTTPManager</a>
+</li>
+<li>AppendBody()
+: <a class="el" href="class_h_t_t_p_request.html#ae421e7bea77295915ad728d87ad93af0">HTTPRequest</a>
+</li>
+<li>AppendBodyWithFile()
+: <a class="el" href="class_h_t_t_p_request.html#ab30a07b5be6bda80a7600c8d37cb1a2a">HTTPRequest</a>
+</li>
+<li>AppendHeader()
+: <a class="el" href="class_h_t_t_p_request.html#a675c82aea5fcaa8b649aca0048fa1f09">HTTPRequest</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>Clean()
+: <a class="el" href="class_h_t_t_p_event.html#a97e1b29fdb1c80ccb895467e9e6878a2">HTTPEvent</a>
+</li>
+<li>CleanCache()
+: <a class="el" href="class_h_t_t_p_manager.html#a10be8b955f79ef82d96bb55018951003">HTTPManager</a>
+</li>
+<li>ClearBody()
+: <a class="el" href="class_h_t_t_p_request.html#ad272b25d3736ff52cf831889467cb409">HTTPRequest</a>
+</li>
+<li>ClearHeader()
+: <a class="el" href="class_h_t_t_p_request.html#a92f5d3951efb26cf109c2f2920d44d58">HTTPRequest</a>
+</li>
 <li>CurrentTime()
 : <a class="el" href="class_h_t_t_p.html#ac6da3f189d12bd93476f9e75ee25c333">HTTP</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>Error()
+: <a class="el" href="class_h_t_t_p_event.html#a5e1a758003e696b19c26d071f63b2bd5">HTTPEvent</a>
 </li>
 </ul>
 
@@ -147,6 +181,12 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>GetBodyContent()
+: <a class="el" href="class_h_t_t_p_response.html#ae910d284af6f4e0f43ac34c598d02c5d">HTTPResponse</a>
+</li>
+<li>GetBodyFilePath()
+: <a class="el" href="class_h_t_t_p_response.html#a1b626bc9135dac3c45986f6548b29b3c">HTTPResponse</a>
+</li>
 <li>GetCacheBodyPath()
 : <a class="el" href="class_h_t_t_p_manager.html#a4a0d36777cedec89ae29c8820920c742">HTTPManager</a>
 </li>
@@ -158,6 +198,15 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>GetDBPath()
 : <a class="el" href="class_h_t_t_p_manager.html#aff54e29b67ce94712341b114dcf32b53">HTTPManager</a>
+</li>
+<li>GetHeaderContent()
+: <a class="el" href="class_h_t_t_p_response.html#a24a799c8768f28ca2c7126730865f5e0">HTTPResponse</a>
+</li>
+<li>GetHeaderFilePath()
+: <a class="el" href="class_h_t_t_p_response.html#a138ab861ab348b9ab4ca33c5499f5aa4">HTTPResponse</a>
+</li>
+<li>GetMethod()
+: <a class="el" href="class_h_t_t_p_request.html#a54b559beb6ef175766d8a36960846e16">HTTPRequest</a>
 </li>
 <li>GetRunningHTTP()
 : <a class="el" href="class_h_t_t_p_manager.html#af7acd0a532429093942e8842a55ebe86">HTTPManager</a>
@@ -171,6 +220,12 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>GetTemporaryHeaderPath()
 : <a class="el" href="class_h_t_t_p_manager.html#a72285b1c580c21bb869f5d43a54ca36d">HTTPManager</a>
 </li>
+<li>GetURL()
+: <a class="el" href="class_h_t_t_p_request.html#a2f4701609b66369c87388c5175587d8e">HTTPRequest</a>
+</li>
+<li>GetUseCache()
+: <a class="el" href="class_h_t_t_p_request.html#a35257a7e089fde46d54c233092750137">HTTPRequest</a>
+</li>
 </ul>
 
 
@@ -181,8 +236,20 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>HTTPClient()
 : <a class="el" href="class_h_t_t_p_client.html#a26860227a4605fc5be92e2cb38486f7c">HTTPClient</a>
 </li>
+<li>HTTPEvent()
+: <a class="el" href="class_h_t_t_p_event.html#a7455c4947e54d360b4a847e802425022">HTTPEvent</a>
+</li>
 <li>HTTPManager()
 : <a class="el" href="class_h_t_t_p_manager.html#a5e1443219b1a82677dac5b1e97ff29ec">HTTPManager</a>
+</li>
+<li>HTTPRequest()
+: <a class="el" href="class_h_t_t_p_request.html#a7c53a92689eb5cee6b069a3db3c327ae">HTTPRequest</a>
+</li>
+<li>HTTPResponse()
+: <a class="el" href="class_h_t_t_p_response.html#a4b91b58ab841013e9f6c5b3ba20ec137">HTTPResponse</a>
+</li>
+<li>HTTPResponseHeaderField()
+: <a class="el" href="class_h_t_t_p_response_header_field.html#a90fcc1962f8a45895529edde0ae31400">HTTPResponseHeaderField</a>
 </li>
 </ul>
 
@@ -195,14 +262,19 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>ParseHeader()
+: <a class="el" href="class_h_t_t_p_response.html#ac92dc3c47b7dfb0544a028f06d5e80f0">HTTPResponse</a>
+</li>
 <li>Pause()
 : <a class="el" href="class_h_t_t_p_client.html#a11a02d3946f51d593310d0c529621d25">HTTPClient</a>
+, <a class="el" href="class_h_t_t_p_event.html#addfc8d823e8ea426f6e8bb97be81b248">HTTPEvent</a>
 </li>
 <li>PrevUpdateAndGetNeedDelete()
 : <a class="el" href="class_h_t_t_p_client.html#a7bb2704835eb0fc23b714a5e0ce76fc4">HTTPClient</a>
 </li>
 <li>Progress()
 : <a class="el" href="class_h_t_t_p_client.html#a42a26707682633205202d0916ece0102">HTTPClient</a>
+, <a class="el" href="class_h_t_t_p_event.html#ab23948f0e84d047c5d1ccb8c8d840548">HTTPEvent</a>
 </li>
 </ul>
 
@@ -236,16 +308,39 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>ReadyHeader()
 : <a class="el" href="class_h_t_t_p_client.html#a71aba6342097c8901d0f23deec079386">HTTPClient</a>
 </li>
+<li>Receive()
+: <a class="el" href="class_h_t_t_p_event.html#a1813ea9db674b3b0a97d0d586ce5f6d8">HTTPEvent</a>
+</li>
 <li>RemoveClient()
 : <a class="el" href="class_h_t_t_p_manager.html#afc8d3badce49c72b26646d4e6603ef4c">HTTPManager</a>
+, <a class="el" href="class_h_t_t_p_event.html#a77d7411dcc8b9ed93545f431a22875db">HTTPEvent</a>
 </li>
 <li>Resume()
-: <a class="el" href="class_h_t_t_p_client.html#ace4da074eb433e490c291fcbf5ca76c2">HTTPClient</a>
+: <a class="el" href="class_h_t_t_p_event.html#adc339c9d3e38aa2901b5ab09f0f41894">HTTPEvent</a>
+, <a class="el" href="class_h_t_t_p_client.html#ace4da074eb433e490c291fcbf5ca76c2">HTTPClient</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SearchField()
+: <a class="el" href="class_h_t_t_p_response_header_field.html#af3b84be94cec791b74628d3131d08923">HTTPResponseHeaderField</a>
+</li>
+<li>SearchHeaderField()
+: <a class="el" href="class_h_t_t_p_response.html#a5c4d9fb9f59e0f6e41ba73b971569fc1">HTTPResponse</a>
+</li>
+<li>Send()
+: <a class="el" href="class_h_t_t_p_event.html#ab8937670a6c582230458452b4969536d">HTTPEvent</a>
+</li>
+<li>SetMethod()
+: <a class="el" href="class_h_t_t_p_request.html#a73844b9e29f2408db588a54d0e405bb2">HTTPRequest</a>
+</li>
+<li>SetURL()
+: <a class="el" href="class_h_t_t_p_request.html#a1a830efa331749175d468a3ba3342d89">HTTPRequest</a>
+</li>
+<li>SetUseCache()
+: <a class="el" href="class_h_t_t_p_request.html#a35220418472ad05fe90511d32ccbc0f8">HTTPRequest</a>
+</li>
 <li>Share()
 : <a class="el" href="class_h_t_t_p_manager.html#a330eff005766714f9239acc6d1b8255a">HTTPManager</a>
 </li>
@@ -254,6 +349,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>SQLMatchURLCallback()
 : <a class="el" href="class_h_t_t_p_client.html#a32acff1743076dcf79a8a652a37a4afa">HTTPClient</a>
+</li>
+<li>Stop()
+: <a class="el" href="class_h_t_t_p_event.html#a85a08767229ceb591e4d42fb8ad02971">HTTPEvent</a>
 </li>
 </ul>
 
@@ -288,8 +386,17 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>~HTTPClient()
 : <a class="el" href="class_h_t_t_p_client.html#a97467b9bd9469200fb5266ae3622acc2">HTTPClient</a>
 </li>
+<li>~HTTPEvent()
+: <a class="el" href="class_h_t_t_p_event.html#a3f216c67f9c4732bac686744a9c527d7">HTTPEvent</a>
+</li>
 <li>~HTTPManager()
 : <a class="el" href="class_h_t_t_p_manager.html#a44a5461e15a215b0b761b4c32c656078">HTTPManager</a>
+</li>
+<li>~HTTPRequest()
+: <a class="el" href="class_h_t_t_p_request.html#ab5864e916f43eddde9d2ccb69e0f1385">HTTPRequest</a>
+</li>
+<li>~HTTPResponse()
+: <a class="el" href="class_h_t_t_p_response.html#add45f6eb1682f4ae0033a509a6303af3">HTTPResponse</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -297,7 +404,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">생성시간 : 수 7월 11 2012 19:05:00, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

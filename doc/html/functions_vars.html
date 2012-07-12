@@ -75,6 +75,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="functions.html"><span>모두</span></a></li>
       <li><a href="functions_func.html"><span>함수</span></a></li>
       <li class="current"><a href="functions_vars.html"><span>변수</span></a></li>
+      <li><a href="functions_type.html"><span>타입정의</span></a></li>
+      <li><a href="functions_enum.html"><span>열거형&#160;타입</span></a></li>
+      <li><a href="functions_eval.html"><span>열거형&#160;멤버</span></a></li>
+      <li><a href="functions_rela.html"><span>관련된&#160;함수들</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -83,13 +87,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_u"><span>u</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -111,7 +118,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>타입정의</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>열거형 타입</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>열거형 멤버</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -129,6 +136,10 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </li>
 <li>body_file_path
 : <a class="el" href="class_h_t_t_p_client.html#a351cc242b4d697d55d69d6d30694ac1a">HTTPClient</a>
+, <a class="el" href="class_h_t_t_p_response.html#adb5fdc9c0d4ff82c8a29183e7c69a951">HTTPResponse</a>
+</li>
+<li>body_vector
+: <a class="el" href="class_h_t_t_p_request.html#a0fe2c1c0d7e6567ed70800305998e032">HTTPRequest</a>
 </li>
 </ul>
 
@@ -151,10 +162,19 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </li>
 <li>cache_type
 : <a class="el" href="class_h_t_t_p_client.html#a5c4373e43d9720c8ad8feec3743ba66a">HTTPClient</a>
+, <a class="el" href="class_h_t_t_p_response.html#af57b946b6672fdb1f72f37356de33dbc">HTTPResponse</a>
+</li>
+<li>chunk
+: <a class="el" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf">HTTPResponseHeaderField</a>
 </li>
 <li>client_list
-: <a class="el" href="class_h_t_t_p_manager.html#ab47f258bdfa3ba1ed66df1dcec7f09cf">HTTPManager</a>
-, <a class="el" href="class_h_t_t_p_event.html#a052444ed90ceec0f10344d74ad8fb5d3">HTTPEvent</a>
+: <a class="el" href="class_h_t_t_p_event.html#a052444ed90ceec0f10344d74ad8fb5d3">HTTPEvent</a>
+, <a class="el" href="class_h_t_t_p_manager.html#ab47f258bdfa3ba1ed66df1dcec7f09cf">HTTPManager</a>
+</li>
+<li>content
+: <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html#afbc56990c40c686cdc5e3b469f228e74">HTTPRequest::BodyField</a>
+, <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#a9d89637429bff30e53570a672dfb5e81">HTTPResponseHeaderField::Chunk</a>
+, <a class="el" href="struct_h_t_t_p_request_1_1_header_field.html#aec9a663c9049c6dc43e82962422bcffa">HTTPRequest::HeaderField</a>
 </li>
 <li>curl
 : <a class="el" href="class_h_t_t_p_client.html#a06610589e4c0fe374656b3f4b443ceeb">HTTPClient</a>
@@ -188,6 +208,13 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </ul>
 
 
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>file_path
+: <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html#ad8162fbe9300c97d9aa338d56a4a03e6">HTTPRequest::BodyField</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
 <li>header
 : <a class="el" href="class_h_t_t_p_client.html#a0db5dbe34a8d5ee16c2c54f540f5d3e9">HTTPClient</a>
@@ -196,7 +223,11 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 : <a class="el" href="class_h_t_t_p_client.html#a9ec2161cb6e4206aefae14f1763c2bd4">HTTPClient</a>
 </li>
 <li>header_file_path
-: <a class="el" href="class_h_t_t_p_client.html#ac892f336c6b4da2ba35852524fce59a7">HTTPClient</a>
+: <a class="el" href="class_h_t_t_p_response.html#aab8c0bcbd67bd8091abbd2d3f3ce39b9">HTTPResponse</a>
+, <a class="el" href="class_h_t_t_p_client.html#ac892f336c6b4da2ba35852524fce59a7">HTTPClient</a>
+</li>
+<li>header_vector
+: <a class="el" href="class_h_t_t_p_request.html#aebac0a86d4d927e29ed1fa3b6d57a5ed">HTTPRequest</a>
 </li>
 <li>http_post
 : <a class="el" href="class_h_t_t_p_client.html#ab29feabc537062277a3e9b3ec23f874a">HTTPClient</a>
@@ -218,8 +249,20 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>messages_left
 : <a class="el" href="class_h_t_t_p_manager.html#ad7a2c0e21b19a0c0bd2cee62380b12c7">HTTPManager</a>
 </li>
+<li>method
+: <a class="el" href="class_h_t_t_p_request.html#a199274e4db83d9cabc02e891bded83ad">HTTPRequest</a>
+</li>
 <li>multi_handle
 : <a class="el" href="class_h_t_t_p_manager.html#a226d1719e92ce7e0eab89feade069d76">HTTPManager</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>name
+: <a class="el" href="struct_h_t_t_p_request_1_1_header_field.html#a87cd01d657f2cf866c497375121989cb">HTTPRequest::HeaderField</a>
+, <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#ae0a4c66d9782b796745a64aa79385fbf">HTTPResponseHeaderField::Chunk</a>
+, <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html#a3bd1276a444032db2aa16c198fff9ba9">HTTPRequest::BodyField</a>
 </li>
 </ul>
 
@@ -239,6 +282,12 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>status
+: <a class="el" href="class_h_t_t_p_response_header_field.html#a7127f4434b4773500da2a61b08821f58">HTTPResponseHeaderField</a>
+</li>
+<li>status_code
+: <a class="el" href="class_h_t_t_p_response_header_field.html#a35ced3524c61f23793ef466c4ee3352d">HTTPResponseHeaderField</a>
+</li>
 <li>still_running
 : <a class="el" href="class_h_t_t_p_manager.html#ad6a6442fba997accd0cb38d9e8aca1af">HTTPManager</a>
 </li>
@@ -259,12 +308,22 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 : <a class="el" href="class_h_t_t_p_manager.html#ae0095c54655de8e6c3b00db4079d3654">HTTPManager</a>
 </li>
 </ul>
+
+
+<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>url
+: <a class="el" href="class_h_t_t_p_request.html#ac881d393243022f4c65f4d60fbcfb7cd">HTTPRequest</a>
+</li>
+<li>use_cache
+: <a class="el" href="class_h_t_t_p_request.html#ae22fa6dfd9b2629a6032ae6b344b0add">HTTPRequest</a>
+</li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">생성시간 : 수 7월 11 2012 19:05:00, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

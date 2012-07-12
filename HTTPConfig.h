@@ -40,29 +40,29 @@
 /// @brief HTTP관련 임시파일을 저장할 경로를 숨기기 위한 폴더명
 ///
 /// 실제로 HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY에 저장됨
-#define HTTP_MANAGER_DIRECTORY_TEMPORARY std::string(".temporary")
+#define HTTP_MANAGER_DIRECTORY_TEMPORARY std::string("temporary")
 
 /// @brief HTTP관련 캐쉬파일을 저장할 경로를 숨기기 위한 폴더명
 ///
 /// 실제로 HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_CACHE에 저장됨
-#define HTTP_MANAGER_DIRECTORY_CACHE std::string(".cache")
+#define HTTP_MANAGER_DIRECTORY_CACHE std::string("cache")
 
 /// @brief HTTP응답의 캐쉬를 관리하기위한 sqlite3 DB파일
 ///
 /// 실제로 HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_CACHE + "/" + HTTP_MANAGER_CACHE_DB 에 저장됨
-#define HTTP_MANAGER_CACHE_DB std::string(".db.sql3")
+#define HTTP_MANAGER_CACHE_DB std::string("db.sql3")
 
 /// @brief 임시,캐쉬 헤더파일들을 숨기기 위한 폴더명
 ///
 ///임시헤더파일들은 실제로 HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY + "/" + HTTP_MANAGER_DIRECTORY_HEADER에 저장됨
 ///캐쉬헤더파일들은 실제로 HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_CACHE + "/" + HTTP_MANAGER_DIRECTORY_HEADER에 저장됨
-#define HTTP_MANAGER_DIRECTORY_HEADER std::string(".header")
+#define HTTP_MANAGER_DIRECTORY_HEADER std::string("header")
 
 /// @brief 임시,캐쉬 바디파일들을 숨기기 위한 폴더명
 ///
 /// 임시바디파일들은 실제로 HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY + "/" + HTTP_MANAGER_DIRECTORY_BODY에 저장됨
 /// 캐쉬바디파일들은 실제로 HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_CACHE + "/" + HTTP_MANAGER_DIRECTORY_BODY에 저장됨
-#define HTTP_MANAGER_DIRECTORY_BODY std::string(".body")
+#define HTTP_MANAGER_DIRECTORY_BODY std::string("body")
 
 /// @brief 디버그 매크로
 ///

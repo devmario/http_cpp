@@ -227,42 +227,9 @@ public:
 	 HTTPEvent 의 추상화함수들은 모두 응답에 관한 함수들이며, 응답이 있을시 그 함수들이 이 Update 함수 안에서 호출됩니다.
 	 메인쓰레드(drawing 쓰레드)에서 매 프레임마다 호출해주세요.
 	 
-	 <b>Example</b><br>다음의 예제는 네이버로 요청을 보내고 요청을 기다리는 예제입니다.
-	 \code{.cpp}
-	#include "HTTP.h"
-	
-	class Sender : public HTTPEvent {
-	public:
-		virtual void Receive(const std::string _tag, 
-							 HTTPResponse _response) {
-			std::cout << "Receive " << _tag << std::endl;
-	 		std::cout << _response.GetBodyContent() << std::endl;
-		}
-		
-		virtual void Error(const std::string _tag, 
-						   CURLcode _error_code) {
-			std::cout << "Error " << _error_code << " " << _tag << std::endl;
-		}
-		
-		virtual void Progress(const std::string _tag,
-							  double _download_total, 
-							  double _download_now, 
-							  double _upload_total, 
-							  double _upload_now) {
-		}
-	};
-	
-	int main(void) {
-		Sender sender;
-		HTTPRequest request;
-		request.SetURL("http://www.naver.com");
-		sender.Send("Tag", request);
-		
-		while(true) {
-			HTTPManager::Share()->Update();
-		}
-	}
-	 \endcode
+	 \par Example
+	 다음의 예제는 네이버로 요청을 보내고 요청을 기다리는 예제입니다.
+	 \include running_http.cpp
 	 */
 
 	void Update();
@@ -272,51 +239,9 @@ public:
 	 @brief 응답을 기다리고 있는 요청이 몇개인지 검사합니다.
 	 @return 응답을 기다리고있는 요청의 갯수를 리턴합니다.
 	 
-	<b>Example</b><br>다음의 예제는 naver.com으로 10개의 요청을 보내고 응답을 기다리고 있는 요청의 갯수를 보여주는 예제입니다.
-	\code{.cpp}
-	#include "HTTP.h"
-	
-	int recive_count = 0;
-	int send_count = 10; 
-	
-	class Sender : public HTTPEvent {
-	public:
-		virtual void Receive(const std::string _tag, 
-							 HTTPResponse _response) {
-			std::cout << "Receive " << _tag << std::endl;
-			recive_count++;
-		}
-		
-		virtual void Error(const std::string _tag, 
-						   CURLcode _error_code) {
-			std::cout << "Error " << _error_code << " " << _tag << std::endl;
-			recive_count++;
-		}
-		
-		virtual void Progress(const std::string _tag,
-							  double _download_total, 
-							  double _download_now, 
-							  double _upload_total, 
-							  double _upload_now) {
-		}
-	};
-	
-	int main(void) {
-		Sender sender;
-		
-		for(int i = 0; i < send_count; i++) {
-			HTTPRequest request;
-			request.SetURL("http://www.naver.com");
-			sender.Send("Tag", request);
-		}
-		
-		while(recive_count < send_count) {
-			std::cout << HTTPManager::Share()->GetRunningHTTP() << std::endl;
-			HTTPManager::Share()->Update();
-			usleep(10000);
-		}
-	}
-	\endcode
+	 \par Example
+	 다음의 예제는 naver.com으로 10개의 요청을 보내고 응답을 기다리고 있는 요청의 갯수를 보여주는 예제입니다.
+	 \include running_http.cpp
 	 */
 	int GetRunningHTTP();
 	

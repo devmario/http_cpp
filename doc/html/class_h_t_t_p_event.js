@@ -1,5 +1,6 @@
 var class_h_t_t_p_event =
 [
+    [ "HTTPEvent", "class_h_t_t_p_event.html#a7455c4947e54d360b4a847e802425022", null ],
     [ "~HTTPEvent", "class_h_t_t_p_event.html#a3f216c67f9c4732bac686744a9c527d7", null ],
     [ "AddClient", "class_h_t_t_p_event.html#aefe7fbb836f74214d48aa04d8d5be948", null ],
     [ "Clean", "class_h_t_t_p_event.html#a97e1b29fdb1c80ccb895467e9e6878a2", null ],
@@ -12,5 +13,6 @@ var class_h_t_t_p_event =
     [ "Resume", "class_h_t_t_p_event.html#adc339c9d3e38aa2901b5ab09f0f41894", null ],
     [ "Send", "class_h_t_t_p_event.html#ab8937670a6c582230458452b4969536d", null ],
     [ "Stop", "class_h_t_t_p_event.html#a85a08767229ceb591e4d42fb8ad02971", null ],
+    [ "HTTPClient", "class_h_t_t_p_event.html#af6c1c2fe7f9b1a64078d25a9fba05eb6", null ],
     [ "client_list", "class_h_t_t_p_event.html#a052444ed90ceec0f10344d74ad8fb5d3", null ]
 ];

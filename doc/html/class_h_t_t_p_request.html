@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('class_h_t_t_p_request.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>모두</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>클래스</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>파일들</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>함수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>변수</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>타입정의</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>열거형 타입</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>열거형 멤버</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>매크로</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>페이지들</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,6 +109,8 @@ $(document).ready(function(){initNavTree('class_h_t_t_p_request.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="_h_t_t_p_request_8h_source.html">HTTPRequest.h</a>&gt;</code></p>
+
 <p><a href="class_h_t_t_p_request-members.html">모든 멤버 목록</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
@@ -118,57 +120,397 @@ $(document).ready(function(){initNavTree('class_h_t_t_p_request.html','');});
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-types"></a>
 Public 타입</h2></td></tr>
-<tr class="memitem:a17f057d94f83f8b031a183141f2b305f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>HTTPMethod</b> { <b>HTTPMethod_GET</b> =  0, 
-<b>HTTPMethod_POST</b>
+<tr class="memitem:a17f057d94f83f8b031a183141f2b305f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305f">HTTPMethod</a> { <a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305fa8b6fac2948fd198572df7bf62255aa1e">HTTPMethod_GET</a> =  0, 
+<a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305fa1c1196e5e11370f92d36dddddc545c92">HTTPMethod_POST</a>
  }</td></tr>
-<tr class="memitem:afd16f90388a7bb6c8852edf740c9f306"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd16f90388a7bb6c8852edf740c9f306"></a>
-typedef struct <br class="typebreak"/>
-<a class="el" href="struct_h_t_t_p_request_1_1_header_field.html">HTTPRequest::HeaderField</a>&#160;</td><td class="memItemRight" valign="bottom"><b>HeaderField</b></td></tr>
-<tr class="memitem:afe184e1c049dac6526626067261b9ee3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe184e1c049dac6526626067261b9ee3"></a>
-typedef struct <br class="typebreak"/>
-<a class="el" href="struct_h_t_t_p_request_1_1_body_field.html">HTTPRequest::BodyField</a>&#160;</td><td class="memItemRight" valign="bottom"><b>BodyField</b></td></tr>
+<tr class="memitem:afd16f90388a7bb6c8852edf740c9f306"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_h_t_t_p_request_1_1_header_field.html">HTTPRequest::HeaderField</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#afd16f90388a7bb6c8852edf740c9f306">HeaderField</a></td></tr>
+<tr class="memitem:afe184e1c049dac6526626067261b9ee3"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_h_t_t_p_request_1_1_body_field.html">HTTPRequest::BodyField</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#afe184e1c049dac6526626067261b9ee3">BodyField</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public 멤버 함수</h2></td></tr>
-<tr class="memitem:a35220418472ad05fe90511d32ccbc0f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35220418472ad05fe90511d32ccbc0f8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUseCache</b> (bool _use_cache)</td></tr>
-<tr class="memitem:a35257a7e089fde46d54c233092750137"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35257a7e089fde46d54c233092750137"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetUseCache</b> ()</td></tr>
-<tr class="memitem:a54b559beb6ef175766d8a36960846e16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54b559beb6ef175766d8a36960846e16"></a>
-HTTPMethod&#160;</td><td class="memItemRight" valign="bottom"><b>GetMethod</b> ()</td></tr>
-<tr class="memitem:a73844b9e29f2408db588a54d0e405bb2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73844b9e29f2408db588a54d0e405bb2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMethod</b> (HTTPMethod _method)</td></tr>
-<tr class="memitem:a2f4701609b66369c87388c5175587d8e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f4701609b66369c87388c5175587d8e"></a>
-const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GetURL</b> ()</td></tr>
-<tr class="memitem:a1a830efa331749175d468a3ba3342d89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a830efa331749175d468a3ba3342d89"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetURL</b> (const std::string _url)</td></tr>
-<tr class="memitem:a675c82aea5fcaa8b649aca0048fa1f09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a675c82aea5fcaa8b649aca0048fa1f09"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AppendHeader</b> (const std::string _name, const std::string _content)</td></tr>
-<tr class="memitem:a92f5d3951efb26cf109c2f2920d44d58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92f5d3951efb26cf109c2f2920d44d58"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearHeader</b> ()</td></tr>
-<tr class="memitem:ae421e7bea77295915ad728d87ad93af0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae421e7bea77295915ad728d87ad93af0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AppendBody</b> (const std::string _name, const std::string _content)</td></tr>
-<tr class="memitem:ab30a07b5be6bda80a7600c8d37cb1a2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab30a07b5be6bda80a7600c8d37cb1a2a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AppendBodyWithFile</b> (const std::string _name, const std::string _file_path)</td></tr>
-<tr class="memitem:ad272b25d3736ff52cf831889467cb409"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad272b25d3736ff52cf831889467cb409"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearBody</b> ()</td></tr>
+<tr class="memitem:a35220418472ad05fe90511d32ccbc0f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a35220418472ad05fe90511d32ccbc0f8">SetUseCache</a> (bool _use_cache)</td></tr>
+<tr class="memitem:a35257a7e089fde46d54c233092750137"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a35257a7e089fde46d54c233092750137">GetUseCache</a> ()</td></tr>
+<tr class="memitem:a7c53a92689eb5cee6b069a3db3c327ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a7c53a92689eb5cee6b069a3db3c327ae">HTTPRequest</a> ()</td></tr>
+<tr class="memitem:ab5864e916f43eddde9d2ccb69e0f1385"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#ab5864e916f43eddde9d2ccb69e0f1385">~HTTPRequest</a> ()</td></tr>
+<tr class="memitem:a54b559beb6ef175766d8a36960846e16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305f">HTTPMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a54b559beb6ef175766d8a36960846e16">GetMethod</a> ()</td></tr>
+<tr class="memitem:a73844b9e29f2408db588a54d0e405bb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a73844b9e29f2408db588a54d0e405bb2">SetMethod</a> (<a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305f">HTTPMethod</a> _method)</td></tr>
+<tr class="memitem:a2f4701609b66369c87388c5175587d8e"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a2f4701609b66369c87388c5175587d8e">GetURL</a> ()</td></tr>
+<tr class="memitem:a1a830efa331749175d468a3ba3342d89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a1a830efa331749175d468a3ba3342d89">SetURL</a> (const std::string _url)</td></tr>
+<tr class="memitem:a675c82aea5fcaa8b649aca0048fa1f09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a675c82aea5fcaa8b649aca0048fa1f09">AppendHeader</a> (const std::string _name, const std::string _content)</td></tr>
+<tr class="memitem:a92f5d3951efb26cf109c2f2920d44d58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a92f5d3951efb26cf109c2f2920d44d58">ClearHeader</a> ()</td></tr>
+<tr class="memitem:ae421e7bea77295915ad728d87ad93af0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#ae421e7bea77295915ad728d87ad93af0">AppendBody</a> (const std::string _name, const std::string _content)</td></tr>
+<tr class="memitem:ab30a07b5be6bda80a7600c8d37cb1a2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#ab30a07b5be6bda80a7600c8d37cb1a2a">AppendBodyWithFile</a> (const std::string _name, const std::string _file_path)</td></tr>
+<tr class="memitem:ad272b25d3736ff52cf831889467cb409"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#ad272b25d3736ff52cf831889467cb409">ClearBody</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public 속성</h2></td></tr>
-<tr class="memitem:a199274e4db83d9cabc02e891bded83ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a199274e4db83d9cabc02e891bded83ad"></a>
-HTTPMethod&#160;</td><td class="memItemRight" valign="bottom"><b>method</b></td></tr>
-<tr class="memitem:ac881d393243022f4c65f4d60fbcfb7cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac881d393243022f4c65f4d60fbcfb7cd"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>url</b></td></tr>
-<tr class="memitem:aebac0a86d4d927e29ed1fa3b6d57a5ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebac0a86d4d927e29ed1fa3b6d57a5ed"></a>
-std::vector&lt; <a class="el" href="struct_h_t_t_p_request_1_1_header_field.html">HeaderField</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>header_vector</b></td></tr>
-<tr class="memitem:a0fe2c1c0d7e6567ed70800305998e032"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fe2c1c0d7e6567ed70800305998e032"></a>
-std::vector&lt; <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html">BodyField</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>body_vector</b></td></tr>
-<tr class="memitem:ae22fa6dfd9b2629a6032ae6b344b0add"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae22fa6dfd9b2629a6032ae6b344b0add"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>use_cache</b></td></tr>
+<tr class="memitem:a199274e4db83d9cabc02e891bded83ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305f">HTTPMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a199274e4db83d9cabc02e891bded83ad">method</a></td></tr>
+<tr class="memitem:ac881d393243022f4c65f4d60fbcfb7cd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#ac881d393243022f4c65f4d60fbcfb7cd">url</a></td></tr>
+<tr class="memitem:aebac0a86d4d927e29ed1fa3b6d57a5ed"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_h_t_t_p_request_1_1_header_field.html">HeaderField</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#aebac0a86d4d927e29ed1fa3b6d57a5ed">header_vector</a></td></tr>
+<tr class="memitem:a0fe2c1c0d7e6567ed70800305998e032"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html">BodyField</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#a0fe2c1c0d7e6567ed70800305998e032">body_vector</a></td></tr>
+<tr class="memitem:ae22fa6dfd9b2629a6032ae6b344b0add"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_request.html#ae22fa6dfd9b2629a6032ae6b344b0add">use_cache</a></td></tr>
 </table>
+<hr/><h2>멤버 타입정의 문서화</h2>
+<a class="anchor" id="afe184e1c049dac6526626067261b9ee3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html">HTTPRequest::BodyField</a>  <a class="el" href="struct_h_t_t_p_request_1_1_body_field.html">HTTPRequest::BodyField</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afd16f90388a7bb6c8852edf740c9f306"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_h_t_t_p_request_1_1_header_field.html">HTTPRequest::HeaderField</a>  <a class="el" href="struct_h_t_t_p_request_1_1_header_field.html">HTTPRequest::HeaderField</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>멤버 열거형 문서화</h2>
+<a class="anchor" id="a17f057d94f83f8b031a183141f2b305f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305f">HTTPRequest::HTTPMethod</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl><dt><b>열거형 멤버: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a17f057d94f83f8b031a183141f2b305fa8b6fac2948fd198572df7bf62255aa1e"></a>HTTPMethod_GET</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a17f057d94f83f8b031a183141f2b305fa1c1196e5e11370f92d36dddddc545c92"></a>HTTPMethod_POST</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>생성자 &amp; 소멸자 문서화</h2>
+<a class="anchor" id="a7c53a92689eb5cee6b069a3db3c327ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HTTPRequest::HTTPRequest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab5864e916f43eddde9d2ccb69e0f1385"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HTTPRequest::~HTTPRequest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>멤버 함수 문서화</h2>
+<a class="anchor" id="ae421e7bea77295915ad728d87ad93af0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HTTPRequest::AppendBody </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_content</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab30a07b5be6bda80a7600c8d37cb1a2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HTTPRequest::AppendBodyWithFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_file_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a675c82aea5fcaa8b649aca0048fa1f09"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HTTPRequest::AppendHeader </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_content</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad272b25d3736ff52cf831889467cb409"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HTTPRequest::ClearBody </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a92f5d3951efb26cf109c2f2920d44d58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HTTPRequest::ClearHeader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a54b559beb6ef175766d8a36960846e16"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305f">HTTPRequest::HTTPMethod</a> HTTPRequest::GetMethod </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2f4701609b66369c87388c5175587d8e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string HTTPRequest::GetURL </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a35257a7e089fde46d54c233092750137"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HTTPRequest::GetUseCache </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a73844b9e29f2408db588a54d0e405bb2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HTTPRequest::SetMethod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305f">HTTPMethod</a>&#160;</td>
+          <td class="paramname"><em>_method</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1a830efa331749175d468a3ba3342d89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HTTPRequest::SetURL </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_url</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a35220418472ad05fe90511d32ccbc0f8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HTTPRequest::SetUseCache </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_use_cache</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>멤버 데이타 문서화</h2>
+<a class="anchor" id="a0fe2c1c0d7e6567ed70800305998e032"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_h_t_t_p_request_1_1_body_field.html">BodyField</a>&gt; HTTPRequest::body_vector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aebac0a86d4d927e29ed1fa3b6d57a5ed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_h_t_t_p_request_1_1_header_field.html">HeaderField</a>&gt; HTTPRequest::header_vector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a199274e4db83d9cabc02e891bded83ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_h_t_t_p_request.html#a17f057d94f83f8b031a183141f2b305f">HTTPMethod</a> HTTPRequest::method</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac881d393243022f4c65f4d60fbcfb7cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string HTTPRequest::url</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae22fa6dfd9b2629a6032ae6b344b0add"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HTTPRequest::use_cache</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.:<ul>
 <li><a class="el" href="_h_t_t_p_request_8h_source.html">HTTPRequest.h</a></li>
-<li>HTTPRequest.cpp</li>
+<li><a class="el" href="_h_t_t_p_request_8cpp.html">HTTPRequest.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -176,7 +518,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>use_cache</b></td></t
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_h_t_t_p_request.html">HTTPRequest</a></li>
-    <li class="footer">생성시간 : 수 7월 11 2012 19:05:00, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>
