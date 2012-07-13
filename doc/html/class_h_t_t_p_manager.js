@@ -3,7 +3,7 @@ var class_h_t_t_p_manager =
     [ "HTTPManager", "class_h_t_t_p_manager.html#a5e1443219b1a82677dac5b1e97ff29ec", null ],
     [ "~HTTPManager", "class_h_t_t_p_manager.html#a44a5461e15a215b0b761b4c32c656078", null ],
     [ "AddClient", "class_h_t_t_p_manager.html#a9440a7e871c7de5a3fc9572abbe6a4dd", null ],
-    [ "CleanCache", "class_h_t_t_p_manager.html#a10be8b955f79ef82d96bb55018951003", null ],
+    [ "CleanCache", "class_h_t_t_p_manager.html#ae1201adf2d25166b3808a2fffe8f6c97", null ],
     [ "GetCacheBodyPath", "class_h_t_t_p_manager.html#a4a0d36777cedec89ae29c8820920c742", null ],
     [ "GetCacheHeaderPath", "class_h_t_t_p_manager.html#a28c2e39879e605cccc046946a86e57a6", null ],
     [ "GetDBPath", "class_h_t_t_p_manager.html#aff54e29b67ce94712341b114dcf32b53", null ],

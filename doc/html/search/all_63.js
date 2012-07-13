@@ -13,7 +13,7 @@ var searchData=
   ['chunk',['Chunk',['../struct_h_t_t_p_response_header_field_1_1_chunk.html',1,'HTTPResponseHeaderField']]],
   ['chunk',['Chunk',['../class_h_t_t_p_response_header_field.html#a45755f44bb3629c977a19ee6dc191750',1,'HTTPResponseHeaderField::Chunk()'],['../class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf',1,'HTTPResponseHeaderField::chunk()']]],
   ['clean',['Clean',['../class_h_t_t_p_event.html#a97e1b29fdb1c80ccb895467e9e6878a2',1,'HTTPEvent']]],
-  ['cleancache',['CleanCache',['../class_h_t_t_p_manager.html#a10be8b955f79ef82d96bb55018951003',1,'HTTPManager']]],
+  ['cleancache',['CleanCache',['../class_h_t_t_p_manager.html#ae1201adf2d25166b3808a2fffe8f6c97',1,'HTTPManager']]],
   ['clearbody',['ClearBody',['../class_h_t_t_p_request.html#ad272b25d3736ff52cf831889467cb409',1,'HTTPRequest']]],
   ['clearheader',['ClearHeader',['../class_h_t_t_p_request.html#a92f5d3951efb26cf109c2f2920d44d58',1,'HTTPRequest']]],
   ['client_5flist',['client_list',['../class_h_t_t_p_event.html#a052444ed90ceec0f10344d74ad8fb5d3',1,'HTTPEvent::client_list()'],['../class_h_t_t_p_manager.html#ab47f258bdfa3ba1ed66df1dcec7f09cf',1,'HTTPManager::client_list()']]],

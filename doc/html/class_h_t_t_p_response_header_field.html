@@ -45,6 +45,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
       <li class="current"><a href="annotated.html"><span>클래스</span></a></li>
       <li><a href="files.html"><span>파일들</span></a></li>
+      <li><a href="examples.html"><span>예제</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -103,11 +104,16 @@ $(document).ready(function(){initNavTree('class_h_t_t_p_response_header_field.ht
 <a href="#nested-classes">클래스</a> &#124;
 <a href="#pub-types">Public 타입</a> &#124;
 <a href="#pub-methods">Public 멤버 함수</a> &#124;
-<a href="#pub-attribs">Public 속성</a>  </div>
+<a href="#pub-attribs">Public 속성</a> &#124;
+<a href="#pri-methods">Private 멤버 함수</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">HTTPResponseHeaderField 클래스 참조</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>HTTP요청에 대한 응답헤더을 나타내는 클래스입니다.  
+ <a href="class_h_t_t_p_response_header_field.html#details">더 자세히 ...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_h_t_t_p_response_header_field_8h_source.html">HTTPResponseHeaderField.h</a>&gt;</code></p>
 
@@ -116,24 +122,104 @@ $(document).ready(function(){initNavTree('class_h_t_t_p_response_header_field.ht
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
 클래스</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">Chunk</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">응답헤더필드에대한 구조체  <a href="struct_h_t_t_p_response_header_field_1_1_chunk.html#details">더 자세히 ...</a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-types"></a>
 Public 타입</h2></td></tr>
 <tr class="memitem:a45755f44bb3629c977a19ee6dc191750"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
 <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">HTTPResponseHeaderField::Chunk</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#a45755f44bb3629c977a19ee6dc191750">Chunk</a></td></tr>
+<tr class="memdesc:a45755f44bb3629c977a19ee6dc191750"><td class="mdescLeft">&#160;</td><td class="mdescRight">응답헤더필드에대한 구조체  <a href="#a45755f44bb3629c977a19ee6dc191750"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public 멤버 함수</h2></td></tr>
-<tr class="memitem:a90fcc1962f8a45895529edde0ae31400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#a90fcc1962f8a45895529edde0ae31400">HTTPResponseHeaderField</a> (const std::string _header_file_path)</td></tr>
 <tr class="memitem:af3b84be94cec791b74628d3131d08923"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#af3b84be94cec791b74628d3131d08923">SearchField</a> (const std::string _field_name)</td></tr>
+<tr class="memdesc:af3b84be94cec791b74628d3131d08923"><td class="mdescLeft">&#160;</td><td class="mdescRight">응답헤더에 해당 필드의 정보가 있는지 검사하고 내용을 리턴  <a href="#af3b84be94cec791b74628d3131d08923"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public 속성</h2></td></tr>
 <tr class="memitem:a7127f4434b4773500da2a61b08821f58"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#a7127f4434b4773500da2a61b08821f58">status</a></td></tr>
+<tr class="memdesc:a7127f4434b4773500da2a61b08821f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header맨 처음에 나오는 라인(응답상태를 나타냄)  <a href="#a7127f4434b4773500da2a61b08821f58"></a><br/></td></tr>
 <tr class="memitem:a35ced3524c61f23793ef466c4ee3352d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#a35ced3524c61f23793ef466c4ee3352d">status_code</a></td></tr>
+<tr class="memdesc:a35ced3524c61f23793ef466c4ee3352d"><td class="mdescLeft">&#160;</td><td class="mdescRight">헤더 첫라인의 코드(숫자)  <a href="#a35ced3524c61f23793ef466c4ee3352d"></a><br/></td></tr>
 <tr class="memitem:ab00ea617941b3d2beffd4beee0241bbf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">Chunk</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf">chunk</a></td></tr>
+<tr class="memdesc:ab00ea617941b3d2beffd4beee0241bbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">헤더의 내용이 담겨져 있는 배열  <a href="#ab00ea617941b3d2beffd4beee0241bbf"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private 멤버 함수</h2></td></tr>
+<tr class="memitem:a90fcc1962f8a45895529edde0ae31400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#a90fcc1962f8a45895529edde0ae31400">HTTPResponseHeaderField</a> (const std::string _header_file_path)</td></tr>
+<tr class="memdesc:a90fcc1962f8a45895529edde0ae31400"><td class="mdescLeft">&#160;</td><td class="mdescRight">생성자  <a href="#a90fcc1962f8a45895529edde0ae31400"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ae8cb19d24f15bc4b03a83ae832b64a57"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_t_t_p_response_header_field.html#ae8cb19d24f15bc4b03a83ae832b64a57">HTTPResponse</a></td></tr>
+<tr class="memdesc:ae8cb19d24f15bc4b03a83ae832b64a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">friend class 는 <a class="el" href="class_h_t_t_p_response.html" title="HTTP요청에 대한 응답을 나타내는 클래스입니다.">HTTPResponse</a> 입니다. <a class="el" href="class_h_t_t_p_response_header_field.html" title="HTTP요청에 대한 응답헤더을 나타내는 클래스입니다.">HTTPResponseHeaderField</a> 는 <a class="el" href="class_h_t_t_p_response.html#ac92dc3c47b7dfb0544a028f06d5e80f0" title="헤더필드를 가져옵니다.">HTTPResponse::ParseHeader()</a> 로만 생성할수 있습니다.  <a href="#ae8cb19d24f15bc4b03a83ae832b64a57"></a><br/></td></tr>
 </table>
-<hr/><h2>멤버 타입정의 문서화</h2>
+<hr/><a name="details" id="details"></a><h2>상세한 설명</h2>
+<div class="textblock"><p>HTTP요청에 대한 응답헤더을 나타내는 클래스입니다. </p>
+<p>이 클래스는 응답헤더에대한 정보를 살펴볼수 있습니다.</p>
+<dl class="section user"><dt>Example</dt><dd>다음의 예제는 naver의 헤더를 파싱하는 예제입니다.이후프로그램은 종료됩니다.Mac OSX에서 작성되었습니다. <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_8h.html" title="HTTP_cpp 관련 Util 함수들과 Include.">HTTP.h</a>&quot;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">bool</span> ended_connection = <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">//콜백받는 클래스</span></div>
+<div class="line"><span class="keyword">class </span>Sender : <span class="keyword">public</span> <a class="code" href="class_h_t_t_p_event.html" title="이클래스는 HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러입니다.">HTTPEvent</a> {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Receive(<span class="keyword">const</span> std::string _tag, </div>
+<div class="line">                         <a class="code" href="class_h_t_t_p_response.html" title="HTTP요청에 대한 응답을 나타내는 클래스입니다.">HTTPResponse</a> _response) {</div>
+<div class="line">                std::cout &lt;&lt; <span class="stringliteral">&quot;Receive &quot;</span> &lt;&lt; _tag &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//헤더를 파싱합니다.</span></div>
+<div class="line">                <a class="code" href="class_h_t_t_p_response_header_field.html" title="HTTP요청에 대한 응답헤더을 나타내는 클래스입니다.">HTTPResponseHeaderField</a> field = _response.<a class="code" href="class_h_t_t_p_response.html#ac92dc3c47b7dfb0544a028f06d5e80f0" title="헤더필드를 가져옵니다.">ParseHeader</a>();</div>
+<div class="line">                <span class="comment">//필드검색</span></div>
+<div class="line">                std::cout &lt;&lt; field.<a class="code" href="class_h_t_t_p_response_header_field.html#af3b84be94cec791b74628d3131d08923" title="응답헤더에 해당 필드의 정보가 있는지 검사하고 내용을 리턴">SearchField</a>(<span class="stringliteral">&quot;Content-Type&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                <span class="comment">//스테이터스</span></div>
+<div class="line">                std::cout &lt;&lt; field.<a class="code" href="class_h_t_t_p_response_header_field.html#a7127f4434b4773500da2a61b08821f58" title="Header맨 처음에 나오는 라인(응답상태를 나타냄)">status</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                <span class="comment">//스테이터스코드</span></div>
+<div class="line">                std::cout &lt;&lt; field.<a class="code" href="class_h_t_t_p_response_header_field.html#a35ced3524c61f23793ef466c4ee3352d" title="헤더 첫라인의 코드(숫자)">status_code</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                <span class="comment">//모든필드 출력</span></div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; field.<a class="code" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf" title="헤더의 내용이 담겨져 있는 배열">chunk</a>.size(); i++) {</div>
+<div class="line">                        std::cout &lt;&lt; field.<a class="code" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf" title="헤더의 내용이 담겨져 있는 배열">chunk</a>[i].name &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; field.<a class="code" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf" title="헤더의 내용이 담겨져 있는 배열">chunk</a>[i].content &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                ended_connection = <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line">        </div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Error(<span class="keyword">const</span> std::string _tag, </div>
+<div class="line">                       CURLcode _error_code) {</div>
+<div class="line">                <span class="comment">//에러코드를 출력합니다.</span></div>
+<div class="line">                std::cout &lt;&lt; <span class="stringliteral">&quot;Error &quot;</span> &lt;&lt; _tag &lt;&lt; _error_code;</div>
+<div class="line">                </div>
+<div class="line">                ended_connection = <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line">        </div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Progress(<span class="keyword">const</span> std::string _tag,</div>
+<div class="line">                          <span class="keywordtype">double</span> _download_total, </div>
+<div class="line">                          <span class="keywordtype">double</span> _download_now, </div>
+<div class="line">                          <span class="keywordtype">double</span> _upload_total, </div>
+<div class="line">                          <span class="keywordtype">double</span> _upload_now) {</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>) {</div>
+<div class="line">    Sender sender;</div>
+<div class="line">        <a class="code" href="class_h_t_t_p_request.html" title="HTTP요청에 대한 정보를 담고있는 클래스입니다.">HTTPRequest</a> request;</div>
+<div class="line">        request.<a class="code" href="class_h_t_t_p_request.html#a1a830efa331749175d468a3ba3342d89" title="요청을 보내려는 주소를 설정합니다.">SetURL</a>(<span class="stringliteral">&quot;http://www.naver.com&quot;</span>);</div>
+<div class="line">        sender.Send(<span class="stringliteral">&quot;네이버&quot;</span>, request);</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Ready\n&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">    <span class="keywordflow">while</span>(<span class="keyword">true</span>) {</div>
+<div class="line">                <a class="code" href="class_h_t_t_p_manager.html#a330eff005766714f9239acc6d1b8255a" title="Singleton HTTPManager Class의 포인터를 반환합니다.">HTTPManager::Share</a>()-&gt;<a class="code" href="class_h_t_t_p_manager.html#a688eb551b475720abf1e3643a40c74fa" title="HTTPEvent 요청에 대한 응답을 기다리고 응답이 있으면 처리합니다.">Update</a>();</div>
+<div class="line">                </div>
+<div class="line">                usleep(10000);</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//연결이 종료됬는지 확인합니다.</span></div>
+<div class="line">                <span class="keywordflow">if</span>(ended_connection)</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </dd></dl>
+<dl><dt><b>예제: </b></dt><dd><a class="el" href="response_header_8cpp-example.html#_a3">response_header.cpp</a>.</dd>
+</dl></div><hr/><h2>멤버 타입정의 문서화</h2>
 <a class="anchor" id="a45755f44bb3629c977a19ee6dc191750"></a>
 <div class="memitem">
 <div class="memproto">
@@ -144,12 +230,18 @@ Public 속성</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>응답헤더필드에대한 구조체 </p>
+<p>응답헤더필드에 관한 상세 설명 <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a> </p>
+
 </div>
 </div>
 <hr/><h2>생성자 &amp; 소멸자 문서화</h2>
 <a class="anchor" id="a90fcc1962f8a45895529edde0ae31400"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">HTTPResponseHeaderField::HTTPResponseHeaderField </td>
@@ -159,7 +251,15 @@ Public 속성</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>생성자 </p>
+<p>private 입니다. <a class="el" href="class_h_t_t_p_response.html#ac92dc3c47b7dfb0544a028f06d5e80f0" title="헤더필드를 가져옵니다.">HTTPResponse::ParseHeader()</a> 로만 생성할수 있습니다. </p>
 
 </div>
 </div>
@@ -178,6 +278,40 @@ Public 속성</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>응답헤더에 해당 필드의 정보가 있는지 검사하고 내용을 리턴 </p>
+<dl class="params"><dt>매개변수:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">검색할</td><td>필드명 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값:</dt><dd>검색된 필드내용</dd></dl>
+<p>응답헤더필드에 관한 상세 설명 <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a> </p>
+<dl><dt><b>예제: </b></dt><dd><a class="el" href="response_header_8cpp-example.html#a5">response_header.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<hr/><h2>Friend, 그리고 관련된 함수 문서화</h2>
+<a class="anchor" id="ae8cb19d24f15bc4b03a83ae832b64a57"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_h_t_t_p_response.html">HTTPResponse</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>friend class 는 <a class="el" href="class_h_t_t_p_response.html" title="HTTP요청에 대한 응답을 나타내는 클래스입니다.">HTTPResponse</a> 입니다. <a class="el" href="class_h_t_t_p_response_header_field.html" title="HTTP요청에 대한 응답헤더을 나타내는 클래스입니다.">HTTPResponseHeaderField</a> 는 <a class="el" href="class_h_t_t_p_response.html#ac92dc3c47b7dfb0544a028f06d5e80f0" title="헤더필드를 가져옵니다.">HTTPResponse::ParseHeader()</a> 로만 생성할수 있습니다. </p>
+
 </div>
 </div>
 <hr/><h2>멤버 데이타 문서화</h2>
@@ -191,6 +325,9 @@ Public 속성</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>헤더의 내용이 담겨져 있는 배열 </p>
+<dl><dt><b>예제: </b></dt><dd><a class="el" href="response_header_8cpp-example.html#a8">response_header.cpp</a>.</dd>
+</dl>
 </div>
 </div>
 <a class="anchor" id="a7127f4434b4773500da2a61b08821f58"></a>
@@ -203,6 +340,9 @@ Public 속성</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Header맨 처음에 나오는 라인(응답상태를 나타냄) </p>
+<dl><dt><b>예제: </b></dt><dd><a class="el" href="response_header_8cpp-example.html#a6">response_header.cpp</a>.</dd>
+</dl>
 </div>
 </div>
 <a class="anchor" id="a35ced3524c61f23793ef466c4ee3352d"></a>
@@ -215,6 +355,9 @@ Public 속성</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>헤더 첫라인의 코드(숫자) </p>
+<dl><dt><b>예제: </b></dt><dd><a class="el" href="response_header_8cpp-example.html#a7">response_header.cpp</a>.</dd>
+</dl>
 </div>
 </div>
 <hr/>이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.:<ul>
@@ -227,7 +370,7 @@ Public 속성</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_h_t_t_p_response_header_field.html">HTTPResponseHeaderField</a></li>
-    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 금 7월 13 2012 14:34:37, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

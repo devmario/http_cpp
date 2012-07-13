@@ -45,6 +45,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
       <li class="current"><a href="annotated.html"><span>클래스</span></a></li>
       <li><a href="files.html"><span>파일들</span></a></li>
+      <li><a href="examples.html"><span>예제</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -109,12 +110,12 @@ $(document).ready(function(){initNavTree('annotated.html','');});
 <tr id="row_1_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_h_t_t_p_client.html" target="_self">HTTPClient</a></td><td class="desc">내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다</td></tr>
 <tr id="row_2_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_h_t_t_p_event.html" target="_self">HTTPEvent</a></td><td class="desc">이클래스는 HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러입니다</td></tr>
 <tr id="row_3_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_h_t_t_p_manager.html" target="_self">HTTPManager</a></td><td class="desc"><a class="el" href="class_h_t_t_p_event.html" title="이클래스는 HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러입니다.">HTTPEvent</a> 들을 관리하는 Singleton Class</td></tr>
-<tr id="row_4_" class="even"><td class="entry"><img id="arr_4_" src="ftv2mnode.png" alt="o" width="16" height="22" onclick="toggleFolder('4_')"/><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_h_t_t_p_request.html" target="_self">HTTPRequest</a></td><td class="desc"></td></tr>
-<tr id="row_4_0_"><td class="entry"><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="struct_h_t_t_p_request_1_1_body_field.html" target="_self">BodyField</a></td><td class="desc"></td></tr>
-<tr id="row_4_1_" class="even"><td class="entry"><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="struct_h_t_t_p_request_1_1_header_field.html" target="_self">HeaderField</a></td><td class="desc"></td></tr>
-<tr id="row_5_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_h_t_t_p_response.html" target="_self">HTTPResponse</a></td><td class="desc"></td></tr>
-<tr id="row_6_" class="even"><td class="entry"><img id="arr_6_" src="ftv2mlastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('6_')"/><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_h_t_t_p_response_header_field.html" target="_self">HTTPResponseHeaderField</a></td><td class="desc"></td></tr>
-<tr id="row_6_0_"><td class="entry"><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html" target="_self">Chunk</a></td><td class="desc"></td></tr>
+<tr id="row_4_" class="even"><td class="entry"><img id="arr_4_" src="ftv2mnode.png" alt="o" width="16" height="22" onclick="toggleFolder('4_')"/><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_h_t_t_p_request.html" target="_self">HTTPRequest</a></td><td class="desc">HTTP요청에 대한 정보를 담고있는 클래스입니다</td></tr>
+<tr id="row_4_0_"><td class="entry"><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="struct_h_t_t_p_request_1_1_body_field.html" target="_self">BodyField</a></td><td class="desc">요청바디에 추가해줄 필드들을 나타내는 스트럭트입니다</td></tr>
+<tr id="row_4_1_" class="even"><td class="entry"><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="struct_h_t_t_p_request_1_1_header_field.html" target="_self">HeaderField</a></td><td class="desc">요청해더에 추가해줄 필드들을 나타내는 스트럭트입니다</td></tr>
+<tr id="row_5_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_h_t_t_p_response.html" target="_self">HTTPResponse</a></td><td class="desc">HTTP요청에 대한 응답을 나타내는 클래스입니다</td></tr>
+<tr id="row_6_" class="even"><td class="entry"><img id="arr_6_" src="ftv2mlastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('6_')"/><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_h_t_t_p_response_header_field.html" target="_self">HTTPResponseHeaderField</a></td><td class="desc">HTTP요청에 대한 응답헤더을 나타내는 클래스입니다</td></tr>
+<tr id="row_6_0_"><td class="entry"><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="struct_h_t_t_p_response_header_field_1_1_chunk.html" target="_self">Chunk</a></td><td class="desc">응답헤더필드에대한 구조체</td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
@@ -122,7 +123,7 @@ $(document).ready(function(){initNavTree('annotated.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 금 7월 13 2012 14:34:37, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

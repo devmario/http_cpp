@@ -180,6 +180,14 @@ int HTTPManager::GetRunningHTTP() {
 	return still_running;
 }
 
-void HTTPManager::CleanCache() {
+bool HTTPManager::CleanCache() {
+	if(client_list.size() || still_running || messages_left)
+		return false;
 	
+	system(std::string("rm -rf " + HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY).c_str());
+	system(std::string("rm -rf " + HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_CACHE).c_str());
+	ReadyDirectory();
+	ReadyDB();
+	
+	return true;
 }

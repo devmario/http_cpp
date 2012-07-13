@@ -24,7 +24,6 @@
  <ul>
  <li>사용시 HTTPEvent 를 상속받아 추상화된 함수를 반드시 이용: 혹시라도 모를 처리하지 않은 이벤트를 사전에 없애기 위한 방침</li>
  <li>더 많은 메모리 풀을 위하여 파일로 응답에 대한 처리를 하기를 권장</li>
- <li>반드시 public 멤버 함수만을 사용하도록 구성:안전한 사용을 위하여 public 멤버변수나 _(언더바)로 시작하는 public함수, _(언더바)로 시작하는 Class들의 사용은 추천하지 않습니다.</li>
  <li>한쓰레드 에서만 호출가능: 디버그 과정에서 혹시라도 모를 쓰레드에 의한 오류를 막기위한 방침</li>
  </ul>
  
@@ -48,6 +47,25 @@
  - 작성일 : 2012/07/10
  - Version : 1.0
  </ul>
+ */
+
+/*!
+ \example response_header.cpp
+ \example response_stream.cpp
+ \example stop.cpp
+ \example send.cpp
+ \example pause_resume.cpp
+ \example running_http.cpp
+ \example update.cpp
+ \example clean.cpp
+ \example error.cpp
+ \example progress.cpp
+ \example recieve.cpp
+ \example request_body.cpp
+ \example request_cache.cpp
+ \example request_get.cpp
+ \example request_header.cpp
+ \example request_uploader.cpp
  */
 
 /**

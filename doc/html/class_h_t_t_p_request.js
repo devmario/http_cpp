@@ -21,6 +21,7 @@ var class_h_t_t_p_request =
     [ "SetMethod", "class_h_t_t_p_request.html#a73844b9e29f2408db588a54d0e405bb2", null ],
     [ "SetURL", "class_h_t_t_p_request.html#a1a830efa331749175d468a3ba3342d89", null ],
     [ "SetUseCache", "class_h_t_t_p_request.html#a35220418472ad05fe90511d32ccbc0f8", null ],
+    [ "HTTPClient", "class_h_t_t_p_request.html#af6c1c2fe7f9b1a64078d25a9fba05eb6", null ],
     [ "body_vector", "class_h_t_t_p_request.html#a0fe2c1c0d7e6567ed70800305998e032", null ],
     [ "header_vector", "class_h_t_t_p_request.html#aebac0a86d4d927e29ed1fa3b6d57a5ed", null ],
     [ "method", "class_h_t_t_p_request.html#a199274e4db83d9cabc02e891bded83ad", null ],

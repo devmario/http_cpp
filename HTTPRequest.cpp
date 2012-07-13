@@ -25,6 +25,14 @@ void HTTPRequest::SetURL(const std::string _url) {
 	url = _url;
 }
 
+void HTTPRequest::SetUseCache(bool _use_cache) {
+	use_cache = _use_cache;
+}
+
+bool HTTPRequest::GetUseCache() {
+	return use_cache;
+}
+
 void HTTPRequest::AppendHeader(const std::string _name, 
 							   const std::string _content) {
 	header_vector.push_back((HeaderField){_name, _content});

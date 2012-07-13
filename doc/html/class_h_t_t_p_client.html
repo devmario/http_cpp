@@ -45,6 +45,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
       <li class="current"><a href="annotated.html"><span>클래스</span></a></li>
       <li><a href="files.html"><span>파일들</span></a></li>
+      <li><a href="examples.html"><span>예제</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -418,7 +419,7 @@ Private 속성</h2></td></tr>
 
 <p>요청 또는 응답의 진행상태를 가져오는 콜백함수 </p>
 <p>이함수는 2가지 일을합니다.</p>
-<p>첫번째로는 libcurl은 이콜백함수를 이용하여 요청의 전송상태와 응답의 전송상태를 확인합니다.이 함수는 내부적으로 <a class="el" href="class_h_t_t_p_event.html#ab23948f0e84d047c5d1ccb8c8d840548" title="응답받거나 요청보낸 데이터의 진행률">HTTPEvent::Progress</a> 에 값이 전달됩니다.</p>
+<p>첫번째로는 libcurl은 이콜백함수를 이용하여 요청의 전송상태와 응답의 전송상태를 확인합니다.이 함수는 내부적으로 <a class="el" href="class_h_t_t_p_event.html#ab23948f0e84d047c5d1ccb8c8d840548" title="응답받거나 요청보낸 데이터의 진행률을 가져옵니다.">HTTPEvent::Progress</a> 에 값이 전달됩니다.</p>
 <p>두번째로는 <a class="el" href="class_h_t_t_p_client.html" title="내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다.">HTTPClient</a> 가 일시중지 상태인지 연결상태인지를 판단해 libcurl에 알맞게 작동되도록 libcurl의 함수인 curl_easy_pause를 실행합니다.(curl_easy_pause에 대한 링크: <a href="http://curl.haxx.se/libcurl/c/curl_easy_pause.html">http://curl.haxx.se/libcurl/c/curl_easy_pause.html</a> )</p>
 <p>이 콜백에 대한 참고링크 <a href="http://stackoverflow.com/questions/1637587/c-libcurl-console-progress-bar">http://stackoverflow.com/questions/1637587/c-libcurl-console-progress-bar</a> </p>
 
@@ -771,7 +772,7 @@ Private 속성</h2></td></tr>
 </div><div class="memdoc">
 
 <p>요청에 대한 응답바디를 캐쉬할 파일의 경로입니다. </p>
-<p>이경로로 생성된 파일은 삭제되지 않습니다.삭제는 <a class="el" href="class_h_t_t_p_manager.html#a10be8b955f79ef82d96bb55018951003">HTTPManager::CleanCache</a> 를 이용하여야 합니다. </p>
+<p>이경로로 생성된 파일은 삭제되지 않습니다.삭제는 <a class="el" href="class_h_t_t_p_manager.html#ae1201adf2d25166b3808a2fffe8f6c97" title="모든 임시파일및 캐싱을 초기화합니다.데이터베이스또한 초기화됩니다.">HTTPManager::CleanCache</a> 를 이용하여야 합니다. </p>
 
 </div>
 </div>
@@ -794,7 +795,7 @@ Private 속성</h2></td></tr>
 </div><div class="memdoc">
 
 <p>요청에 대한 응답헤더를 캐쉬할 파일의 경로입니다. </p>
-<p>이경로로 생성된 파일은 삭제되지 않습니다.삭제는 <a class="el" href="class_h_t_t_p_manager.html#a10be8b955f79ef82d96bb55018951003">HTTPManager::CleanCache</a> 를 이용하여야 합니다. </p>
+<p>이경로로 생성된 파일은 삭제되지 않습니다.삭제는 <a class="el" href="class_h_t_t_p_manager.html#ae1201adf2d25166b3808a2fffe8f6c97" title="모든 임시파일및 캐싱을 초기화합니다.데이터베이스또한 초기화됩니다.">HTTPManager::CleanCache</a> 를 이용하여야 합니다. </p>
 
 </div>
 </div>
@@ -1141,7 +1142,7 @@ Private 속성</h2></td></tr>
 </div><div class="memdoc">
 
 <p>요청을 저장하기 위한 멤버변수 입니다. </p>
-<p>개발자가 <a class="el" href="class_h_t_t_p_event.html#ab8937670a6c582230458452b4969536d" title="해당 태그로 자정된 요청을보냅니다.(연결 만들기)">HTTPEvent::Send</a> 함수호출시 사용된 <a class="el" href="class_h_t_t_p_request.html">HTTPRequest</a> 변수는 이 멤버변수에 저장됩니다. </p>
+<p>개발자가 <a class="el" href="class_h_t_t_p_event.html#ab8937670a6c582230458452b4969536d" title="해당 태그로 자정된 요청을보냅니다.(연결 만들기)">HTTPEvent::Send</a> 함수호출시 사용된 <a class="el" href="class_h_t_t_p_request.html" title="HTTP요청에 대한 정보를 담고있는 클래스입니다.">HTTPRequest</a> 변수는 이 멤버변수에 저장됩니다. </p>
 
 </div>
 </div>
@@ -1164,7 +1165,7 @@ Private 속성</h2></td></tr>
 </div><div class="memdoc">
 
 <p>요청에대한 TAG값 </p>
-<p>이 값은 요청에대한 응답이 개발자에게 갔을때 그 응답이 어떤요청에 대한 응답인지 쉽게 판단할수 있도록 하게하기위한 std::string 값 태그입니다. 이값은 요청에대한 응답이 처리되고 난뒤에 <a class="el" href="class_h_t_t_p_event.html#a1813ea9db674b3b0a97d0d586ce5f6d8" title="응답받기(이후 연결은 제거됩니다.) 추상화 함수입니다.">HTTPEvent::Receive</a> , <a class="el" href="class_h_t_t_p_event.html#a5e1a758003e696b19c26d071f63b2bd5" title="응답 에러(이후 연결은 제거 됩니다.) 추상화 함수입니다.">HTTPEvent::Error</a> , <a class="el" href="class_h_t_t_p_event.html#ab23948f0e84d047c5d1ccb8c8d840548" title="응답받거나 요청보낸 데이터의 진행률">HTTPEvent::Progress</a> 등으로 전달됩니다. </p>
+<p>이 값은 요청에대한 응답이 개발자에게 갔을때 그 응답이 어떤요청에 대한 응답인지 쉽게 판단할수 있도록 하게하기위한 std::string 값 태그입니다. 이값은 요청에대한 응답이 처리되고 난뒤에 <a class="el" href="class_h_t_t_p_event.html#a1813ea9db674b3b0a97d0d586ce5f6d8" title="응답받기(이후 연결은 제거됩니다.) 추상화 함수입니다.">HTTPEvent::Receive</a> , <a class="el" href="class_h_t_t_p_event.html#a5e1a758003e696b19c26d071f63b2bd5" title="응답 에러(이후 연결은 제거 됩니다.) 추상화 함수입니다.">HTTPEvent::Error</a> , <a class="el" href="class_h_t_t_p_event.html#ab23948f0e84d047c5d1ccb8c8d840548" title="응답받거나 요청보낸 데이터의 진행률을 가져옵니다.">HTTPEvent::Progress</a> 등으로 전달됩니다. </p>
 
 </div>
 </div>
@@ -1178,7 +1179,7 @@ Private 속성</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_h_t_t_p_client.html">HTTPClient</a></li>
-    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 금 7월 13 2012 14:34:37, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

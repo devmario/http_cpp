@@ -45,6 +45,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
       <li><a href="annotated.html"><span>클래스</span></a></li>
       <li class="current"><a href="files.html"><span>파일들</span></a></li>
+      <li><a href="examples.html"><span>예제</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -102,46 +103,42 @@ $(document).ready(function(){initNavTree('_h_t_t_p_response_header_field_8h.html
 <div class="title">HTTPResponseHeaderField.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_h_t_t_p_response_header_field_8h.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef HTTPResponseHeaderField_h</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define HTTPResponseHeaderField_h</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_config_8h.html" title="HTTP관련 환경 설정및 매크로">HTTPConfig.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//필드에 관한 상세 설명</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response_header_field.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_h_t_t_p_response_header_field.html">HTTPResponseHeaderField</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="class_h_t_t_p_response_header_field.html#a90fcc1962f8a45895529edde0ae31400">HTTPResponseHeaderField</a>(<span class="keyword">const</span> std::string _header_file_path);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="comment">//Header맨 처음에 나오는 라인</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response_header_field.html#a7127f4434b4773500da2a61b08821f58">   14</a></span>&#160;        std::string <a class="code" href="class_h_t_t_p_response_header_field.html#a7127f4434b4773500da2a61b08821f58">status</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="comment">//첫라인의 코드</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response_header_field.html#a35ced3524c61f23793ef466c4ee3352d">   17</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_h_t_t_p_response_header_field.html#a35ced3524c61f23793ef466c4ee3352d">status_code</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">   19</a></span>&#160;        <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">Chunk</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="comment">//필드이름</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#ae0a4c66d9782b796745a64aa79385fbf">   21</a></span>&#160;                std::string <a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#ae0a4c66d9782b796745a64aa79385fbf">name</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="comment">//필드내용</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#a9d89637429bff30e53570a672dfb5e81">   23</a></span>&#160;                std::string <a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#a9d89637429bff30e53570a672dfb5e81">content</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        } <a class="code" href="class_h_t_t_p_response_header_field.html#a45755f44bb3629c977a19ee6dc191750">Chunk</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">//헤더의 내용이 담겨져 있는 배열</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf">   27</a></span>&#160;        std::vector&lt;Chunk&gt; <a class="code" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf">chunk</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment">//헤더에 _field_name의 정보가 있는지 검사하고 내용을 리턴</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p_response_header_field.html#af3b84be94cec791b74628d3131d08923">SearchField</a>(<span class="keyword">const</span> std::string _field_name);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="_h_t_t_p_response_header_field_8h.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef HTTPResponseHeaderField_h</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define HTTPResponseHeaderField_h</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_config_8h.html" title="HTTP관련 환경 설정및 매크로">HTTPConfig.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response_header_field.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_h_t_t_p_response_header_field.html" title="HTTP요청에 대한 응답헤더을 나타내는 클래스입니다.">HTTPResponseHeaderField</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="class_h_t_t_p_response_header_field.html#a90fcc1962f8a45895529edde0ae31400" title="생성자">HTTPResponseHeaderField</a>(<span class="keyword">const</span> std::string _header_file_path);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response_header_field.html#a7127f4434b4773500da2a61b08821f58">   43</a></span>&#160;        std::string <a class="code" href="class_h_t_t_p_response_header_field.html#a7127f4434b4773500da2a61b08821f58" title="Header맨 처음에 나오는 라인(응답상태를 나타냄)">status</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response_header_field.html#a35ced3524c61f23793ef466c4ee3352d">   48</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_h_t_t_p_response_header_field.html#a35ced3524c61f23793ef466c4ee3352d" title="헤더 첫라인의 코드(숫자)">status_code</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html">   55</a></span>&#160;        <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html" title="응답헤더필드에대한 구조체">Chunk</a> {</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#ae0a4c66d9782b796745a64aa79385fbf">   56</a></span>&#160;                std::string <a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#ae0a4c66d9782b796745a64aa79385fbf">name</a>;               </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#a9d89637429bff30e53570a672dfb5e81">   57</a></span>&#160;                std::string <a class="code" href="struct_h_t_t_p_response_header_field_1_1_chunk.html#a9d89637429bff30e53570a672dfb5e81">content</a>;    </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        } <a class="code" href="class_h_t_t_p_response_header_field.html#a45755f44bb3629c977a19ee6dc191750" title="응답헤더필드에대한 구조체">Chunk</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf">   63</a></span>&#160;        std::vector&lt;Chunk&gt; <a class="code" href="class_h_t_t_p_response_header_field.html#ab00ea617941b3d2beffd4beee0241bbf" title="헤더의 내용이 담겨져 있는 배열">chunk</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p_response_header_field.html#af3b84be94cec791b74628d3131d08923" title="응답헤더에 해당 필드의 정보가 있는지 검사하고 내용을 리턴">SearchField</a>(<span class="keyword">const</span> std::string _field_name);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="class_h_t_t_p_response_header_field.html#ae8cb19d24f15bc4b03a83ae832b64a57">   78</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_h_t_t_p_response.html" title="HTTP요청에 대한 응답을 나타내는 클래스입니다.">HTTPResponse</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_h_t_t_p_response_header_field_8h.html">HTTPResponseHeaderField.h</a></li>
-    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 금 7월 13 2012 14:34:37, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

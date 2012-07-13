@@ -45,6 +45,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
       <li><a href="annotated.html"><span>클래스</span></a></li>
       <li class="current"><a href="files.html"><span>파일들</span></a></li>
+      <li><a href="examples.html"><span>예제</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -107,8 +108,8 @@ $(document).ready(function(){initNavTree('_h_t_t_p_client_8h.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define HTTPClient_h</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_config_8h.html" title="HTTP관련 환경 설정및 매크로">HTTPConfig.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_request_8h.html">HTTPRequest.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_response_8h.html">HTTPResponse.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_request_8h.html" title="HTTP요청에 대한 정보를 담고있는 클래스">HTTPRequest.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_response_8h.html" title="HTTP요청에 대한 응답을 나타내는 클래스입니다.">HTTPResponse.h</a>&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_event_8h.html" title="HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러">HTTPEvent.h</a>&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_h_t_t_p_client.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_h_t_t_p_client.html" title="내부적인 Request + Response 유닛이며 실제로 HTTP_cpp 를 이용하는 개발자가 이클래스를 사용할일은 없습니다.">HTTPClient</a> {</div>
@@ -135,7 +136,7 @@ $(document).ready(function(){initNavTree('_h_t_t_p_client_8h.html','');});
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                                <span class="keywordtype">double</span> _upload_total, </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                                <span class="keywordtype">double</span> _upload_now);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        </div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="class_h_t_t_p_client.html#a5c4373e43d9720c8ad8feec3743ba66a">   99</a></span>&#160;        <a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8">HTTPResponse::CacheType</a> <a class="code" href="class_h_t_t_p_client.html#a5c4373e43d9720c8ad8feec3743ba66a" title="캐쉬의 타입을 저장하는 멤버">cache_type</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="class_h_t_t_p_client.html#a5c4373e43d9720c8ad8feec3743ba66a">   99</a></span>&#160;        <a class="code" href="class_h_t_t_p_response.html#af2cfe648e6fa56df2b634ae04cfee7f8" title="응답받을때의 캐쉬의 타입을 나타냅니다.">HTTPResponse::CacheType</a> <a class="code" href="class_h_t_t_p_client.html#a5c4373e43d9720c8ad8feec3743ba66a" title="캐쉬의 타입을 저장하는 멤버">cache_type</a>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        </div>
 <div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="class_h_t_t_p_client.html#a6871841bf2ed753e10ad0c62760dd747">  106</a></span>&#160;        std::string <a class="code" href="class_h_t_t_p_client.html#a6871841bf2ed753e10ad0c62760dd747" title="sqlite 데이터베이스에서의 유니크아이디">db_id</a>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        </div>
@@ -173,7 +174,7 @@ $(document).ready(function(){initNavTree('_h_t_t_p_client_8h.html','');});
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        </div>
 <div class="line"><a name="l00241"></a><span class="lineno"><a class="code" href="class_h_t_t_p_client.html#ad34d3f3134c50301c73b5d58262bbe87">  241</a></span>&#160;        <a class="code" href="class_h_t_t_p_event.html" title="이클래스는 HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러입니다.">HTTPEvent</a>* <a class="code" href="class_h_t_t_p_client.html#ad34d3f3134c50301c73b5d58262bbe87" title="HTTP_cpp 를 사용하는 개발자에게 Event를 보내기 위한 주소값입니다.">event</a>;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        </div>
-<div class="line"><a name="l00248"></a><span class="lineno"><a class="code" href="class_h_t_t_p_client.html#afaec37c59c1da59fc44206aef5d5f348">  248</a></span>&#160;        <a class="code" href="class_h_t_t_p_request.html">HTTPRequest</a> <a class="code" href="class_h_t_t_p_client.html#afaec37c59c1da59fc44206aef5d5f348" title="요청을 저장하기 위한 멤버변수 입니다.">request</a>;</div>
+<div class="line"><a name="l00248"></a><span class="lineno"><a class="code" href="class_h_t_t_p_client.html#afaec37c59c1da59fc44206aef5d5f348">  248</a></span>&#160;        <a class="code" href="class_h_t_t_p_request.html" title="HTTP요청에 대한 정보를 담고있는 클래스입니다.">HTTPRequest</a> <a class="code" href="class_h_t_t_p_client.html#afaec37c59c1da59fc44206aef5d5f348" title="요청을 저장하기 위한 멤버변수 입니다.">request</a>;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        </div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_h_t_t_p_client.html#a5c4bbb32ffa729f09442597b70655d9b" title="인스턴스를 생성할때 호출되는 파일스트림 준비함수 입니다.">ReadyFile</a>();</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        </div>
@@ -188,7 +189,7 @@ $(document).ready(function(){initNavTree('_h_t_t_p_client_8h.html','');});
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        </div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <a class="code" href="class_h_t_t_p_client.html#a26860227a4605fc5be92e2cb38486f7c" title="생성자">HTTPClient</a>(<a class="code" href="class_h_t_t_p_event.html" title="이클래스는 HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러입니다.">HTTPEvent</a>* _event, </div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                                <span class="keyword">const</span> std::string _tag,</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                                <span class="keyword">const</span> <a class="code" href="class_h_t_t_p_request.html">HTTPRequest</a> _request);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                                <span class="keyword">const</span> <a class="code" href="class_h_t_t_p_request.html" title="HTTP요청에 대한 정보를 담고있는 클래스입니다.">HTTPRequest</a> _request);</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        </div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <a class="code" href="class_h_t_t_p_client.html#a97467b9bd9469200fb5266ae3622acc2" title="소멸자">~HTTPClient</a>();</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        </div>
@@ -212,7 +213,7 @@ $(document).ready(function(){initNavTree('_h_t_t_p_client_8h.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_h_t_t_p_client_8h.html">HTTPClient.h</a></li>
-    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 금 7월 13 2012 14:34:37, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

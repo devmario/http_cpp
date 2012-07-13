@@ -23,7 +23,8 @@ var NAVTREE =
         [ "변수", "globals_vars.html", null ],
         [ "매크로", "globals_defs.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "예제", "examples.html", "examples" ]
   ] ]
 ];
 

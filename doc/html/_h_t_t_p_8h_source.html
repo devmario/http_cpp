@@ -45,6 +45,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
       <li><a href="annotated.html"><span>클래스</span></a></li>
       <li class="current"><a href="files.html"><span>파일들</span></a></li>
+      <li><a href="examples.html"><span>예제</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -103,41 +104,41 @@ $(document).ready(function(){initNavTree('_h_t_t_p_8h.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="_h_t_t_p_8h.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#ifndef HTTP_h</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define HTTP_h</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_config_8h.html" title="HTTP관련 환경 설정및 매크로">HTTPConfig.h</a>&quot;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_manager_8h.html" title="HTTPEvent들을 관리하는 Manager.">HTTPManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_event_8h.html" title="HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러">HTTPEvent.h</a>&quot;</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_request_8h.html">HTTPRequest.h</a>&quot;</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_response_8h.html">HTTPResponse.h</a>&quot;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_response_header_field_8h.html">HTTPResponseHeaderField.h</a>&quot;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="class_h_t_t_p.html">   82</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_h_t_t_p.html" title="HTTP와 관련된 정적 Util함수들을 호출하기위한 Class.">HTTP</a> {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p.html#a6633b8cd8d501adead5a554a70e34cdc" title="인자로 넘겨진 문자열에 대해 URL디코딩을 수행하고 그결과를 문자열로 반환합니다.">URLDecode</a>(<span class="keyword">const</span> std::string _string);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p.html#abf5cfe903f730df7028bd3ad07759f59" title="인자로 넘겨진 문자열에대하여 URL인코딩을 수행하고 인코딩된 값을 문자열로 반환합니다.">URLEncode</a>(<span class="keyword">const</span> std::string _string);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keyword">static</span> time_t <a class="code" href="class_h_t_t_p.html#aba31d46b9873b5c654ebb8e9d32266e4" title="헤더에 있는 시간을 시간구조체인 time_t 로 변경하기위한 함수입니다. 인자로 넘겨지는 값은 반드시">HeaderToTime</a>(<span class="keyword">const</span> std::string _header_time);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keyword">static</span> time_t <a class="code" href="class_h_t_t_p.html#a825c4b6e275365c92c5341d09b2ecc1b" title="sqlite의 datetime필드의 문자열을 time_t 로 변경하기위한 함수 입니다. 인자로 넘겨지는 값은 반드시">QueryToTime</a>(<span class="keyword">const</span> std::string _query_time);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#ifndef HTTP_h</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define HTTP_h</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_config_8h.html" title="HTTP관련 환경 설정및 매크로">HTTPConfig.h</a>&quot;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_manager_8h.html" title="HTTPEvent들을 관리하는 Manager.">HTTPManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_event_8h.html" title="HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러">HTTPEvent.h</a>&quot;</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_request_8h.html" title="HTTP요청에 대한 정보를 담고있는 클래스">HTTPRequest.h</a>&quot;</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_response_8h.html" title="HTTP요청에 대한 응답을 나타내는 클래스입니다.">HTTPResponse.h</a>&quot;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_t_t_p_response_header_field_8h.html" title="HTTP요청에 대한 응답헤더를 나타내는 클래스입니다.">HTTPResponseHeaderField.h</a>&quot;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="class_h_t_t_p.html">  100</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_h_t_t_p.html" title="HTTP와 관련된 정적 Util함수들을 호출하기위한 Class.">HTTP</a> {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p.html#a6633b8cd8d501adead5a554a70e34cdc" title="인자로 넘겨진 문자열에 대해 URL디코딩을 수행하고 그결과를 문자열로 반환합니다.">URLDecode</a>(<span class="keyword">const</span> std::string _string);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p.html#abf5cfe903f730df7028bd3ad07759f59" title="인자로 넘겨진 문자열에대하여 URL인코딩을 수행하고 인코딩된 값을 문자열로 반환합니다.">URLEncode</a>(<span class="keyword">const</span> std::string _string);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keyword">static</span> time_t <a class="code" href="class_h_t_t_p.html#aba31d46b9873b5c654ebb8e9d32266e4" title="헤더에 있는 시간을 시간구조체인 time_t 로 변경하기위한 함수입니다. 인자로 넘겨지는 값은 반드시">HeaderToTime</a>(<span class="keyword">const</span> std::string _header_time);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p.html#ae672ec8668f637571150bea397030427" title="인자로 넘어간 time_t 구조체를 헤더가 쓰는 시간규격인 &quot;%a, %d %b %Y %H:%M:%S GMT&quot;로 변환합니다.">TimeToHeader</a>(time_t _time);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p.html#a6e29f6f251e2df9a579a0301bb92e929" title="인자로 넘어간 time_t 구조체를 sqlite쿼리가 쓰는 시간규격인 &quot;%Y-%m-%d %H:%M:%S&quot;로 변환합니다.">TimeToQuery</a>(time_t _time);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keyword">static</span> time_t <a class="code" href="class_h_t_t_p.html#ac6da3f189d12bd93476f9e75ee25c333" title="이 함수는 현재 시간을 그리니치 천문대의 표준시간으로 변환한것을 돌려줍니다.">CurrentTime</a>();</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;};</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keyword">static</span> time_t <a class="code" href="class_h_t_t_p.html#a825c4b6e275365c92c5341d09b2ecc1b" title="sqlite의 datetime필드의 문자열을 time_t 로 변경하기위한 함수 입니다. 인자로 넘겨지는 값은 반드시">QueryToTime</a>(<span class="keyword">const</span> std::string _query_time);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p.html#ae672ec8668f637571150bea397030427" title="인자로 넘어간 time_t 구조체를 헤더가 쓰는 시간규격인 &quot;%a, %d %b %Y %H:%M:%S GMT&quot;로 변환합니다.">TimeToHeader</a>(time_t _time);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="class_h_t_t_p.html#a6e29f6f251e2df9a579a0301bb92e929" title="인자로 넘어간 time_t 구조체를 sqlite쿼리가 쓰는 시간규격인 &quot;%Y-%m-%d %H:%M:%S&quot;로 변환합니다.">TimeToQuery</a>(time_t _time);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keyword">static</span> time_t <a class="code" href="class_h_t_t_p.html#ac6da3f189d12bd93476f9e75ee25c333" title="이 함수는 현재 시간을 그리니치 천문대의 표준시간으로 변환한것을 돌려줍니다.">CurrentTime</a>();</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;};</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_h_t_t_p_8h.html">HTTP.h</a></li>
-    <li class="footer">생성시간 : 목 7월 12 2012 20:16:11, 프로젝트명 : HTTP_cpp, 생성자 : 
+    <li class="footer">생성시간 : 금 7월 13 2012 14:34:37, 프로젝트명 : HTTP_cpp, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

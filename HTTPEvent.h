@@ -148,24 +148,63 @@ public:
 	 
 	 하나의 HTTPEvent 에는 여러개의 연결을 생성할수 있습니다.
 	 이함수를 이용하면 모든 연결이 제거됩니다.
+	 
+	 \par Example
+	 다음의 예제는 이미지 10개를 다운받습니다.
+	 소문자 c누르면 모든 연결이 제거되며, e를 누르면 프로그램이 종료합니다.
+	 Mac OSX 시스템에서 작성되었습니다.
+	 \include clear.cpp
 	 */
 	void Clean();
 	
 	/*!
 	 \brief 응답받기(이후 연결은 제거됩니다.) 추상화 함수입니다.
+	 \param _tag 어떤요청에 대한 응답인지를 구분하기위한 태그입니다.
+	 \param _response 응답에 대해서 세부정보및 내용들을 접근할수 있는 인자입니다.
+	 
+	 이함수는 HTTPEvent::Send 가 에대한 처리(응답받기)가 성공적으로 완료되면 호출됩니다.
+	 이함수가 호출된 후에는 연결이 삭제됩니다.( HTTPEvent 가 삭제되는 것이 아닌 HTTPEvent::Send 로 생성된 내부 연결)
+	 
+	 \par Example
+	 다음의 예제는 네이버의 html을 출력합니다.
+	 출력이이 끝나면 프로그램이 종료됩니다.
+	 Mac OSX 시스템에서 작성되었습니다.
+	 \include recieve.cpp
 	 */
 	virtual void Receive(const std::string _tag, 
 						 HTTPResponse _response) = 0;
 	
 	/*!
 	 \brief 응답 에러(이후 연결은 제거 됩니다.) 추상화 함수입니다.
+	 \param _tag 어떤요청에 대한 응답인지를 구분하기위한 태그입니다.
 	 \param _error_code \ref CURLcode에 대한링크 http://curl.haxx.se/libcurl/c/libcurl-errors.html
+	 
+	 이함수는 HTTPEvent::Send 에서 생성된 연결에 문제가 생겼을때 호출되며 에러코드를 넘겨줍니다.
+	 이함수가 호출된 후에는 연결이 삭제됩니다.( HTTPEvent 가 삭제되는 것이 아닌 HTTPEvent::Send 로 생성된 내부 연결)
+	 
+	 \par Example
+	 다음의 예제는 존재하지않는 주소로 요청을 하며, 에러코드를 출력후 프로그램이 종료됩니다.
+	 Mac OSX 시스템에서 작성되었습니다.
+	 \include error.cpp
 	 */
 	virtual void Error(const std::string _tag, 
 					   CURLcode _error_code) = 0;
 	
 	/*!
-	 \brief 응답받거나 요청보낸 데이터의 진행률
+	 \brief 응답받거나 요청보낸 데이터의 진행률을 가져옵니다.
+	 \param _tag 어떤요청에 대한 응답인지를 구분하기위한 태그입니다.
+	 \param _download_total 다운받아야할 전체 컨텐츠 길이
+	 \param _download_now 다운받은 컨텐츠 길이
+	 \param _upload_total 업로드해야할 전체 컨텐츠 길이
+	 \param _upload_now 업로드한 컨텐츠 길이
+	 
+	 이함수는 HTTPEvent 에서 발생되는 연결의 진행률을 표시합니다. 연결후 서버로부터 스트림을 읽어들일때 마다 호출됩니다. 
+	 
+	 \par Example
+	 다음의 예제는 이미지를 1개 다운받습니다.
+	 다운받으면서 다운진행률을 표시하고 모두 다운이 끝나면 프로그램이 종료됩니다.
+	 Mac OSX 시스템에서 작성되었습니다.
+	 \include progress.cpp
 	 */
 	virtual void Progress(const std::string _tag,
 						  double _download_total, 

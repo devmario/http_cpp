@@ -4,6 +4,7 @@ var searchData=
   ['getbodyfilepath',['GetBodyFilePath',['../class_h_t_t_p_response.html#a1b626bc9135dac3c45986f6548b29b3c',1,'HTTPResponse']]],
   ['getcachebodypath',['GetCacheBodyPath',['../class_h_t_t_p_manager.html#a4a0d36777cedec89ae29c8820920c742',1,'HTTPManager']]],
   ['getcacheheaderpath',['GetCacheHeaderPath',['../class_h_t_t_p_manager.html#a28c2e39879e605cccc046946a86e57a6',1,'HTTPManager']]],
+  ['getcachetype',['GetCacheType',['../class_h_t_t_p_response.html#a117da15992ead365dbbf299fac570403',1,'HTTPResponse']]],
   ['getcurl',['GetCURL',['../class_h_t_t_p_client.html#ab435bd9c4485fb2d8860d821e598b27d',1,'HTTPClient']]],
   ['getdbpath',['GetDBPath',['../class_h_t_t_p_manager.html#aff54e29b67ce94712341b114dcf32b53',1,'HTTPManager']]],
   ['getheadercontent',['GetHeaderContent',['../class_h_t_t_p_response.html#a24a799c8768f28ca2c7126730865f5e0',1,'HTTPResponse']]],
