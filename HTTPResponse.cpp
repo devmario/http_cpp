@@ -19,7 +19,7 @@ static const std::string __ReadFileToString(std::string _file_path) {
 	if(_stream.is_open()) {
 		char _buffer[0xFF] = {NULL,};
 		while(_stream.good()) {
-			_stream.read(_buffer, 0xFF);
+			_stream.read(_buffer, 0xFF - 1);
 			_content.append(_buffer);
 			memset(_buffer, NULL, 0xFF);
 		}

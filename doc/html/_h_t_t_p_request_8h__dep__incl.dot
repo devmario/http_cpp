@@ -1,0 +1,32 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="HTTPRequest.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="HTTPClient.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_t_t_p_client_8h.html",tooltip="요청 및 응답을 처리하는 private 클래스"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="HTTPManager.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_t_t_p_manager_8h.html",tooltip="HTTPEvent들을 관리하는 Manager."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="HTTP.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_t_t_p_8h.html",tooltip="HTTP_cpp 관련 Util 함수들과 Include."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="HTTP.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_t_t_p_8cpp.html"];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="HTTPClient.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_t_t_p_client_8cpp.html"];
+  Node4 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="HTTPManager.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_t_t_p_manager_8cpp.html"];
+  Node4 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="HTTPRequest.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_t_t_p_request_8cpp.html"];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="HTTPEvent.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_t_t_p_event_8cpp.html"];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="HTTPEvent.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_t_t_p_event_8h.html",tooltip="HTTP요청을 보낼수 있고 받을수 있는 이벤트핸들러"];
+  Node10 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}
