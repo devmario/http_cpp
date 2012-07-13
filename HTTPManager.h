@@ -161,7 +161,7 @@ public:
 	 \code{.cpp}
 	 HTTPManager* _manager = HTTPManager::Share();
 	 std::cout << _manager->GetCacheHeaderPath() << std::endl;
-	 \endcode
+	 \endcode 
 	 */
 	const std::string GetCacheHeaderPath();
 	
