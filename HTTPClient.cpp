@@ -61,6 +61,13 @@ int HTTPClient::SQLMatchURLCallback(void* _reference, int _field_length, char** 
 		} else if(strcmp(_field_name[_i], "Last_Modified") == 0) {
 			if(_field[_i])
 				_client->db_last_modified = HTTP::QueryToTime(_field[_i]);
+		} else if(strcmp(_field_name[_i], "Last_Updated") == 0) {
+			if(_field[_i])
+				_client->db_last_updated = HTTP::QueryToTime(_field[_i]);
+		} else if(strcmp(_field_name[_i], "Max_Age") == 0) {
+			if(_field[_i]) {
+				_client->db_max_age = atoi(_field[_i]);
+			}
 		}
 	}
     return 0;
@@ -89,6 +96,17 @@ size_t HTTPClient::ReadHeader(char* _stream, size_t _size, size_t _count, void* 
 		_content = HeaderLineFindField("Expires", _stream, _length, &_finded);
 		if(_finded) {
 			_client->expires = HTTP::HeaderToTime(_content);
+		}
+	}
+	
+	if(_client->max_age == 0) {
+		_finded = false;
+		_content = HeaderLineFindField("Cache-Control", _stream, _length, &_finded);
+		if(_finded) {
+			if(_content.find("max-age") != std::string::npos) {
+				_content.replace(0, strlen("max-age="), "");
+				_client->max_age = atoi(_content.c_str());
+			}
 		}
 	}
 	
@@ -135,9 +153,13 @@ HTTPClient::HTTPClient(HTTPEvent* _event,
 	
 	last_modified = 0;
 	expires = 0;
+	max_age = 0;
+	last_updated = HTTP::CurrentTime();
 	
 	db_last_modified = 0;
 	db_expires = 0;
+	db_max_age = 0;
+	db_last_updated = 0;
 	
 	tag = _tag;
 	paused = false;
@@ -164,6 +186,14 @@ HTTPClient::HTTPClient(HTTPEvent* _event,
 		if(db_expires > HTTP::CurrentTime()) {
 			//저장된것 사용
 			cache_type = HTTPResponse::CacheType_Expires;
+		} else if(db_max_age > 0) {
+			if(last_updated - db_last_updated < db_max_age) {
+				//저장된것 사용
+				cache_type = HTTPResponse::CacheType_Expires;
+			} else {
+				//연결(이후 Last-Modified로 캐쉬 체크)
+				cache_type = HTTPResponse::CacheType_Last_Modified;
+			}
 		} else {
 			//연결(이후 Last-Modified로 캐쉬 체크)
 			cache_type = HTTPResponse::CacheType_Last_Modified;
@@ -347,11 +377,24 @@ bool HTTPClient::UpdateDB() {
 		else
 			_last_modified = "NULL";
 		
+		std::string _last_updated;
+		if(last_updated)
+			_last_updated = "'" + HTTP::TimeToQuery(last_updated) + "'";
+		else
+			_last_updated = "NULL";
+		
+		std::string _max_age;
+		if(max_age) {
+			std::stringstream stream;
+			stream << "'" << max_age << "'";
+			_max_age = stream.str();
+		}
+		
 		if(!db_id.length()) {
-			_query = "INSERT OR REPLACE INTO request (url, Expires, Last_Modified) VALUES ('" + request.url + "', " + _expires + ", " + _last_modified + ")";
+			_query = "INSERT OR REPLACE INTO request (url, Expires, Last_Modified, Last_Updated, Max_Age) VALUES ('" + request.url + "', " + _expires + ", " + _last_modified + ", " + _last_updated + ", " + _max_age + ")";
 			_is_insert = true;
 		} else {
-			_query = "UPDATE request SET Last_Modified=" + _last_modified + ", Expires=" + _expires + " WHERE id='" + db_id + "'";
+			_query = "UPDATE request SET Last_Modified=" + _last_modified + ", Expires=" + _expires + ", Last_Modified=" + _last_modified + ", Max_Age=" + _max_age + " WHERE id='" + db_id + "'";
 		}
 		_need_update = true;
 	

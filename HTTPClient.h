@@ -123,6 +123,21 @@ private:
 	time_t db_last_modified;
 	
 	/**
+	 @brief sqlite 데이터베이스에서의 마지막 필드 수정,추가 시간
+	 
+	 이 값은 인스턴스 초기화때 설정됩니다.
+	 이값은 Cache-Control 의 max-age 값을(남은 만료초) 판단하기 위해 존재합니다.
+	 */
+	time_t db_last_updated;
+	
+	/**
+	 @brief sqlite 데이터베이스에서의 남은 만료시간 초(Cache-Control: max-age)
+	 
+	 이 값은 인스턴스 초기화때 설정됩니다.
+	 */
+	int db_max_age;
+	
+	/**
 	 @brief 이 인스턴스가 처리중인 응답에대한 헤더의 Expires값을 time_t 구조체로 변경한값
 	 
 	 이 값은 요청에대한 응답을처리할때(헤더를 읽어들일때) 설정됩니다.
@@ -139,6 +154,22 @@ private:
 	 다음요청(같은 URL)부터는 HTTPClient 의 멤버변수인 db_last_modified 로 읽혀지고 캐싱판단에 사용됩니다.
 	 */
 	time_t last_modified;
+	
+	/**
+	 @brief 현재시간
+	 
+	 이 값은 인스턴스 초기화때 설정됩니다.
+	 */
+	time_t last_updated;
+	
+	/**
+	 @brief 이 인스턴스가 처리중인 응답에대한 헤더의 남은 만료시간 초(Cache-Control: max-age)
+	 
+	 이 값은 요청에대한 응답을처리할때(헤더를 읽어들일때) 설정됩니다.
+	 이값은 이후 다음번 캐싱에대한 판단을 위해 sqlite 데이터베이스에 저장됩니다.
+	 다음요청(같은 URL)부터는 HTTPClient 의 멤버변수인 db_max_age 로 읽혀지고 캐싱판단에 사용됩니다.
+	 */
+	int max_age;
 	
 	/**
 	 @brief 요청처리에대한 일시정지 FLAG

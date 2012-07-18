@@ -92,7 +92,7 @@ void HTTPManager::ReadyDB() {
 	char* _db_message = NULL;
 	HTTP_DEBUG((sqlite3_open(GetDBPath().c_str(), &_db)), 
 			   "sqllite 시동에 실패하였습니다.");
-	HTTP_DEBUG((sqlite3_exec(_db, "CREATE TABLE IF NOT EXISTS request (id integer primary key unique, url TEXT, Expires DATETIME, Last_Modified DATETIME)", NULL, this, &_db_message)),
+	HTTP_DEBUG((sqlite3_exec(_db, "CREATE TABLE IF NOT EXISTS request (id integer primary key unique, url TEXT, Expires DATETIME, Last_Modified DATETIME, Last_Updated DATETIME, Max_Age integer)", NULL, this, &_db_message)),
 			   "sqllite 테이블 생성에 실패하였습니다." << "\nError Message:" << _db_message);
 	
 	std::string _current_time_query = HTTP::TimeToQuery(HTTP::CurrentTime());
