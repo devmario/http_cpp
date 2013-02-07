@@ -1,0 +1,3 @@
+[submodule "Thread-Command"]
+	path = Thread-Command
+	url = https://github.com/devmario/Thread-Command.git
