@@ -1,5 +1,9 @@
 #include "HTTPResponse.h"
 
+HTTPResponse::HTTPResponse() {
+	
+}
+
 HTTPResponse::HTTPResponse(const std::string _header_file_path, 
 						   const std::string _body_file_path,
 						   CacheType _cache_type) {

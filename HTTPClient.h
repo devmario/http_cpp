@@ -18,6 +18,9 @@
 #include "HTTPRequest.h"
 #include "HTTPResponse.h"
 #include "HTTPEvent.h"
+#include "THCCommand.h"
+
+using namespace ThreadCommand;
 
 /**
  @class HTTPClient
@@ -31,7 +34,7 @@
  
  @ref Expires,Last-Modified에 대한 참고링크 http://mytory.co.kr/archives/1232
  */
-class HTTPClient {
+class HTTPClient : public THCCommand {
 private:
 	
 	/**
@@ -46,29 +49,6 @@ private:
 								   char** _field, 
 								   char** _field_name);
 	
-	/**
-	 @brief 요청에 대한 응답의 바디를 저장하는 콜백함수
-	 
-	 libcurl은 이콜백함수를 이용하여 std::ofstream 형태의 멤버변수인 body 에 요청에대한 응답의 바디를 저장합니다.
-	 
-	 @ref 이 콜백에 대한 참고링크 http://stackoverflow.com/questions/2329571/c-libcurl-get-output-into-a-string
-	 */
-	static size_t ReadBody(char* _stream, 
-						   size_t _size, 
-						   size_t _count, 
-						   void* _pointer);
-	
-	/**
-	 @brief 요청에 대한 응답의 헤더를 저장하는 콜백함수
-	 
-	 libcurl은 이콜백함수를 이용하여 std::ofstream 형태의 멤버변수인 header 에 요청에대한 응답의 헤더를 저장합니다.
-	 
-	 @ref 이 콜백에 대한 참고링크 http://blog.naver.com/PostView.nhn?blogId=ycw002&logNo=20062219296
-	 */
-	static size_t ReadHeader(char* _stream, 
-							 size_t _size, 
-							 size_t _count, 
-							 void* _pointer);
 	
 	/**
 	 @brief 요청 또는 응답의 진행상태를 가져오는 콜백함수
@@ -181,14 +161,6 @@ private:
 	bool paused;
 	
 	/**
-	 @brief 요청에대한 TAG값
-	 
-	 이 값은 요청에대한 응답이 개발자에게 갔을때 그 응답이 어떤요청에 대한 응답인지 쉽게 판단할수 있도록 하게하기위한 std::string 값 태그입니다.
-	 이값은 요청에대한 응답이 처리되고 난뒤에 HTTPEvent::Receive , HTTPEvent::Error , HTTPEvent::Progress 등으로 전달됩니다.
-	 */
-	std::string tag;
-	
-	/**
 	 @brief 요청을 처리할수 있는 curl 인스턴스
 	 
 	 HTTP_cpp 는 내부적으로 요청처리에 libcurl을 사용합니다.
@@ -265,13 +237,6 @@ private:
 	std::ofstream body;
 	
 	/**
-	 @brief HTTP_cpp 를 사용하는 개발자에게 Event를 보내기 위한 주소값입니다.
-	 
-	 개발자가 HTTPEvent::Send 함수호출시 사용된 HTTPEvent 메모리주소는 이 멤버변수에 저장됩니다.
-	 */
-	HTTPEvent* event;
-	
-	/**
 	 @brief 요청을 저장하기 위한 멤버변수 입니다.
 	 
 	 개발자가 HTTPEvent::Send 함수호출시 사용된 HTTPRequest 변수는 이 멤버변수에 저장됩니다.
@@ -304,6 +269,42 @@ private:
 	 */
 	void ReadyBody();
 	
+	
+public:
+	
+	bool is_raise_error_multi_handle;
+	CURLMcode code_multi;
+	
+	bool is_raise_progress;
+	double download_cur;
+	double download_total;
+	double upload_cur;
+	double upload_total;
+	
+    /**
+	 @brief 요청에 대한 응답의 바디를 저장하는 콜백함수
+	 
+	 libcurl은 이콜백함수를 이용하여 std::ofstream 형태의 멤버변수인 body 에 요청에대한 응답의 바디를 저장합니다.
+	 
+	 @ref 이 콜백에 대한 참고링크 http://stackoverflow.com/questions/2329571/c-libcurl-get-output-into-a-string
+	 */
+	static size_t ReadBody(char* _stream,
+						   size_t _size,
+						   size_t _count,
+						   void* _pointer);
+	
+	/**
+	 @brief 요청에 대한 응답의 헤더를 저장하는 콜백함수
+	 
+	 libcurl은 이콜백함수를 이용하여 std::ofstream 형태의 멤버변수인 header 에 요청에대한 응답의 헤더를 저장합니다.
+	 
+	 @ref 이 콜백에 대한 참고링크 http://blog.naver.com/PostView.nhn?blogId=ycw002&logNo=20062219296
+	 */
+	static size_t ReadHeader(char* _stream,
+							 size_t _size,
+							 size_t _count,
+							 void* _pointer);
+    
 	/**
 	 @brief sqlite 데이터베이스를 업데이트하는 함수입니다.
 	 
@@ -315,8 +316,13 @@ private:
 	 */
 	bool UpdateDB();
 	
-	
-public:
+	bool is_recieve;
+	bool is_use_cache;
+#ifdef ANDROID_NDK
+    bool is_https;
+#endif
+	CURLcode code;
+	HTTPResponse response;
 	
 	/**
 	 @brief 생성자
@@ -343,17 +349,12 @@ public:
 	 두번째로는 HTTPEvent::_RemoveClient 가 호출되어 이벤트리스트에서도 삭제됩니다.
 	 
 	 */
-	~HTTPClient();
+	virtual ~HTTPClient();
 	
 	/**
 	 @brief libcurl 인스턴스를 가져오는 함수입니다.
 	 */
 	CURL* GetCURL();
-	
-	/**
-	 @brief 어떤요청에 대한 응답인가를 구분하기위한 태그를 가져오기위한 함수입니다.
-	 */
-	const std::string GetTag();
 	
 	/**
 	 @brief 연결을 일시중지 합니다.
@@ -368,19 +369,6 @@ public:
 	bool Resume();
 	
 	/**
-	 @brief 이함수는 HTTPManager::Update 때 필요한 HTTPClient 의 작동을 위한 함수입니다.
-	 
-	 이함수는 캐싱처리를 위한 함수입니다.
-	 
-	 HTTPManager::Update 함수가 호출될때 작동됩니다.
-	 
-	 캐싱처리를 할때는 더이상 연결이 필요하지 않음으로 libcurl에서 메세지가 오지않아도 이함수에서 바로 HTTPEvent 로 응답처리결과를 알려주며,
-	 처리가 끝난 HTTPClient 는 더이상 필요하지 않기때문에 삭제를 해야할지 말아야할지를 HTTPManager 에게 돌려줍니다.
-	 이후 HTTPManager::Update 에서 소멸자를 호출하여 인스턴스를 삭제합니다.
-	 */
-	bool PrevUpdateAndGetNeedDelete();
-	
-	/**
 	 @brief 응답이 처리된 결과를 HTTPEvent (개발자가 생성한 클래스) 에게 전달하는 함수입니다.
 	 
 	 HTTPManager::Update 함수가 호출될때 작동됩니다.
@@ -389,6 +377,14 @@ public:
 	 이후 HTTPClient 인스턴스는 삭제됩니다.
 	 */
 	void MessageReciever(CURLcode _code);
+	
+	virtual bool Init(void* _ptr = NULL);
+	virtual bool Run(void* _ptr = NULL);
+	virtual bool Clean(void* _ptr = NULL);
+	
+	virtual void Update();
+	
+	friend class HTTPManager;
 };
 
 #endif

@@ -23,6 +23,7 @@
  */
 class HTTPManager {
 private:
+	
 	/**
 	 @brief 임시파일들이 담길 폴더경로문자열
 	 */
@@ -88,6 +89,7 @@ private:
 	 @ref 이콜백에 대한 참고링크 http://six605.tistory.com/300
 	 */
 	static int SQLExpires(void* _reference, int _field_length, char** _field_content, char** _field_name);
+	static int SQLMaxAge(void* _reference, int _field_length, char** _field_content, char** _field_name);
 	
 	/**
 	 @brief 임시파일, 캐쉬파일, 디비파일들을 저장할 디렉토리를 준비합니다.
@@ -105,6 +107,8 @@ private:
 	 */
 	void ReadyDB();
 	
+	CURLM* GetCURLMulti();
+	
 	/**
 	 @brief 생성자
 	 
@@ -120,6 +124,9 @@ private:
 	~HTTPManager();
 	
 public:
+	static void* UpdatePrev(void*);
+	static void* UpdateNext(void*);
+	
 	/**
 	 @brief 임시헤더파일들이 담긴 폴더의 경로를 가져옵니다.
 	 @return 임시헤더폴더
@@ -208,33 +215,6 @@ public:
 	static HTTPManager* Share();
 	
 	/**
-	 @brief 요청과 응답을 처리할 class 인 HTTPClient 를 작동시키기 위해 추가하는 함수입니다.
-	 
-	 이 함수는 HTTPClient 가 생성될때 자동으로 호출되어 HTTPManager 의 멤버인 client_list 에 자동으로 추가됩니다.
-	 */
-	void AddClient(HTTPClient* _client);
-	
-	/**
-	 @brief 요청과 응답을 처리할 class 인 HTTPClient 의 작동을 멈추기 위해 제거하는 함수입니다.
-	 
-	 이 함수는 HTTPClient 가 소멸될때 자동으로 호출되어 HTTPManager 의 멤버인 client_list 에 자동으로 제거됩니다.
-	 */
-	void RemoveClient(HTTPClient* _client);
-	
-	/**
-	 @brief HTTPEvent 요청에 대한 응답을 기다리고 응답이 있으면 처리합니다.
-	 
-	 HTTPEvent 의 추상화함수들은 모두 응답에 관한 함수들이며, 응답이 있을시 그 함수들이 이 Update 함수 안에서 호출됩니다.
-	 메인쓰레드(drawing 쓰레드)에서 매 프레임마다 호출해주세요.
-	 
-	 \par Example
-	 다음의 예제는 네이버로 요청을 보내고 요청을 기다리는 예제입니다.
-	 \include running_http.cpp
-	 */
-
-	void Update();
-	
-	/**
 	 
 	 @brief 응답을 기다리고 있는 요청이 몇개인지 검사합니다.
 	 @return 응답을 기다리고있는 요청의 갯수를 리턴합니다.
@@ -252,6 +232,8 @@ public:
 	 만약 연결이 있는 상태라면 초기화 할수 없습니다.캐쉬파일의 용량과 초기화의 좋은 작동은 다음버전에 업데이트 됩니다.
 	 */
 	bool CleanCache();
+	
+	friend class HTTPClient;
 };
 
 #endif

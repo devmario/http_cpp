@@ -18,7 +18,7 @@
 
 #include <string>
 #include <list>
-#include <curl/curl.h>
+#include "curl.h"
 #include <assert.h>
 #include <iostream>
 #include <sstream>
@@ -33,9 +33,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sqlite3.h>
+#include "VBEngine.h"
+#include "Device.h"
 
 /// @brief HTTP관련 임시파일을 저장할 경로를 지정함
-#define HTTP_MANAGER_DIRECTORY std::string("/Users/mario/Library/Developer/Xcode/DerivedData/Test-ewxxhqydzviwutcttpisefmegkew/Build/Products/Debug")
+#define HTTP_MANAGER_DIRECTORY Device::Manager::Share()->GetDocumentPath()
 
 /// @brief HTTP관련 임시파일을 저장할 경로를 숨기기 위한 폴더명
 ///
@@ -68,13 +70,23 @@
 ///
 /// 함수의 내용을 FLAG;로 바꾸면 프로그램을 중단하지 않음
 /// 릴리즈시 필요하다면 매크로를 변경(매크로 내용 삭제)
+
+#ifdef DEBUG
 #define HTTP_DEBUG(FLAG, STRING)\
-if(FLAG) {\
-	std::cout << "HTTP LOG: " << STRING << "\n";\
-	assert(false);\
+{\
+int DEBUGFLAG = (int)FLAG;\
+if(DEBUGFLAG) {\
+std::cout << "LOG FLAG: " << DEBUGFLAG << "\n";\
+std::cout << "HTTP LOG: " << STRING << "\n";\
+assert(false);\
+}\
 }
+#else
+#define HTTP_DEBUG(FLAG, STRING)\
+FLAG;
+#endif
 
 /// @brief 최대 연결 갯수
-#define HTTP_MAX_CONNECTIONS 0xF
+#define HTTP_MAX_CONNECTIONS 0xFF
 
 #endif

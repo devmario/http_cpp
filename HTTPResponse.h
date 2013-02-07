@@ -28,7 +28,8 @@ public:
 	 \brief 응답받을때의 캐쉬의 타입을 나타냅니다.
 	 */
 	typedef enum CacheType {
-		CacheType_None = 0, 		/*!< 요청시 보낼 URL이 처음 요청이거나, Expires가 만료되었거나 */
+		CacheType_Empty = 0,		//아직 설정안됨
+		CacheType_None,		 		/*!< 요청시 보낼 URL이 처음 요청이거나, Expires가 만료되었거나 */
 		CacheType_Last_Modified,	/*!< 요청시 보낼 URL이 이미 보냈었던 요청이고, Expires가 만료되었을때 */
 		CacheType_Expires			/*!< 요청시 보낼 URL이 이미 보냈었던 요청이고, Expires가 만료되지 않았을때 */
 	} CacheType;
@@ -53,16 +54,18 @@ private:
 	 */
 	CacheType cache_type;
 	
+public:
+	HTTPResponse();
+	
 	/*!
 	 \brief 생성자
 	 
 	 HTTPResponse 의 생성자는 private이며 friend class인 HTTPClient만이 초기화 할수 있습니다.
 	 */
-	HTTPResponse(const std::string _header_file_path, 
+	HTTPResponse(const std::string _header_file_path,
 				 const std::string _body_file_path,
 				 CacheType _cache_type);
 	
-public:
 	/*!
 	 \brief 소멸자
 	 */

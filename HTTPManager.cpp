@@ -1,12 +1,13 @@
 #include "HTTPManager.h"
 #include "HTTP.h"
+#include "GFUtil.h"
+
+using namespace GelatoFriend;
 
 HTTPManager* __http_manager = NULL;
-pthread_t __http_thread = NULL;
 
 HTTPManager* HTTPManager::Share() {
 	if(__http_manager == NULL) {
-		__http_thread = pthread_self();
 		__http_manager = new HTTPManager();
 	}
 	return __http_manager;
@@ -37,9 +38,7 @@ void HTTPManager::ReadyDirectory() {
 	
 	//임시폴더 Reset
 	temporary_path = HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY;
-	if(access(temporary_path.c_str(), F_OK) == 0) {
-		system(std::string("rm -rf " + temporary_path).c_str());
-	}
+	GFUtil::RemoveDirectory(temporary_path);
 	mkdir(temporary_path.c_str(), 0777);
 	
 	//임시헤더파일
@@ -86,28 +85,64 @@ int HTTPManager::SQLExpires(void* _reference, int _field_length, char** _field_c
 	return 0;
 }
 
+int HTTPManager::SQLMaxAge(void* _reference, int _field_length, char** _field_content, char** _field_name){
+	std::string id;
+	int Max_Age;
+	time_t Last_Updated;
+	std::string url;
+	for(int _i = 0; _i < _field_length; _i++) {
+		if(strcmp(_field_name[_i], "id") == 0) {
+			id = _field_content[_i];
+		} else if(strcmp(_field_name[_i], "Max_Age") == 0) {
+			Max_Age = atoi(_field_content[_i]);
+		} else if(strcmp(_field_name[_i], "Last_Updated") == 0) {
+			Last_Updated = atol(_field_content[_i]);
+		} else if(strcmp(_field_name[_i], "url") == 0) {
+			url = _field_content[_i];
+		}
+	}
+	std::cout << "delete max_age expires\n"
+	<< Max_Age << "," << HTTP::CurrentTime() << "," << Last_Updated << "\n"
+	<< (Max_Age - (int)(HTTP::CurrentTime() - Last_Updated)) << "\n";
+	return 0;
+}
+
+#include "cocos2d.h"
 void HTTPManager::ReadyDB() {
 	//디비 연결하고 테이블 생성(테이블 없을시)
 	sqlite3* _db = NULL;
 	char* _db_message = NULL;
 	HTTP_DEBUG((sqlite3_open(GetDBPath().c_str(), &_db)), 
-			   "sqllite 시동에 실패하였습니다.");
-	HTTP_DEBUG((sqlite3_exec(_db, "CREATE TABLE IF NOT EXISTS request (id integer primary key unique, url TEXT, Expires DATETIME, Last_Modified DATETIME, Last_Updated DATETIME, Max_Age integer)", NULL, this, &_db_message)),
+			   "sqllite 시동에 실패하였습니다." << "\nError Message:" << sqlite3_errmsg(_db) << "\n");
+	HTTP_DEBUG((sqlite3_exec(_db, "BEGIN; CREATE TABLE IF NOT EXISTS request (id integer primary key unique, url TEXT, Expires integer, Last_Modified integer, Last_Updated integer, Max_Age integer); CREATE INDEX IF NOT EXISTS request_url ON request (url); COMMIT;", NULL, this, &_db_message)),
 			   "sqllite 테이블 생성에 실패하였습니다." << "\nError Message:" << _db_message);
 	
-	std::string _current_time_query = HTTP::TimeToQuery(HTTP::CurrentTime());
+	std::stringstream _current_time_query;
+	_current_time_query << HTTP::CurrentTime();
 	
-	HTTP_DEBUG((sqlite3_exec(_db, std::string("SELECT * FROM request WHERE Expires != NULL AND Expires <= '" + _current_time_query + "'").c_str(), HTTPManager::SQLExpires, this, &_db_message)),
+	HTTP_DEBUG((sqlite3_exec(_db, ("SELECT * FROM request WHERE Expires != 0 AND Expires <= " + _current_time_query.str()).c_str(), HTTPManager::SQLExpires, this, &_db_message)),
 			   "Expires만료기간이 지난 컬럼을 가져오는데에 문제가 발생하였습니다." << "\nError Message:" << _db_message);
-	HTTP_DEBUG((sqlite3_exec(_db, std::string("DELETE FROM request WHERE Expires <= '" + _current_time_query + "'").c_str(), NULL, NULL, &_db_message)),
+	HTTP_DEBUG((sqlite3_exec(_db, ("DELETE FROM request WHERE Expires != 0 AND Expires <= " + _current_time_query.str()).c_str(), NULL, NULL, &_db_message)),
 			   "Expires만료기간이 지난 컬럼을 삭제하는데에 문제가 발생하였습니다." << "\nError Message:" << _db_message);
-	HTTP_DEBUG((sqlite3_close(_db)), 
-			   "sqlite를 close하는데 실패하였습니다.");
+
+#ifdef DEBUG
+	HTTP_DEBUG((sqlite3_exec(_db, ("SELECT * FROM request WHERE (" + _current_time_query.str() + " - Last_Updated) > Max_Age;").c_str(), HTTPManager::SQLMaxAge, NULL, &_db_message)),
+			   "Max_Age를 가진 컬럼을 가져오는데에 문제가 발생하였습니다." << "\nError Message:" << _db_message);
+#endif
+
+	HTTP_DEBUG((sqlite3_exec(_db, ("DELETE FROM request WHERE (" + _current_time_query.str() + " - Last_Updated) > Max_Age;").c_str(), HTTPManager::SQLMaxAge, NULL, &_db_message)),
+			   "Max_Age를 가진 컬럼을 가져오는데에 문제가 발생하였습니다." << "\nError Message:" << _db_message);
+	
+	HTTP_DEBUG((sqlite3_close(_db)),
+			   "sqlite를 close하는데 실패하였습니다." << "\nError Message:" << sqlite3_errmsg(_db) << "\n");
+}
+
+CURLM* HTTPManager::GetCURLMulti() {
+	return multi_handle;
 }
 
 HTTPManager::HTTPManager() {
 	HTTP_DEBUG((__http_manager), "이미 생성된 매니져가 있습니다.");
-	HTTP_DEBUG((__http_thread != pthread_self()), "한쓰레드에서 호출해주세요.");
 	
 	ReadyDirectory();
 	ReadyDB();
@@ -121,59 +156,51 @@ HTTPManager::HTTPManager() {
 }
 
 HTTPManager::~HTTPManager() {
-	HTTP_DEBUG((__http_thread != pthread_self()), "한쓰레드에서 호출해주세요.");
 	client_list.clear();
 }
 
-void HTTPManager::AddClient(HTTPClient* _client) {
-	HTTP_DEBUG((__http_thread != pthread_self()), "한쓰레드에서 호출해주세요.");
-	client_list.push_back(_client);
-	if(_client->GetCURL())
-		curl_multi_add_handle(multi_handle, _client->GetCURL());
-}
-
-void HTTPManager::RemoveClient(HTTPClient* _client) {
-	HTTP_DEBUG((__http_thread != pthread_self()), "한쓰레드에서 호출해주세요.");
-	client_list.remove(_client);
-	if(_client->GetCURL())
-		curl_multi_remove_handle(multi_handle, _client->GetCURL());
-}
-
-void HTTPManager::Update() {
-	HTTP_DEBUG((__http_thread != pthread_self()), "한쓰레드에서 호출해주세요.");
-	
-	std::list<HTTPClient*>::iterator _iterator = client_list.begin();
-	while(_iterator != client_list.end()) {
-		HTTPClient* _client = *_iterator;
-		_iterator++;
-		if(_client->PrevUpdateAndGetNeedDelete())
-			delete _client;
+void* HTTPManager::UpdatePrev(void* _argument) {
+	HTTPManager* _manager = (HTTPManager*)_argument;
+	CURLMcode _code = curl_multi_perform(_manager->multi_handle, &_manager->still_running);
+	if(_code == CURLM_OK || _code == CURLM_CALL_MULTI_PERFORM) {
+		return NULL;
+	} else {
+		curl_multi_cleanup(_manager->multi_handle);
+		
+		_manager->still_running = 0;
+		_manager->messages_left = 0;
+		
+		_manager->multi_handle = curl_multi_init();
+		curl_multi_setopt(_manager->multi_handle, CURLMOPT_MAXCONNECTS, HTTP_MAX_CONNECTIONS);
+		
+		std::cout << "curl_multi_perform error: " << _code << "\n";
+		CURLMcode* _code_mem = (CURLMcode*)malloc(sizeof(CURLMcode));
+		*_code_mem = _code;
+		return _code_mem;
 	}
+}
+
+void* HTTPManager::UpdateNext(void* _argument) {
+	HTTPManager* _manager = (HTTPManager*)_argument;
 	
-	curl_multi_perform(multi_handle, 
-					   &still_running);
-	
-	//받은 응답 메세지 큐에서 확인하고 이벤트 전달, 이후 list에서 제거
-	CURLMsg* _message = curl_multi_info_read(multi_handle, &messages_left);
+	//받은 응답 메세지 큐에서 확인하고 이벤트 전달
+	CURLMsg* _message = curl_multi_info_read(_manager->multi_handle, &_manager->messages_left);
 	while(_message) {
 		if(_message->msg == CURLMSG_DONE) {
-			HTTPClient* _client = NULL;
-			
-			for(_iterator = client_list.begin(); _iterator != client_list.end(); _iterator++) {
-				if(_message->easy_handle == (*_iterator)->GetCURL()) {
+			THCManager::ThreadCategory _category = THCManager::Share()->GetCategoryList("http");
+			for(std::list<THCCommand*>::iterator _it = _category.list_command.begin(); _it != _category.list_command.end(); _it++) {
+				HTTPClient* _client = (HTTPClient*)*_it;
+				if(_message->easy_handle == _client->GetCURL()) {
 					CURLcode _result = _message->data.result;
-					_client = *_iterator;
 					_client->MessageReciever(_result);
 					break;
 				}
 			}
-			
-			if(_client) {
-				delete _client;
-			}
 		}
-		_message = curl_multi_info_read(multi_handle, &messages_left);
+		_message = curl_multi_info_read(_manager->multi_handle, &_manager->messages_left);
 	}
+	
+	return NULL;
 }
 
 int HTTPManager::GetRunningHTTP() {
@@ -184,8 +211,8 @@ bool HTTPManager::CleanCache() {
 	if(client_list.size() || still_running || messages_left)
 		return false;
 	
-	system(std::string("rm -rf " + HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY).c_str());
-	system(std::string("rm -rf " + HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_CACHE).c_str());
+	GFUtil::RemoveDirectory(HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY);
+	GFUtil::RemoveDirectory(HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_CACHE);
 	ReadyDirectory();
 	ReadyDB();
 	

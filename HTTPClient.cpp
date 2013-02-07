@@ -2,6 +2,26 @@
 #include "HTTPManager.h"
 #include "HTTP.h"
 
+#ifdef ANDROID_NDK
+#include "main.h"
+#endif
+
+#ifdef DEBUG
+
+int opened_file = 0;
+
+#define OPEN_FD()\
+opened_file++;
+#define CLOSE_FD()\
+opened_file--;
+
+#else
+
+#define OPEN_FD()
+#define CLOSE_FD()
+
+#endif
+
 //임시파일경로에 붙을 유니크 아이디값을 위한 값
 unsigned long __http_client_identity = 0;
 
@@ -48,6 +68,7 @@ static const std::string HeaderLineFindField(const std::string _chunk_name, char
 
 int HTTPClient::SQLMatchURLCallback(void* _reference, int _field_length, char** _field, char** _field_name) {
 	HTTPClient* _client = (HTTPClient*)_reference;
+//	std::cout << "SQLMatchURLCallback\n";
 	for(int _i = 0; _i < _field_length; _i++) {
 		if(strcmp(_field_name[_i], "id") == 0) {
 			if(_field[_i]) {
@@ -57,13 +78,13 @@ int HTTPClient::SQLMatchURLCallback(void* _reference, int _field_length, char** 
 			}
 		} else if(strcmp(_field_name[_i], "Expires") == 0) {
 			if(_field[_i])
-				_client->db_expires = HTTP::QueryToTime(_field[_i]);
+				_client->db_expires = atol(_field[_i]);
 		} else if(strcmp(_field_name[_i], "Last_Modified") == 0) {
 			if(_field[_i])
-				_client->db_last_modified = HTTP::QueryToTime(_field[_i]);
+				_client->db_last_modified = atol(_field[_i]);
 		} else if(strcmp(_field_name[_i], "Last_Updated") == 0) {
 			if(_field[_i])
-				_client->db_last_updated = HTTP::QueryToTime(_field[_i]);
+				_client->db_last_updated = atol(_field[_i]);
 		} else if(strcmp(_field_name[_i], "Max_Age") == 0) {
 			if(_field[_i]) {
 				_client->db_max_age = atoi(_field[_i]);
@@ -133,11 +154,13 @@ int HTTPClient::Progress(void* _client_pointer,
 	} else {
 		curl_easy_pause(_client->curl, CURLPAUSE_CONT);
 		
-		_client->event->Progress(_client->tag,
-								 _download_total, 
-								 _download_now, 
-								 _upload_total, 
-								 _upload_now);
+		if(_client) {
+			_client->is_raise_progress = true;
+			_client->download_cur = _download_now;
+			_client->download_total = _download_total;
+			_client->upload_cur = _upload_now;
+			_client->upload_total = _upload_total;
+		}
 	}
 	
 	return 0;
@@ -146,9 +169,26 @@ int HTTPClient::Progress(void* _client_pointer,
 #pragma mark -
 #pragma mark 생성자, 소멸자
 
-HTTPClient::HTTPClient(HTTPEvent* _event, 
-						 const std::string _tag,
-						 const HTTPRequest _request) {
+HTTPClient::HTTPClient(HTTPEvent* _event,
+					   const std::string _tag,
+					   const HTTPRequest _request) : THCCommand() {
+    	
+	is_recieve = false;
+	is_use_cache = false;
+#ifdef ANDROID_NDK
+    is_https = false;
+#endif
+	code = CURLE_OK;
+	
+	is_raise_error_multi_handle = false;
+	code_multi = CURLM_CALL_MULTI_PERFORM;
+	
+	is_raise_progress = false;
+	download_cur = 0;
+	download_total = 0;
+	upload_cur = 0;
+	upload_total = 0;
+	
 	cache_type = HTTPResponse::CacheType_None;
 	
 	last_modified = 0;
@@ -170,89 +210,18 @@ HTTPClient::HTTPClient(HTTPEvent* _event,
 	header_chunk = NULL;
 	http_post = NULL;
 	last_post = NULL;
-	
-	//디비에서 URL이랑 매치되는 필드가져오기
-	sqlite3* _db = NULL;
-	char* _db_message = NULL;
-	HTTP_DEBUG((sqlite3_open(HTTPManager::Share()->GetDBPath().c_str(), &_db)),
-			   "sqlite 디비 열기에 실패하였습니다.");
-	std::string _query = "SELECT * FROM request WHERE url='" + request.url + "' LIMIT 1";
-	HTTP_DEBUG((sqlite3_exec(_db, _query.c_str(), SQLMatchURLCallback, this, &_db_message)), 
-			   "sqllite 디비 검색에 실패하였습니다." << "\nError Message:" << _db_message);
-	HTTP_DEBUG((sqlite3_close(_db)), 
-			   "sqlite 디비 닫기에 실패하였습니다.");
-	
-	if(db_id.length()) {
-		if(db_expires > HTTP::CurrentTime()) {
-			//저장된것 사용
-			cache_type = HTTPResponse::CacheType_Expires;
-		} else if(db_max_age > 0) {
-			if(last_updated - db_last_updated < db_max_age) {
-				//저장된것 사용
-				cache_type = HTTPResponse::CacheType_Expires;
-			} else {
-				//연결(이후 Last-Modified로 캐쉬 체크)
-				cache_type = HTTPResponse::CacheType_Last_Modified;
-			}
-		} else {
-			//연결(이후 Last-Modified로 캐쉬 체크)
-			cache_type = HTTPResponse::CacheType_Last_Modified;
-		}
-	} else {
-		//처음 다운
-		cache_type = HTTPResponse::CacheType_None;
-	}
-	
-	if(!request.use_cache)
-		cache_type = HTTPResponse::CacheType_None;
-	
-	//파일 준비
-	ReadyFile();
-	
-	//연결이 필요한경우는 curl생성
-	if(cache_type != HTTPResponse::CacheType_Expires)
-		curl = curl_easy_init();
-	else
-		curl = NULL;
-	
-	if(curl) {
-		curl_easy_setopt(curl, CURLOPT_URL, request.GetURL().c_str());
-		
-		ReadyHeader();
-		ReadyBody();
-		
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, HTTPClient::ReadBody);
-		curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, ReadHeader);
-		curl_easy_setopt(curl, CURLOPT_WRITEHEADER, this);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
-		
-		curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 0L);
-		curl_easy_setopt(curl, CURLOPT_PROGRESSFUNCTION, HTTPClient::Progress);
-		curl_easy_setopt(curl, CURLOPT_PROGRESSDATA, this);
-	}
-	
-	event->AddClient(this);
-	HTTPManager::Share()->AddClient(this);
+	curl = NULL;
+
+#ifdef ANDROID_NDK
+    if (strstr(_request.url.c_str(), "https") != NULL) {
+        is_https = true;
+    }
+#endif
+    
 }
 
 HTTPClient::~HTTPClient() {
-	HTTPManager::Share()->RemoveClient(this);
-	if(curl)
-		curl_easy_cleanup(curl);
-	if(header_chunk)
-		curl_slist_free_all(header_chunk);
-	if(http_post)
-		curl_formfree(http_post);
-	
-	if(body.is_open())
-		body.close();
-	if(header.is_open())
-		header.close();
-	
-	remove(body_file_path.c_str());
-	remove(header_file_path.c_str());
-	
-	event->RemoveClient(this);
+	Clean();
 }
 
 #pragma mark -
@@ -265,6 +234,7 @@ void HTTPClient::ReadyFile() {
 	header_file_path = _header_path_stream.str();
 	
 	header.open(header_file_path.c_str());
+	OPEN_FD();
 	HTTP_DEBUG(!header.is_open(), std::string("응답헤더를 저장할 파일이 열리지 않습니다.HTTPConfig.h의 HTTP_MANAGER_DIRECTORY, HTTP_RESPONSE_HEADER_FILE_PREFIX의 경로를 확인해주세요.권한문제 혹은 잘못된 경로일 수 있습니다.\n경로: ") + header_file_path + "\n");
 	
 	std::stringstream _body_path_stream;
@@ -273,9 +243,16 @@ void HTTPClient::ReadyFile() {
 	body_file_path = _body_path_stream.str();
 	
 	body.open(body_file_path.c_str());
+	OPEN_FD();
 	HTTP_DEBUG(!body.is_open(), std::string("응답바디를 저장할 파일이 열리지 않습니다.HTTPConfig.h의 HTTP_MANAGER_DIRECTORY, HTTP_RESPONSE_BODY_FILE_PREFIX의 경로를 확인해주세요.권한문제 혹은 잘못된 경로일 수 있습니다.\n경로: ") + body_file_path + "\n");
 	
 	__http_client_identity++;
+
+#ifdef ANDROID_NDK
+    if (is_https) {
+        requestHttps(tag, request.url, this);
+    }
+#endif
 }
 
 void HTTPClient::ReadyHeader() {
@@ -329,10 +306,6 @@ CURL* HTTPClient::GetCURL() {
 	return curl;
 }
 
-const std::string HTTPClient::GetTag() {
-	return tag;
-}
-
 #pragma mark -
 #pragma mark pause, resume
 
@@ -350,58 +323,220 @@ bool HTTPClient::Resume() {
 	return true;
 }
 
+
+bool HTTPClient::Init(void* _ptr) {
+	if(_ptr) {
+		is_raise_error_multi_handle = true;
+		code_multi = *(CURLMcode*)_ptr;
+		return true;
+	}
+	if(is_raise_error_multi_handle)
+		return true;
+	
+	//디비에서 URL이랑 매치되는 필드가져오기
+	sqlite3* _db = NULL;
+	char* _db_message = NULL;
+	HTTP_DEBUG((sqlite3_open(HTTPManager::Share()->GetDBPath().c_str(), &_db)),
+			   "sqlite 디비 열기에 실패하였습니다." << opened_file << "\nError Message:" << sqlite3_errmsg(_db) << "\n");
+	std::string _query = "SELECT * FROM request WHERE url='" + request.url + "' LIMIT 1";
+	HTTP_DEBUG((sqlite3_exec(_db, _query.c_str(), SQLMatchURLCallback, this, &_db_message)),
+			   "sqllite 디비 검색에 실패하였습니다." << "\nError Message:" << _db_message);
+	HTTP_DEBUG((sqlite3_close(_db)),
+			   "sqlite 디비 닫기에 실패하였습니다." << "\nError Message:" << sqlite3_errmsg(_db) << "\n");
+	
+	if(db_id.length()) {
+		if(db_expires > HTTP::CurrentTime()) {
+			//저장된것 사용
+			cache_type = HTTPResponse::CacheType_Expires;
+		} else if(db_max_age > 0) {
+			if(last_updated - db_last_updated < db_max_age) {
+				//저장된것 사용
+				cache_type = HTTPResponse::CacheType_Expires;
+			} else {
+				//연결(이후 Last-Modified로 캐쉬 체크)
+				cache_type = HTTPResponse::CacheType_Last_Modified;
+			}
+		} else {
+			//연결(이후 Last-Modified로 캐쉬 체크)
+			cache_type = HTTPResponse::CacheType_Last_Modified;
+		}
+	} else {
+		//처음 다운
+		cache_type = HTTPResponse::CacheType_None;
+	}
+	
+	if(!request.use_cache)
+		cache_type = HTTPResponse::CacheType_None;
+	
+	//파일 준비
+	ReadyFile();
+
+#ifdef ANDROID_NDK
+    if (is_https)
+        return true;
+#endif
+    
+	//연결이 필요한경우는 curl생성
+	if(cache_type != HTTPResponse::CacheType_Expires)
+		curl = curl_easy_init();
+	
+	if(curl) {
+		curl_easy_setopt(curl, CURLOPT_URL, request.GetURL().c_str());
+		
+		ReadyHeader();
+		ReadyBody();
+		
+		curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30);
+		curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 5);
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, HTTPClient::ReadBody);
+		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
+		curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, ReadHeader);
+		curl_easy_setopt(curl, CURLOPT_WRITEHEADER, this);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
+		
+		curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 0L);
+		curl_easy_setopt(curl, CURLOPT_PROGRESSFUNCTION, HTTPClient::Progress);
+		curl_easy_setopt(curl, CURLOPT_PROGRESSDATA, this);
+		
+		curl_multi_add_handle(HTTPManager::Share()->GetCURLMulti(), curl);
+	}
+	
+	return true;
+}
+
+bool HTTPClient::Run(void* _ptr) {
+	if(_ptr) {
+		is_raise_error_multi_handle = true;
+		code_multi = *(CURLMcode*)_ptr;
+		return true;
+	}
+	if(is_raise_error_multi_handle)
+		return true;
+	
+	if(is_recieve) {
+		UpdateDB();
+		return true;
+	} else {
+		if(cache_type == HTTPResponse::CacheType_Expires) {
+			code = CURLE_OK;
+			response = HTTPResponse(cache_header_file_path, cache_body_file_path, cache_type);
+			is_use_cache = true;
+			return true;
+		} else if(cache_type == HTTPResponse::CacheType_Last_Modified) {
+			if(db_last_modified && last_modified) {
+				if(last_modified == db_last_modified) {
+					code = CURLE_OK;
+					response = HTTPResponse(cache_header_file_path, cache_body_file_path, cache_type);
+					is_use_cache = true;
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+}
+
+bool HTTPClient::Clean(void* _ptr) {
+	if(curl) {
+		if(!is_raise_error_multi_handle)
+			curl_multi_remove_handle(HTTPManager::Share()->GetCURLMulti(), curl);
+		curl_easy_cleanup(curl);
+		curl = NULL;
+	}
+	if(header_chunk) {
+		curl_slist_free_all(header_chunk);
+		header_chunk = NULL;
+	}
+	if(http_post) {
+		curl_formfree(http_post);
+		http_post = NULL;
+	}
+	
+	if(body.is_open()) {
+		body.close();
+		CLOSE_FD();
+	}
+	if(header.is_open()) {
+		header.close();
+		CLOSE_FD();
+	}
+	
+	if(access(body_file_path.c_str(), F_OK) == 0)
+		remove(body_file_path.c_str());
+	if(access(header_file_path.c_str(), F_OK) == 0)
+		remove(header_file_path.c_str());
+	
+	return true;
+}
+
+void HTTPClient::Update() {
+	THCCommand::Update();
+	
+	if(is_raise_progress) {
+		is_raise_progress = false;
+		
+		if(event) {
+			((HTTPEvent*)event)->Progress(tag,
+										  download_total,
+										  download_cur,
+										  upload_total,
+										  upload_cur);
+		}
+	}
+}
+
 #pragma mark -
 #pragma mark 데이터베이스
 
 bool HTTPClient::UpdateDB() {
-	if(header.is_open())
-		header.close();
-	if(body.is_open())
-		body.close();
+	if(!is_recieve)
+		return false;
+	if(code != CURLE_OK)
+		return false;
 	
-	std::string _query;
+	if(header.is_open()) {
+		header.close();
+		CLOSE_FD();
+	}
+	if(body.is_open()) {
+		body.close();
+		CLOSE_FD();
+	}
+	
+	std::stringstream _query;
 	bool _need_update = false;
 	bool _is_insert = false;
 	if(cache_type == HTTPResponse::CacheType_None) {
 		
-		std::string _expires;
-		if(expires)
-			_expires = "'" + HTTP::TimeToQuery(expires) + "'";
-		else {
-			_expires = "NULL";
-		}
-		
-		std::string _last_modified;
-		if(last_modified)
-			_last_modified = "'" + HTTP::TimeToQuery(last_modified) + "'";
-		else
-			_last_modified = "NULL";
-		
-		std::string _last_updated;
-		if(last_updated)
-			_last_updated = "'" + HTTP::TimeToQuery(last_updated) + "'";
-		else
-			_last_updated = "NULL";
-		
-		std::string _max_age;
-		if(max_age) {
-			std::stringstream stream;
-			stream << "'" << max_age << "'";
-			_max_age = stream.str();
-		}
-		
 		if(!db_id.length()) {
-			_query = "INSERT OR REPLACE INTO request (url, Expires, Last_Modified, Last_Updated, Max_Age) VALUES ('" + request.url + "', " + _expires + ", " + _last_modified + ", " + _last_updated + ", " + _max_age + ")";
+			_query << "INSERT OR REPLACE INTO request (url, Expires, Last_Modified, Last_Updated, Max_Age) VALUES ('"
+			<< request.url << "', '"
+			<< expires << "', '"
+			<< last_modified << "', '"
+			<< last_updated << "', '"
+			<< max_age << "')";
 			_is_insert = true;
 		} else {
-			_query = "UPDATE request SET Last_Modified=" + _last_modified + ", Expires=" + _expires + ", Last_Modified=" + _last_modified + ", Max_Age=" + _max_age + " WHERE id='" + db_id + "'";
+			_query << "UPDATE request SET Expires='" << expires
+			<< "', Last_Modified='" << last_modified
+			<< "', Last_Updated='" << last_updated
+			<< "', Max_Age='" << max_age
+			<< "' WHERE id='" << db_id << "'";
 		}
 		_need_update = true;
 	
 	} else if(cache_type == HTTPResponse::CacheType_Last_Modified) {
 		if(last_modified && db_last_modified) {
 			if(last_modified != db_last_modified) {
-				_query = "UPDATE request SET Last_Modified='" + HTTP::TimeToQuery(last_modified) + "' WHERE id='" + db_id + "'";
+				_query << "UPDATE request SET Last_Modified='" << last_modified
+				<< "', Last_Updated='" << last_updated
+				<< "' WHERE id='" << db_id << "'";
 				_need_update = true;
 			}
 		}
@@ -415,55 +550,39 @@ bool HTTPClient::UpdateDB() {
 	char* _db_message = NULL;
 	
 	HTTP_DEBUG((sqlite3_open(HTTPManager::Share()->GetDBPath().c_str(), &_db)),
-			   "열기실패");
-	HTTP_DEBUG((sqlite3_exec(_db, _query.c_str(), NULL, NULL, &_db_message)),
+			   "열기실패" << "\nError Message:" << sqlite3_errmsg(_db) << "\n");
+	HTTP_DEBUG((sqlite3_exec(_db, _query.str().c_str(), NULL, NULL, &_db_message)),
 			   "error:" << _db_message);
 	
 	if(_is_insert) {
-		_query = "SELECT * FROM request WHERE url='" + request.url + "' LIMIT 1";
-		HTTP_DEBUG((sqlite3_exec(_db, _query.c_str(), SQLMatchURLCallback, this, &_db_message)), 
+		_query.str("");
+		_query << "SELECT * FROM request WHERE url='" << request.url << "' LIMIT 1";
+		HTTP_DEBUG((sqlite3_exec(_db, _query.str().c_str(), SQLMatchURLCallback, this, &_db_message)), 
 				   "sqllite 디비 검색에 실패하였습니다." << "\nError Message:" << _db_message);
 	}
 	
 	HTTP_DEBUG((sqlite3_close(_db)),
-			   "닫기실패");
+			   "닫기실패" << "\nError Message:" << sqlite3_errmsg(_db) << "\n");
 	
 	rename(header_file_path.c_str(), cache_header_file_path.c_str());
 	rename(body_file_path.c_str(), cache_body_file_path.c_str());
+	response = HTTPResponse(cache_header_file_path, cache_body_file_path, cache_type);
 	
 	return true;
-}
-
-#pragma mark -
-#pragma mark update
-
-bool HTTPClient::PrevUpdateAndGetNeedDelete() {
-	if(cache_type == HTTPResponse::CacheType_Expires) {
-		event->Receive(tag, HTTPResponse(cache_header_file_path, cache_body_file_path, cache_type));
-		return true;
-	} else if(cache_type == HTTPResponse::CacheType_Last_Modified) {
-		if(db_last_modified && last_modified) {
-			if(last_modified == db_last_modified) {
-				event->Receive(tag, HTTPResponse(cache_header_file_path, cache_body_file_path, cache_type));
-				return true;
-			}
-		}
-	}
-	return false;
 }
 
 #pragma mark -
 #pragma mark 이벤트 처리
 
 void HTTPClient::MessageReciever(CURLcode _code) {
-	if(header.is_open())
+	if(header.is_open()) {
 		header.close();
-	if(body.is_open())
-		body.close();
-	if(_code == CURLE_OK) {
-		UpdateDB();
-		event->Receive(tag, HTTPResponse(cache_header_file_path, cache_body_file_path, cache_type));
-	} else {
-		event->Error(tag, _code);
+		CLOSE_FD();
 	}
+	if(body.is_open()) {
+		body.close();
+		CLOSE_FD();
+	}
+	code = _code;
+	is_recieve = true;
 }

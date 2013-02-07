@@ -1,71 +1,50 @@
 #include "HTTPEvent.h"
 #include "HTTPManager.h"
 
+HTTPEvent::HTTPEvent() : THCEvent() {
+	THCManager::Share()->SetCategory("http", 0.1, HTTPManager::Share(), HTTPManager::UpdatePrev, HTTPManager::UpdateNext);
+};
+
 HTTPEvent::~HTTPEvent() {
-	std::list<HTTPClient*>::iterator _iterator = client_list.begin();
-	while(_iterator != client_list.end()) {
-		HTTPClient* _client = *_iterator;
-		_iterator++;
-		delete _client;
-	}
-	client_list.clear();
 }
 
 void HTTPEvent::Send(const std::string _tag, const HTTPRequest _request) {
-	new HTTPClient(this, _tag, _request);
-}
-
-void HTTPEvent::AddClient(HTTPClient* _client) {
-	client_list.push_back(_client);
-}
-
-void HTTPEvent::RemoveClient(HTTPClient* _client) {
-	client_list.remove(_client);
-}
-
-HTTPClient* HTTPEvent::FindTagClient(const std::string _tag) {
-	std::list<HTTPClient*>::iterator _iterator;
-	for(_iterator = client_list.begin(); _iterator != client_list.end(); _iterator++) {
-		HTTPClient* _client = *_iterator;
-		if(_client->GetTag() == _tag) {
-			return _client;
-		}
-	}
-	return NULL;
+	THCEvent::Run("http", _tag, new HTTPClient(this, _tag, _request));
 }
 
 bool HTTPEvent::Pause(const std::string _tag) {
-	HTTPClient* _client = FindTagClient(_tag);
+	HTTPClient* _client = (HTTPClient*)FindTagCommand(_tag);
 	if(_client)
 		return _client->Pause();
 	return false;
 }
 
 bool HTTPEvent::Resume(const std::string _tag) {
-	HTTPClient* _client = FindTagClient(_tag);
+	HTTPClient* _client = (HTTPClient*)FindTagCommand(_tag);
 	if(_client)
 		return _client->Resume();
 	return false;
 }
 
 bool HTTPEvent::Stop(const std::string _tag) {
-	HTTPClient* _client = FindTagClient(_tag);
-	if(_client) {
-		delete _client;
-		return true;
-	}
-	return false;
+	return THCEvent::Stop("http", _tag);
 }
 
-void HTTPEvent::Clean() {
-	std::vector<HTTPClient*> _vector;
-	std::list<HTTPClient*>::iterator _iterator = client_list.begin();
-	while(_iterator != client_list.end()) {
-		HTTPClient* _client = *_iterator;
-		_vector.push_back(_client);
-		_iterator++;
+void HTTPEvent::CompleteCommand(std::string _category, std::string _tag, THCCommand* _command) {
+	HTTPClient* _client = (HTTPClient*)_command;
+	if(_client->is_raise_error_multi_handle) {
+		ErrorMulti(_tag, _client->code_multi);
+	} else {
+		if(_client->is_recieve) {
+			if(_client->code == CURLE_OK) {
+				Receive(_tag, _client->response);
+			} else {
+				Error(_tag, _client->code);
+			}
+		} else if(_client->is_use_cache) {
+			if(_client->is_use_cache) {
+				Receive(_tag, _client->response);
+			}
+		}
 	}
-	for(int i = 0; i < _vector.size(); i++)
-		delete _vector[i];
-	client_list.clear();
 }
