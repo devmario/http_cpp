@@ -1,3 +1,9 @@
 [submodule "Thread-Command"]
 	path = Thread-Command
 	url = https://github.com/devmario/Thread-Command.git
+[submodule "curl-iOS"]
+	path = curl-iOS
+	url = https://github.com/devmario/curl-iOS.git
+[submodule "openssl-iOS"]
+	path = openssl-iOS
+	url = https://github.com/devmario/openssl-iOS.git

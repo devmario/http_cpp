@@ -18,7 +18,7 @@
 
 #include <string>
 #include <list>
-#include "curl.h"
+#include <curl/curl.h>
 #include <assert.h>
 #include <iostream>
 #include <sstream>

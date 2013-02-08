@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC83A9DF16C4FC620091D69A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A9DE16C4FC620091D69A /* Foundation.framework */; };
+		AC83A9EE16C4FC620091D69A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A9ED16C4FC620091D69A /* SenTestingKit.framework */; };
+		AC83A9F016C4FC620091D69A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A9EF16C4FC620091D69A /* UIKit.framework */; };
+		AC83A9F116C4FC620091D69A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A9DE16C4FC620091D69A /* Foundation.framework */; };
+		AC83A9F416C4FC620091D69A /* libhttp_cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A9DB16C4FC620091D69A /* libhttp_cpp.a */; };
+		AC83A9FA16C4FC620091D69A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC83A9F816C4FC620091D69A /* InfoPlist.strings */; };
+		AC83A9FD16C4FC620091D69A /* http_cppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83A9FC16C4FC620091D69A /* http_cppTests.m */; };
+		AC83AA1E16C4FC8D0091D69A /* HTTP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA0F16C4FC8D0091D69A /* HTTP.cpp */; };
+		AC83AA1F16C4FC8D0091D69A /* HTTP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA0F16C4FC8D0091D69A /* HTTP.cpp */; };
+		AC83AA2016C4FC8D0091D69A /* HTTPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1116C4FC8D0091D69A /* HTTPClient.cpp */; };
+		AC83AA2116C4FC8D0091D69A /* HTTPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1116C4FC8D0091D69A /* HTTPClient.cpp */; };
+		AC83AA2216C4FC8D0091D69A /* HTTPEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1416C4FC8D0091D69A /* HTTPEvent.cpp */; };
+		AC83AA2316C4FC8D0091D69A /* HTTPEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1416C4FC8D0091D69A /* HTTPEvent.cpp */; };
+		AC83AA2416C4FC8D0091D69A /* HTTPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1616C4FC8D0091D69A /* HTTPManager.cpp */; };
+		AC83AA2516C4FC8D0091D69A /* HTTPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1616C4FC8D0091D69A /* HTTPManager.cpp */; };
+		AC83AA2616C4FC8D0091D69A /* HTTPRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1816C4FC8D0091D69A /* HTTPRequest.cpp */; };
+		AC83AA2716C4FC8D0091D69A /* HTTPRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1816C4FC8D0091D69A /* HTTPRequest.cpp */; };
+		AC83AA2816C4FC8D0091D69A /* HTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1A16C4FC8D0091D69A /* HTTPResponse.cpp */; };
+		AC83AA2916C4FC8D0091D69A /* HTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1A16C4FC8D0091D69A /* HTTPResponse.cpp */; };
+		AC83AA2A16C4FC8D0091D69A /* HTTPResponseHeaderField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1C16C4FC8D0091D69A /* HTTPResponseHeaderField.cpp */; };
+		AC83AA2B16C4FC8D0091D69A /* HTTPResponseHeaderField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83AA1C16C4FC8D0091D69A /* HTTPResponseHeaderField.cpp */; };
+		AC83AA3116C4FDB30091D69A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA2F16C4FDB30091D69A /* libcrypto.a */; };
+		AC83AA3216C4FDB30091D69A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA2F16C4FDB30091D69A /* libcrypto.a */; };
+		AC83AA3316C4FDB30091D69A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3016C4FDB30091D69A /* libssl.a */; };
+		AC83AA3416C4FDB30091D69A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3016C4FDB30091D69A /* libssl.a */; };
+		AC83AA3616C4FDBA0091D69A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3516C4FDBA0091D69A /* libcurl.a */; };
+		AC83AA3716C4FDBA0091D69A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3516C4FDBA0091D69A /* libcurl.a */; };
+		AC83AA3916C4FE9C0091D69A /* libThread-Command.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA0C16C4FC7A0091D69A /* libThread-Command.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC83A9F216C4FC620091D69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC83A9D316C4FC620091D69A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC83A9DA16C4FC620091D69A;
+			remoteInfo = http_cpp;
+		};
+		AC83AA0B16C4FC7A0091D69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AC83A99B16C4FB830091D69A;
+			remoteInfo = "Thread-Command";
+		};
+		AC83AA0D16C4FC7A0091D69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AC83A9AC16C4FB830091D69A;
+			remoteInfo = "Thread-CommandTests";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC83A9D916C4FC620091D69A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AC83A9DB16C4FC620091D69A /* libhttp_cpp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libhttp_cpp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC83A9DE16C4FC620091D69A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AC83A9E216C4FC620091D69A /* http_cpp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "http_cpp-Prefix.pch"; sourceTree = "<group>"; };
+		AC83A9EC16C4FC620091D69A /* http_cppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = http_cppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC83A9ED16C4FC620091D69A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AC83A9EF16C4FC620091D69A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		AC83A9F716C4FC620091D69A /* http_cppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "http_cppTests-Info.plist"; sourceTree = "<group>"; };
+		AC83A9F916C4FC620091D69A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC83A9FB16C4FC620091D69A /* http_cppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = http_cppTests.h; sourceTree = "<group>"; };
+		AC83A9FC16C4FC620091D69A /* http_cppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = http_cppTests.m; sourceTree = "<group>"; };
+		AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Thread-Command.xcodeproj"; path = "../Thread-Command/iOS/Thread-Command.xcodeproj"; sourceTree = "<group>"; };
+		AC83AA0F16C4FC8D0091D69A /* HTTP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTP.cpp; path = ../../HTTP.cpp; sourceTree = "<group>"; };
+		AC83AA1016C4FC8D0091D69A /* HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTP.h; path = ../../HTTP.h; sourceTree = "<group>"; };
+		AC83AA1116C4FC8D0091D69A /* HTTPClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPClient.cpp; path = ../../HTTPClient.cpp; sourceTree = "<group>"; };
+		AC83AA1216C4FC8D0091D69A /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPClient.h; path = ../../HTTPClient.h; sourceTree = "<group>"; };
+		AC83AA1316C4FC8D0091D69A /* HTTPConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPConfig.h; path = ../../HTTPConfig.h; sourceTree = "<group>"; };
+		AC83AA1416C4FC8D0091D69A /* HTTPEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPEvent.cpp; path = ../../HTTPEvent.cpp; sourceTree = "<group>"; };
+		AC83AA1516C4FC8D0091D69A /* HTTPEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPEvent.h; path = ../../HTTPEvent.h; sourceTree = "<group>"; };
+		AC83AA1616C4FC8D0091D69A /* HTTPManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPManager.cpp; path = ../../HTTPManager.cpp; sourceTree = "<group>"; };
+		AC83AA1716C4FC8D0091D69A /* HTTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPManager.h; path = ../../HTTPManager.h; sourceTree = "<group>"; };
+		AC83AA1816C4FC8D0091D69A /* HTTPRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPRequest.cpp; path = ../../HTTPRequest.cpp; sourceTree = "<group>"; };
+		AC83AA1916C4FC8D0091D69A /* HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequest.h; path = ../../HTTPRequest.h; sourceTree = "<group>"; };
+		AC83AA1A16C4FC8D0091D69A /* HTTPResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPResponse.cpp; path = ../../HTTPResponse.cpp; sourceTree = "<group>"; };
+		AC83AA1B16C4FC8D0091D69A /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPResponse.h; path = ../../HTTPResponse.h; sourceTree = "<group>"; };
+		AC83AA1C16C4FC8D0091D69A /* HTTPResponseHeaderField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPResponseHeaderField.cpp; path = ../../HTTPResponseHeaderField.cpp; sourceTree = "<group>"; };
+		AC83AA1D16C4FC8D0091D69A /* HTTPResponseHeaderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPResponseHeaderField.h; path = ../../HTTPResponseHeaderField.h; sourceTree = "<group>"; };
+		AC83AA2F16C4FDB30091D69A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../openssl-iOS/libcrypto.a"; sourceTree = "<group>"; };
+		AC83AA3016C4FDB30091D69A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../openssl-iOS/libssl.a"; sourceTree = "<group>"; };
+		AC83AA3516C4FDBA0091D69A /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = "../curl-iOS/libcurl.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC83A9D816C4FC620091D69A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC83A9DF16C4FC620091D69A /* Foundation.framework in Frameworks */,
+				AC83AA3916C4FE9C0091D69A /* libThread-Command.a in Frameworks */,
+				AC83AA3116C4FDB30091D69A /* libcrypto.a in Frameworks */,
+				AC83AA3316C4FDB30091D69A /* libssl.a in Frameworks */,
+				AC83AA3616C4FDBA0091D69A /* libcurl.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC83A9E816C4FC620091D69A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC83A9EE16C4FC620091D69A /* SenTestingKit.framework in Frameworks */,
+				AC83A9F016C4FC620091D69A /* UIKit.framework in Frameworks */,
+				AC83A9F116C4FC620091D69A /* Foundation.framework in Frameworks */,
+				AC83A9F416C4FC620091D69A /* libhttp_cpp.a in Frameworks */,
+				AC83AA3216C4FDB30091D69A /* libcrypto.a in Frameworks */,
+				AC83AA3416C4FDB30091D69A /* libssl.a in Frameworks */,
+				AC83AA3716C4FDBA0091D69A /* libcurl.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC83A9D216C4FC620091D69A = {
+			isa = PBXGroup;
+			children = (
+				AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */,
+				AC83A9E016C4FC620091D69A /* http_cpp */,
+				AC83A9F516C4FC620091D69A /* http_cppTests */,
+				AC83A9DD16C4FC620091D69A /* Frameworks */,
+				AC83A9DC16C4FC620091D69A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC83A9DC16C4FC620091D69A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC83A9DB16C4FC620091D69A /* libhttp_cpp.a */,
+				AC83A9EC16C4FC620091D69A /* http_cppTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC83A9DD16C4FC620091D69A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC83AA3516C4FDBA0091D69A /* libcurl.a */,
+				AC83AA2F16C4FDB30091D69A /* libcrypto.a */,
+				AC83AA3016C4FDB30091D69A /* libssl.a */,
+				AC83A9DE16C4FC620091D69A /* Foundation.framework */,
+				AC83A9ED16C4FC620091D69A /* SenTestingKit.framework */,
+				AC83A9EF16C4FC620091D69A /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC83A9E016C4FC620091D69A /* http_cpp */ = {
+			isa = PBXGroup;
+			children = (
+				AC83AA0F16C4FC8D0091D69A /* HTTP.cpp */,
+				AC83AA1016C4FC8D0091D69A /* HTTP.h */,
+				AC83AA1116C4FC8D0091D69A /* HTTPClient.cpp */,
+				AC83AA1216C4FC8D0091D69A /* HTTPClient.h */,
+				AC83AA1316C4FC8D0091D69A /* HTTPConfig.h */,
+				AC83AA1416C4FC8D0091D69A /* HTTPEvent.cpp */,
+				AC83AA1516C4FC8D0091D69A /* HTTPEvent.h */,
+				AC83AA1616C4FC8D0091D69A /* HTTPManager.cpp */,
+				AC83AA1716C4FC8D0091D69A /* HTTPManager.h */,
+				AC83AA1816C4FC8D0091D69A /* HTTPRequest.cpp */,
+				AC83AA1916C4FC8D0091D69A /* HTTPRequest.h */,
+				AC83AA1A16C4FC8D0091D69A /* HTTPResponse.cpp */,
+				AC83AA1B16C4FC8D0091D69A /* HTTPResponse.h */,
+				AC83AA1C16C4FC8D0091D69A /* HTTPResponseHeaderField.cpp */,
+				AC83AA1D16C4FC8D0091D69A /* HTTPResponseHeaderField.h */,
+				AC83A9E116C4FC620091D69A /* Supporting Files */,
+			);
+			path = http_cpp;
+			sourceTree = "<group>";
+		};
+		AC83A9E116C4FC620091D69A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC83A9E216C4FC620091D69A /* http_cpp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC83A9F516C4FC620091D69A /* http_cppTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC83A9FB16C4FC620091D69A /* http_cppTests.h */,
+				AC83A9FC16C4FC620091D69A /* http_cppTests.m */,
+				AC83A9F616C4FC620091D69A /* Supporting Files */,
+			);
+			path = http_cppTests;
+			sourceTree = "<group>";
+		};
+		AC83A9F616C4FC620091D69A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC83A9F716C4FC620091D69A /* http_cppTests-Info.plist */,
+				AC83A9F816C4FC620091D69A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC83AA0716C4FC7A0091D69A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC83AA0C16C4FC7A0091D69A /* libThread-Command.a */,
+				AC83AA0E16C4FC7A0091D69A /* Thread-CommandTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC83A9DA16C4FC620091D69A /* http_cpp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC83AA0016C4FC620091D69A /* Build configuration list for PBXNativeTarget "http_cpp" */;
+			buildPhases = (
+				AC83A9D716C4FC620091D69A /* Sources */,
+				AC83A9D816C4FC620091D69A /* Frameworks */,
+				AC83A9D916C4FC620091D69A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = http_cpp;
+			productName = http_cpp;
+			productReference = AC83A9DB16C4FC620091D69A /* libhttp_cpp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AC83A9EB16C4FC620091D69A /* http_cppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC83AA0316C4FC620091D69A /* Build configuration list for PBXNativeTarget "http_cppTests" */;
+			buildPhases = (
+				AC83A9E716C4FC620091D69A /* Sources */,
+				AC83A9E816C4FC620091D69A /* Frameworks */,
+				AC83A9E916C4FC620091D69A /* Resources */,
+				AC83A9EA16C4FC620091D69A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC83A9F316C4FC620091D69A /* PBXTargetDependency */,
+			);
+			name = http_cppTests;
+			productName = http_cppTests;
+			productReference = AC83A9EC16C4FC620091D69A /* http_cppTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC83A9D316C4FC620091D69A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = vanillabreeze;
+			};
+			buildConfigurationList = AC83A9D616C4FC620091D69A /* Build configuration list for PBXProject "http_cpp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AC83A9D216C4FC620091D69A;
+			productRefGroup = AC83A9DC16C4FC620091D69A /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AC83AA0716C4FC7A0091D69A /* Products */;
+					ProjectRef = AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				AC83A9DA16C4FC620091D69A /* http_cpp */,
+				AC83A9EB16C4FC620091D69A /* http_cppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AC83AA0C16C4FC7A0091D69A /* libThread-Command.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libThread-Command.a";
+			remoteRef = AC83AA0B16C4FC7A0091D69A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC83AA0E16C4FC7A0091D69A /* Thread-CommandTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Thread-CommandTests.octest";
+			remoteRef = AC83AA0D16C4FC7A0091D69A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC83A9E916C4FC620091D69A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC83A9FA16C4FC620091D69A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AC83A9EA16C4FC620091D69A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC83A9D716C4FC620091D69A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC83AA1E16C4FC8D0091D69A /* HTTP.cpp in Sources */,
+				AC83AA2016C4FC8D0091D69A /* HTTPClient.cpp in Sources */,
+				AC83AA2216C4FC8D0091D69A /* HTTPEvent.cpp in Sources */,
+				AC83AA2416C4FC8D0091D69A /* HTTPManager.cpp in Sources */,
+				AC83AA2616C4FC8D0091D69A /* HTTPRequest.cpp in Sources */,
+				AC83AA2816C4FC8D0091D69A /* HTTPResponse.cpp in Sources */,
+				AC83AA2A16C4FC8D0091D69A /* HTTPResponseHeaderField.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC83A9E716C4FC620091D69A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC83A9FD16C4FC620091D69A /* http_cppTests.m in Sources */,
+				AC83AA1F16C4FC8D0091D69A /* HTTP.cpp in Sources */,
+				AC83AA2116C4FC8D0091D69A /* HTTPClient.cpp in Sources */,
+				AC83AA2316C4FC8D0091D69A /* HTTPEvent.cpp in Sources */,
+				AC83AA2516C4FC8D0091D69A /* HTTPManager.cpp in Sources */,
+				AC83AA2716C4FC8D0091D69A /* HTTPRequest.cpp in Sources */,
+				AC83AA2916C4FC8D0091D69A /* HTTPResponse.cpp in Sources */,
+				AC83AA2B16C4FC8D0091D69A /* HTTPResponseHeaderField.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC83A9F316C4FC620091D69A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC83A9DA16C4FC620091D69A /* http_cpp */;
+			targetProxy = AC83A9F216C4FC620091D69A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC83A9F816C4FC620091D69A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC83A9F916C4FC620091D69A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC83A9FE16C4FC620091D69A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AC83A9FF16C4FC620091D69A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC83AA0116C4FC620091D69A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/http_cpp.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "http_cpp/http_cpp-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../openssl-iOS/Headers\"/**",
+					"\"$(SRCROOT)/../curl-iOS/Headers\"/**",
+					"\"$(SRCROOT)/../Thread-Command\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../openssl-iOS\"",
+					"\"$(SRCROOT)/../curl-iOS\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AC83AA0216C4FC620091D69A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/http_cpp.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "http_cpp/http_cpp-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../openssl-iOS/Headers\"/**",
+					"\"$(SRCROOT)/../curl-iOS/Headers\"/**",
+					"\"$(SRCROOT)/../Thread-Command\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../openssl-iOS\"",
+					"\"$(SRCROOT)/../curl-iOS\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AC83AA0416C4FC620091D69A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/../curl-iOS\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "http_cpp/http_cpp-Prefix.pch";
+				INFOPLIST_FILE = "http_cppTests/http_cppTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../openssl-iOS\"",
+					"\"$(SRCROOT)/../curl-iOS\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		AC83AA0516C4FC620091D69A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/../curl-iOS\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "http_cpp/http_cpp-Prefix.pch";
+				INFOPLIST_FILE = "http_cppTests/http_cppTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../openssl-iOS\"",
+					"\"$(SRCROOT)/../curl-iOS\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC83A9D616C4FC620091D69A /* Build configuration list for PBXProject "http_cpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC83A9FE16C4FC620091D69A /* Debug */,
+				AC83A9FF16C4FC620091D69A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC83AA0016C4FC620091D69A /* Build configuration list for PBXNativeTarget "http_cpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC83AA0116C4FC620091D69A /* Debug */,
+				AC83AA0216C4FC620091D69A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC83AA0316C4FC620091D69A /* Build configuration list for PBXNativeTarget "http_cppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC83AA0416C4FC620091D69A /* Debug */,
+				AC83AA0516C4FC620091D69A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC83A9D316C4FC620091D69A /* Project object */;
+}
