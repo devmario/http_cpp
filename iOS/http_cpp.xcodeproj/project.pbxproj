@@ -35,6 +35,7 @@
 		AC83AA3616C4FDBA0091D69A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3516C4FDBA0091D69A /* libcurl.a */; };
 		AC83AA3716C4FDBA0091D69A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3516C4FDBA0091D69A /* libcurl.a */; };
 		AC83AA3916C4FE9C0091D69A /* libThread-Command.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA0C16C4FC7A0091D69A /* libThread-Command.a */; };
+		AC83AA4916C506440091D69A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA4816C506440091D69A /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		AC83AA2F16C4FDB30091D69A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../openssl-iOS/libcrypto.a"; sourceTree = "<group>"; };
 		AC83AA3016C4FDB30091D69A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../openssl-iOS/libssl.a"; sourceTree = "<group>"; };
 		AC83AA3516C4FDBA0091D69A /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = "../curl-iOS/libcurl.a"; sourceTree = "<group>"; };
+		AC83AA4816C506440091D69A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC83AA4916C506440091D69A /* libsqlite3.dylib in Frameworks */,
 				AC83A9DF16C4FC620091D69A /* Foundation.framework in Frameworks */,
 				AC83AA3916C4FE9C0091D69A /* libThread-Command.a in Frameworks */,
 				AC83AA3116C4FDB30091D69A /* libcrypto.a in Frameworks */,
@@ -158,6 +161,7 @@
 		AC83A9DD16C4FC620091D69A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC83AA4816C506440091D69A /* libsqlite3.dylib */,
 				AC83AA3516C4FDBA0091D69A /* libcurl.a */,
 				AC83AA2F16C4FDB30091D69A /* libcrypto.a */,
 				AC83AA3016C4FDB30091D69A /* libssl.a */,
