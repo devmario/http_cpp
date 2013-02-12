@@ -24,6 +24,8 @@
 class HTTPManager {
 private:
 	
+	bool RemoveDirectory(std::string path);
+	
 	/**
 	 @brief 임시파일들이 담길 폴더경로문자열
 	 */
@@ -114,16 +116,29 @@ private:
 	 
 	 HTTPManager 는 싱글턴 클래스이므로 생성자는 private입니다.
 	 */
-	HTTPManager();
+	HTTPManager(std::string _HTTP_MANAGER_DIRECTORY,
+				std::string _HTTP_MANAGER_DIRECTORY_TEMPORARY,
+				std::string _HTTP_MANAGER_DIRECTORY_CACHE,
+				std::string _HTTP_MANAGER_CACHE_DB,
+				std::string _HTTP_MANAGER_DIRECTORY_HEADER,
+				std::string _HTTP_MANAGER_DIRECTORY_BODY);
 	
 	/**
 	 @brief 소멸자
 	 
 	 HTTPManager 는 싱글턴 클래스이므로 소멸자는 private입니다.
 	 */
-	~HTTPManager();
+	virtual ~HTTPManager();
 	
 public:
+	
+	std::string HTTP_MANAGER_DIRECTORY;
+	std::string HTTP_MANAGER_DIRECTORY_TEMPORARY;
+	std::string HTTP_MANAGER_DIRECTORY_CACHE;
+	std::string HTTP_MANAGER_CACHE_DB;
+	std::string HTTP_MANAGER_DIRECTORY_HEADER;
+	std::string HTTP_MANAGER_DIRECTORY_BODY;
+	
 	static void* UpdatePrev(void*);
 	static void* UpdateNext(void*);
 	
@@ -212,6 +227,13 @@ public:
 	 HTTPManager* _manager = HTTPManager::Share();
 	 \endcode
 	 */
+	static HTTPManager* Share(std::string _HTTP_MANAGER_DIRECTORY,
+							  std::string _HTTP_MANAGER_DIRECTORY_TEMPORARY,
+							  std::string _HTTP_MANAGER_DIRECTORY_CACHE,
+							  std::string _HTTP_MANAGER_CACHE_DB,
+							  std::string _HTTP_MANAGER_DIRECTORY_HEADER,
+							  std::string _HTTP_MANAGER_DIRECTORY_BODY);
+	
 	static HTTPManager* Share();
 	
 	/**

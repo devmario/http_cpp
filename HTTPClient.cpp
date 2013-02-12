@@ -273,7 +273,7 @@ void HTTPClient::ReadyBody() {
 			for(int i = 0; i < request.body_vector.size(); i++) {
 				HTTPRequest::BodyField _field = request.body_vector[i];
 				
-				CURLformoption _option;
+				CURLformoption _option = CURLFORM_NOTHING;
 				std::string _content;
 				
 				if(_field.content.length()) {

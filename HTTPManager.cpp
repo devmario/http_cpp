@@ -1,15 +1,64 @@
 #include "HTTPManager.h"
 #include "HTTP.h"
-#include "GFUtil.h"
+#include <ftw.h>
 
-using namespace GelatoFriend;
+static int
+rmdir_helper(const char *fpath, const struct stat *sb,
+			 int tflag, struct FTW *ftwbuf)
+{
+	switch ( tflag )
+	{
+		case FTW_D:
+		case FTW_DP:
+			if ( rmdir(fpath) == -1 )
+				perror("unlink");
+			break;
+			
+		case FTW_F:
+		case FTW_SL:
+		case FTW_SLN:
+			if ( unlink(fpath) == -1 )
+				perror("unlink");
+			break;
+			
+        default:
+			puts("do nothing");
+	}
+	return 0;
+}
+
+bool HTTPManager::RemoveDirectory(std::string path) {
+	int flags = 0;
+	flags |= FTW_DEPTH; // post-order traverse
+	
+	if (nftw(path.c_str(), rmdir_helper, 10, flags) == -1) {
+		return false;
+	}
+	return true;
+}
 
 HTTPManager* __http_manager = NULL;
 
-HTTPManager* HTTPManager::Share() {
+
+HTTPManager* HTTPManager::Share(std::string _HTTP_MANAGER_DIRECTORY,
+								std::string _HTTP_MANAGER_DIRECTORY_TEMPORARY,
+								std::string _HTTP_MANAGER_DIRECTORY_CACHE,
+								std::string _HTTP_MANAGER_CACHE_DB,
+								std::string _HTTP_MANAGER_DIRECTORY_HEADER,
+								std::string _HTTP_MANAGER_DIRECTORY_BODY) {
 	if(__http_manager == NULL) {
-		__http_manager = new HTTPManager();
+		__http_manager = new HTTPManager(_HTTP_MANAGER_DIRECTORY,
+										 _HTTP_MANAGER_DIRECTORY_TEMPORARY,
+										 _HTTP_MANAGER_DIRECTORY_CACHE,
+										 _HTTP_MANAGER_CACHE_DB,
+										 _HTTP_MANAGER_DIRECTORY_HEADER,
+										 _HTTP_MANAGER_DIRECTORY_BODY);
 	}
+	
+	return __http_manager;
+}
+
+HTTPManager* HTTPManager::Share() {
 	return __http_manager;
 }
 
@@ -38,7 +87,7 @@ void HTTPManager::ReadyDirectory() {
 	
 	//임시폴더 Reset
 	temporary_path = HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY;
-	GFUtil::RemoveDirectory(temporary_path);
+	RemoveDirectory(temporary_path);
 	mkdir(temporary_path.c_str(), 0777);
 	
 	//임시헤더파일
@@ -107,7 +156,6 @@ int HTTPManager::SQLMaxAge(void* _reference, int _field_length, char** _field_co
 	return 0;
 }
 
-#include "cocos2d.h"
 void HTTPManager::ReadyDB() {
 	//디비 연결하고 테이블 생성(테이블 없을시)
 	sqlite3* _db = NULL;
@@ -141,8 +189,19 @@ CURLM* HTTPManager::GetCURLMulti() {
 	return multi_handle;
 }
 
-HTTPManager::HTTPManager() {
+HTTPManager::HTTPManager(std::string _HTTP_MANAGER_DIRECTORY,
+						 std::string _HTTP_MANAGER_DIRECTORY_TEMPORARY,
+						 std::string _HTTP_MANAGER_DIRECTORY_CACHE,
+						 std::string _HTTP_MANAGER_CACHE_DB,
+						 std::string _HTTP_MANAGER_DIRECTORY_HEADER,
+						 std::string _HTTP_MANAGER_DIRECTORY_BODY) {
 	HTTP_DEBUG((__http_manager), "이미 생성된 매니져가 있습니다.");
+	HTTP_MANAGER_DIRECTORY=_HTTP_MANAGER_DIRECTORY;
+	HTTP_MANAGER_DIRECTORY_TEMPORARY=_HTTP_MANAGER_DIRECTORY_TEMPORARY;
+	HTTP_MANAGER_DIRECTORY_CACHE=_HTTP_MANAGER_DIRECTORY_CACHE;
+	HTTP_MANAGER_CACHE_DB=_HTTP_MANAGER_CACHE_DB;
+	HTTP_MANAGER_DIRECTORY_HEADER=_HTTP_MANAGER_DIRECTORY_HEADER;
+	HTTP_MANAGER_DIRECTORY_BODY=_HTTP_MANAGER_DIRECTORY_BODY;
 	
 	ReadyDirectory();
 	ReadyDB();
@@ -211,8 +270,8 @@ bool HTTPManager::CleanCache() {
 	if(client_list.size() || still_running || messages_left)
 		return false;
 	
-	GFUtil::RemoveDirectory(HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY);
-	GFUtil::RemoveDirectory(HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_CACHE);
+	RemoveDirectory(HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_TEMPORARY);
+	RemoveDirectory(HTTP_MANAGER_DIRECTORY + "/" + HTTP_MANAGER_DIRECTORY_CACHE);
 	ReadyDirectory();
 	ReadyDB();
 	

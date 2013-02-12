@@ -34,8 +34,8 @@
 		AC83AA3416C4FDB30091D69A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3016C4FDB30091D69A /* libssl.a */; };
 		AC83AA3616C4FDBA0091D69A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3516C4FDBA0091D69A /* libcurl.a */; };
 		AC83AA3716C4FDBA0091D69A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3516C4FDBA0091D69A /* libcurl.a */; };
-		AC83AA3916C4FE9C0091D69A /* libThread-Command.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA0C16C4FC7A0091D69A /* libThread-Command.a */; };
 		AC83AA4916C506440091D69A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA4816C506440091D69A /* libsqlite3.dylib */; };
+		AC83AA7716C9D3700091D69A /* libThread-Command.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA6C16C9D2DD0091D69A /* libThread-Command.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +46,16 @@
 			remoteGlobalIDString = AC83A9DA16C4FC620091D69A;
 			remoteInfo = http_cpp;
 		};
-		AC83AA0B16C4FC7A0091D69A /* PBXContainerItemProxy */ = {
+		AC83AA6B16C9D2DD0091D69A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */;
+			containerPortal = AC83AA6616C9D2DD0091D69A /* Thread-Command.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = AC83A99B16C4FB830091D69A;
 			remoteInfo = "Thread-Command";
 		};
-		AC83AA0D16C4FC7A0091D69A /* PBXContainerItemProxy */ = {
+		AC83AA6D16C9D2DD0091D69A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */;
+			containerPortal = AC83AA6616C9D2DD0091D69A /* Thread-Command.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = AC83A9AC16C4FB830091D69A;
 			remoteInfo = "Thread-CommandTests";
@@ -85,7 +85,6 @@
 		AC83A9F916C4FC620091D69A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC83A9FB16C4FC620091D69A /* http_cppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = http_cppTests.h; sourceTree = "<group>"; };
 		AC83A9FC16C4FC620091D69A /* http_cppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = http_cppTests.m; sourceTree = "<group>"; };
-		AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Thread-Command.xcodeproj"; path = "../Thread-Command/iOS/Thread-Command.xcodeproj"; sourceTree = "<group>"; };
 		AC83AA0F16C4FC8D0091D69A /* HTTP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTP.cpp; path = ../../HTTP.cpp; sourceTree = "<group>"; };
 		AC83AA1016C4FC8D0091D69A /* HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTP.h; path = ../../HTTP.h; sourceTree = "<group>"; };
 		AC83AA1116C4FC8D0091D69A /* HTTPClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPClient.cpp; path = ../../HTTPClient.cpp; sourceTree = "<group>"; };
@@ -105,6 +104,7 @@
 		AC83AA3016C4FDB30091D69A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../openssl-iOS/libssl.a"; sourceTree = "<group>"; };
 		AC83AA3516C4FDBA0091D69A /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = "../curl-iOS/libcurl.a"; sourceTree = "<group>"; };
 		AC83AA4816C506440091D69A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AC83AA6616C9D2DD0091D69A /* Thread-Command.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Thread-Command.xcodeproj"; path = "../Thread-Command/iOS/Thread-Command.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +113,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC83AA4916C506440091D69A /* libsqlite3.dylib in Frameworks */,
+				AC83AA7716C9D3700091D69A /* libThread-Command.a in Frameworks */,
 				AC83A9DF16C4FC620091D69A /* Foundation.framework in Frameworks */,
-				AC83AA3916C4FE9C0091D69A /* libThread-Command.a in Frameworks */,
 				AC83AA3116C4FDB30091D69A /* libcrypto.a in Frameworks */,
 				AC83AA3316C4FDB30091D69A /* libssl.a in Frameworks */,
 				AC83AA3616C4FDBA0091D69A /* libcurl.a in Frameworks */,
@@ -141,7 +141,7 @@
 		AC83A9D216C4FC620091D69A = {
 			isa = PBXGroup;
 			children = (
-				AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */,
+				AC83AA6616C9D2DD0091D69A /* Thread-Command.xcodeproj */,
 				AC83A9E016C4FC620091D69A /* http_cpp */,
 				AC83A9F516C4FC620091D69A /* http_cppTests */,
 				AC83A9DD16C4FC620091D69A /* Frameworks */,
@@ -222,11 +222,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AC83AA0716C4FC7A0091D69A /* Products */ = {
+		AC83AA6716C9D2DD0091D69A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC83AA0C16C4FC7A0091D69A /* libThread-Command.a */,
-				AC83AA0E16C4FC7A0091D69A /* Thread-CommandTests.octest */,
+				AC83AA6C16C9D2DD0091D69A /* libThread-Command.a */,
+				AC83AA6E16C9D2DD0091D69A /* Thread-CommandTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -291,8 +291,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = AC83AA0716C4FC7A0091D69A /* Products */;
-					ProjectRef = AC83AA0616C4FC7A0091D69A /* Thread-Command.xcodeproj */;
+					ProductGroup = AC83AA6716C9D2DD0091D69A /* Products */;
+					ProjectRef = AC83AA6616C9D2DD0091D69A /* Thread-Command.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -304,18 +304,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AC83AA0C16C4FC7A0091D69A /* libThread-Command.a */ = {
+		AC83AA6C16C9D2DD0091D69A /* libThread-Command.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libThread-Command.a";
-			remoteRef = AC83AA0B16C4FC7A0091D69A /* PBXContainerItemProxy */;
+			remoteRef = AC83AA6B16C9D2DD0091D69A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AC83AA0E16C4FC7A0091D69A /* Thread-CommandTests.octest */ = {
+		AC83AA6E16C9D2DD0091D69A /* Thread-CommandTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Thread-CommandTests.octest";
-			remoteRef = AC83AA0D16C4FC7A0091D69A /* PBXContainerItemProxy */;
+			remoteRef = AC83AA6D16C9D2DD0091D69A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
