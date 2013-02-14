@@ -32,8 +32,6 @@
 		AC83AA3216C4FDB30091D69A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA2F16C4FDB30091D69A /* libcrypto.a */; };
 		AC83AA3316C4FDB30091D69A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3016C4FDB30091D69A /* libssl.a */; };
 		AC83AA3416C4FDB30091D69A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3016C4FDB30091D69A /* libssl.a */; };
-		AC83AA3616C4FDBA0091D69A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3516C4FDBA0091D69A /* libcurl.a */; };
-		AC83AA3716C4FDBA0091D69A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA3516C4FDBA0091D69A /* libcurl.a */; };
 		AC83AA4916C506440091D69A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA4816C506440091D69A /* libsqlite3.dylib */; };
 		AC83AA7716C9D3700091D69A /* libThread-Command.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83AA6C16C9D2DD0091D69A /* libThread-Command.a */; };
 /* End PBXBuildFile section */
@@ -117,7 +115,6 @@
 				AC83A9DF16C4FC620091D69A /* Foundation.framework in Frameworks */,
 				AC83AA3116C4FDB30091D69A /* libcrypto.a in Frameworks */,
 				AC83AA3316C4FDB30091D69A /* libssl.a in Frameworks */,
-				AC83AA3616C4FDBA0091D69A /* libcurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +128,6 @@
 				AC83A9F416C4FC620091D69A /* libhttp_cpp.a in Frameworks */,
 				AC83AA3216C4FDB30091D69A /* libcrypto.a in Frameworks */,
 				AC83AA3416C4FDB30091D69A /* libssl.a in Frameworks */,
-				AC83AA3716C4FDBA0091D69A /* libcurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
