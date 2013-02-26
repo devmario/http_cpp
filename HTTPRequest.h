@@ -72,6 +72,15 @@ private:
 	std::vector<HeaderField> header_vector;
 	
 	/*!
+	 \brief 해당 요청에대해 캐싱을 수행할지에 대해 결정하는 FLAG입니다.
+	 
+	 default값은 false입니다.
+	 */
+	bool use_cache;
+
+public:
+    
+    /*!
 	 \brief 요청바디에 추가해줄 필드들을 나타내는 스트럭트입니다.
 	 
 	 서버에 변수혹은 파일을 보낼때 사용되어집니다.
@@ -89,15 +98,7 @@ private:
 	 이 배열데이터는 요청을 할때 요청바디에 포함됩니다.서버에 변수들을 보낼때 사용되어집니다.
 	 */
 	std::vector<BodyField> body_vector;
-	
-	/*!
-	 \brief 해당 요청에대해 캐싱을 수행할지에 대해 결정하는 FLAG입니다.
-	 
-	 default값은 false입니다.
-	 */
-	bool use_cache;
-
-public:
+    
 	/*!
 	 \brief 생성자
 	 */

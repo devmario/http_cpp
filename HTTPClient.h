@@ -237,13 +237,6 @@ private:
 	std::ofstream body;
 	
 	/**
-	 @brief 요청을 저장하기 위한 멤버변수 입니다.
-	 
-	 개발자가 HTTPEvent::Send 함수호출시 사용된 HTTPRequest 변수는 이 멤버변수에 저장됩니다.
-	 */
-	HTTPRequest request;
-	
-	/**
 	 @brief 인스턴스를 생성할때 호출되는 파일스트림 준비함수 입니다.
 	 
 	 디버그 모드에서는 HTTPConfig.h 에 지정한 경로가 권한이 없는경우 프로그램이 중단됩니다.
@@ -281,6 +274,13 @@ public:
 	double upload_cur;
 	double upload_total;
 	
+    /**
+	 @brief 요청을 저장하기 위한 멤버변수 입니다.
+	 
+	 개발자가 HTTPEvent::Send 함수호출시 사용된 HTTPRequest 변수는 이 멤버변수에 저장됩니다.
+	 */
+	HTTPRequest request;
+    
     /**
 	 @brief 요청에 대한 응답의 바디를 저장하는 콜백함수
 	 

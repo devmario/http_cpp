@@ -1,11 +1,14 @@
 #include "HTTPManager.h"
 #include "HTTP.h"
+#ifndef ANDROID_NDK
 #include <ftw.h>
+#endif
 
 static int
 rmdir_helper(const char *fpath, const struct stat *sb,
 			 int tflag, struct FTW *ftwbuf)
 {
+#ifndef ANDROID_NDK
 	switch ( tflag )
 	{
 		case FTW_D:
@@ -24,16 +27,19 @@ rmdir_helper(const char *fpath, const struct stat *sb,
         default:
 			puts("do nothing");
 	}
+#endif
 	return 0;
 }
 
 bool HTTPManager::RemoveDirectory(std::string path) {
+#ifndef ANDROID_NDK
 	int flags = 0;
 	flags |= FTW_DEPTH; // post-order traverse
 	
 	if (nftw(path.c_str(), rmdir_helper, 10, flags) == -1) {
 		return false;
 	}
+#endif
 	return true;
 }
 
