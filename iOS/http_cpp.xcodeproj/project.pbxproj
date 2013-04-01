@@ -58,6 +58,13 @@
 			remoteGlobalIDString = AC83A9AC16C4FB830091D69A;
 			remoteInfo = "Thread-CommandTests";
 		};
+		ACFBCA75170970820016725B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC83AA6616C9D2DD0091D69A /* Thread-Command.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AC83A99A16C4FB830091D69A;
+			remoteInfo = "Thread-Command";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -241,6 +248,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				ACFBCA76170970820016725B /* PBXTargetDependency */,
 			);
 			name = http_cpp;
 			productName = http_cpp;
@@ -380,6 +388,11 @@
 			isa = PBXTargetDependency;
 			target = AC83A9DA16C4FC620091D69A /* http_cpp */;
 			targetProxy = AC83A9F216C4FC620091D69A /* PBXContainerItemProxy */;
+		};
+		ACFBCA76170970820016725B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Thread-Command";
+			targetProxy = ACFBCA75170970820016725B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
