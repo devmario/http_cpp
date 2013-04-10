@@ -386,7 +386,7 @@ bool HTTPClient::Init(void* _ptr) {
 		ReadyHeader();
 		ReadyBody();
 		
-		curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30);
+		curl_easy_setopt(curl, CURLOPT_TIMEOUT, 60);
 		curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 5);
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, HTTPClient::ReadBody);
 		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
