@@ -4,6 +4,7 @@
 HTTPRequest::HTTPRequest() {
 	method = HTTPRequest::HTTPMethod_GET;
 	use_cache = false;
+	force_max_age = 0;
 }
 
 HTTPRequest::~HTTPRequest() {
@@ -28,6 +29,10 @@ void HTTPRequest::SetURL(const std::string _url) {
 void HTTPRequest::SetUseCache(bool _use_cache) {
 	use_cache = _use_cache;
 }
+
+void HTTPRequest::SetForceMaxAge(int _force_max_age) {
+	force_max_age = _force_max_age;
+};
 
 bool HTTPRequest::GetUseCache() {
 	return use_cache;

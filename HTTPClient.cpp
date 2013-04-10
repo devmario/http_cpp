@@ -509,6 +509,13 @@ bool HTTPClient::UpdateDB() {
 		CLOSE_FD();
 	}
 	
+	if(request.GetUseCache()) {
+		if(request.force_max_age > 0) {
+			max_age = request.force_max_age;
+			expires = HTTP::CurrentTime() + max_age;
+		}
+	}
+	
 	std::stringstream _query;
 	bool _need_update = false;
 	bool _is_insert = false;

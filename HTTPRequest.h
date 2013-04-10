@@ -77,6 +77,7 @@ private:
 	 default값은 false입니다.
 	 */
 	bool use_cache;
+	int force_max_age;
 
 public:
     
@@ -159,6 +160,8 @@ public:
 	 \include request_cache.cpp
 	 */
 	void SetUseCache(bool _use_cache);
+	
+	void SetForceMaxAge(int _force_max_age);
 	
 	/*!
 	 \brief 요청에대한 캐싱의 여부를 가져옵니다.
