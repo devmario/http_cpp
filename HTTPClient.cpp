@@ -386,7 +386,7 @@ bool HTTPClient::Init(void* _ptr) {
 		ReadyHeader();
 		ReadyBody();
 		
-		curl_easy_setopt(curl, CURLOPT_TIMEOUT, 60);
+		curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30);
 		curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 5);
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, HTTPClient::ReadBody);
 		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
@@ -512,7 +512,10 @@ bool HTTPClient::UpdateDB() {
 	if(request.GetUseCache()) {
 		if(request.force_max_age > 0) {
 			max_age = request.force_max_age;
-			expires = HTTP::CurrentTime() + max_age;
+			
+			if(expires == 0 && max_age != 0) {
+				expires = HTTP::CurrentTime() + max_age;
+			}
 		}
 	}
 	
