@@ -16,7 +16,7 @@ HTTPResponse::~HTTPResponse() {
 	
 }
 
-static const std::string __ReadFileToString(std::string _file_path) {
+std::string HTTPResponse::ReadFileToString(std::string _file_path) {
 	std::string _content;
 	std::ifstream _stream;
 	_stream.open(_file_path.c_str());
@@ -35,11 +35,11 @@ static const std::string __ReadFileToString(std::string _file_path) {
 }
 
 const std::string HTTPResponse::GetBodyContent() {
-	return __ReadFileToString(body_file_path);
+	return ReadFileToString(body_file_path);
 }
 
 const std::string HTTPResponse::GetHeaderContent() {
-	return __ReadFileToString(header_file_path);
+	return ReadFileToString(header_file_path);
 }
 
 const std::string HTTPResponse::SearchHeaderField(const std::string _field_name) {

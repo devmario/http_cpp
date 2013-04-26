@@ -24,6 +24,7 @@
  */
 class HTTPResponse {
 public:
+	static std::string ReadFileToString(std::string _file_path);
 	/**
 	 \brief 응답받을때의 캐쉬의 타입을 나타냅니다.
 	 */
